@@ -99,6 +99,8 @@
 		E0C4E5561C14D2AE0059386D /* HandyMan */ = {
 			isa = PBXGroup;
 			children = (
+				E0D5A37B1C14E0D1004DEDF6 /* Common */,
+				E0D5A3751C14E07E004DEDF6 /* Login */,
 				E0C4E5571C14D2AE0059386D /* AppDelegate.swift */,
 				E0C4E5591C14D2AE0059386D /* ViewController.swift */,
 				E0C4E55B1C14D2AE0059386D /* Main.storyboard */,
@@ -126,6 +128,60 @@
 				E0C4E57C1C14D2AE0059386D /* Info.plist */,
 			);
 			path = HandyManUITests;
+			sourceTree = "<group>";
+		};
+		E0D5A3751C14E07E004DEDF6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E0D5A3761C14E07E004DEDF6 /* BusinessService */,
+				E0D5A3771C14E07E004DEDF6 /* Controllers */,
+				E0D5A3781C14E07E004DEDF6 /* Service */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E0D5A3761C14E07E004DEDF6 /* BusinessService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BusinessService;
+			sourceTree = "<group>";
+		};
+		E0D5A3771C14E07E004DEDF6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E0D5A3781C14E07E004DEDF6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E0D5A3791C14E07E004DEDF6 /* Models */,
+				E0D5A37A1C14E07E004DEDF6 /* Services */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E0D5A3791C14E07E004DEDF6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E0D5A37A1C14E07E004DEDF6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E0D5A37B1C14E0D1004DEDF6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -488,6 +544,7 @@
 				E0C4E5811C14D2AE0059386D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E0C4E5821C14D2AE0059386D /* Build configuration list for PBXNativeTarget "HandyManTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +553,7 @@
 				E0C4E5841C14D2AE0059386D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E0C4E5851C14D2AE0059386D /* Build configuration list for PBXNativeTarget "HandyManUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +562,7 @@
 				E0C4E5871C14D2AE0059386D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E0C4E5581C14D2AE0059386D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E5571C14D2AE0059386D /* AppDelegate.swift */; };
+		E0C4E55A1C14D2AE0059386D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E5591C14D2AE0059386D /* ViewController.swift */; };
+		E0C4E55D1C14D2AE0059386D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C4E55B1C14D2AE0059386D /* Main.storyboard */; };
+		E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E55E1C14D2AE0059386D /* HandyMan.xcdatamodeld */; };
+		E0C4E5621C14D2AE0059386D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C4E5611C14D2AE0059386D /* Assets.xcassets */; };
+		E0C4E5651C14D2AE0059386D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C4E5631C14D2AE0059386D /* LaunchScreen.storyboard */; };
+		E0C4E5701C14D2AE0059386D /* HandyManTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E56F1C14D2AE0059386D /* HandyManTests.swift */; };
+		E0C4E57B1C14D2AE0059386D /* HandyManUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E57A1C14D2AE0059386D /* HandyManUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E0C4E56C1C14D2AE0059386D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0C4E54C1C14D2AE0059386D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E0C4E5531C14D2AE0059386D;
+			remoteInfo = HandyMan;
+		};
+		E0C4E5771C14D2AE0059386D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0C4E54C1C14D2AE0059386D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E0C4E5531C14D2AE0059386D;
+			remoteInfo = HandyMan;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E0C4E5541C14D2AE0059386D /* HandyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0C4E5571C14D2AE0059386D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E0C4E5591C14D2AE0059386D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E0C4E55C1C14D2AE0059386D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E0C4E55F1C14D2AE0059386D /* HandyMan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HandyMan.xcdatamodel; sourceTree = "<group>"; };
+		E0C4E5611C14D2AE0059386D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E0C4E5641C14D2AE0059386D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E0C4E5661C14D2AE0059386D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0C4E56B1C14D2AE0059386D /* HandyManTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandyManTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0C4E56F1C14D2AE0059386D /* HandyManTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandyManTests.swift; sourceTree = "<group>"; };
+		E0C4E5711C14D2AE0059386D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0C4E5761C14D2AE0059386D /* HandyManUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandyManUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0C4E57A1C14D2AE0059386D /* HandyManUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandyManUITests.swift; sourceTree = "<group>"; };
+		E0C4E57C1C14D2AE0059386D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E0C4E5511C14D2AE0059386D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0C4E5681C14D2AE0059386D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0C4E5731C14D2AE0059386D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E0C4E54B1C14D2AE0059386D = {
+			isa = PBXGroup;
+			children = (
+				E0C4E5561C14D2AE0059386D /* HandyMan */,
+				E0C4E56E1C14D2AE0059386D /* HandyManTests */,
+				E0C4E5791C14D2AE0059386D /* HandyManUITests */,
+				E0C4E5551C14D2AE0059386D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E0C4E5551C14D2AE0059386D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E0C4E5541C14D2AE0059386D /* HandyMan.app */,
+				E0C4E56B1C14D2AE0059386D /* HandyManTests.xctest */,
+				E0C4E5761C14D2AE0059386D /* HandyManUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0C4E5561C14D2AE0059386D /* HandyMan */ = {
+			isa = PBXGroup;
+			children = (
+				E0C4E5571C14D2AE0059386D /* AppDelegate.swift */,
+				E0C4E5591C14D2AE0059386D /* ViewController.swift */,
+				E0C4E55B1C14D2AE0059386D /* Main.storyboard */,
+				E0C4E5611C14D2AE0059386D /* Assets.xcassets */,
+				E0C4E5631C14D2AE0059386D /* LaunchScreen.storyboard */,
+				E0C4E5661C14D2AE0059386D /* Info.plist */,
+				E0C4E55E1C14D2AE0059386D /* HandyMan.xcdatamodeld */,
+			);
+			path = HandyMan;
+			sourceTree = "<group>";
+		};
+		E0C4E56E1C14D2AE0059386D /* HandyManTests */ = {
+			isa = PBXGroup;
+			children = (
+				E0C4E56F1C14D2AE0059386D /* HandyManTests.swift */,
+				E0C4E5711C14D2AE0059386D /* Info.plist */,
+			);
+			path = HandyManTests;
+			sourceTree = "<group>";
+		};
+		E0C4E5791C14D2AE0059386D /* HandyManUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E0C4E57A1C14D2AE0059386D /* HandyManUITests.swift */,
+				E0C4E57C1C14D2AE0059386D /* Info.plist */,
+			);
+			path = HandyManUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E0C4E5531C14D2AE0059386D /* HandyMan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0C4E57F1C14D2AE0059386D /* Build configuration list for PBXNativeTarget "HandyMan" */;
+			buildPhases = (
+				E0C4E5501C14D2AE0059386D /* Sources */,
+				E0C4E5511C14D2AE0059386D /* Frameworks */,
+				E0C4E5521C14D2AE0059386D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HandyMan;
+			productName = HandyMan;
+			productReference = E0C4E5541C14D2AE0059386D /* HandyMan.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E0C4E56A1C14D2AE0059386D /* HandyManTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0C4E5821C14D2AE0059386D /* Build configuration list for PBXNativeTarget "HandyManTests" */;
+			buildPhases = (
+				E0C4E5671C14D2AE0059386D /* Sources */,
+				E0C4E5681C14D2AE0059386D /* Frameworks */,
+				E0C4E5691C14D2AE0059386D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0C4E56D1C14D2AE0059386D /* PBXTargetDependency */,
+			);
+			name = HandyManTests;
+			productName = HandyManTests;
+			productReference = E0C4E56B1C14D2AE0059386D /* HandyManTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E0C4E5751C14D2AE0059386D /* HandyManUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0C4E5851C14D2AE0059386D /* Build configuration list for PBXNativeTarget "HandyManUITests" */;
+			buildPhases = (
+				E0C4E5721C14D2AE0059386D /* Sources */,
+				E0C4E5731C14D2AE0059386D /* Frameworks */,
+				E0C4E5741C14D2AE0059386D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0C4E5781C14D2AE0059386D /* PBXTargetDependency */,
+			);
+			name = HandyManUITests;
+			productName = HandyManUITests;
+			productReference = E0C4E5761C14D2AE0059386D /* HandyManUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E0C4E54C1C14D2AE0059386D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Don Johnson";
+				TargetAttributes = {
+					E0C4E5531C14D2AE0059386D = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					E0C4E56A1C14D2AE0059386D = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = E0C4E5531C14D2AE0059386D;
+					};
+					E0C4E5751C14D2AE0059386D = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = E0C4E5531C14D2AE0059386D;
+					};
+				};
+			};
+			buildConfigurationList = E0C4E54F1C14D2AE0059386D /* Build configuration list for PBXProject "HandyMan" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E0C4E54B1C14D2AE0059386D;
+			productRefGroup = E0C4E5551C14D2AE0059386D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E0C4E5531C14D2AE0059386D /* HandyMan */,
+				E0C4E56A1C14D2AE0059386D /* HandyManTests */,
+				E0C4E5751C14D2AE0059386D /* HandyManUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E0C4E5521C14D2AE0059386D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0C4E5651C14D2AE0059386D /* LaunchScreen.storyboard in Resources */,
+				E0C4E5621C14D2AE0059386D /* Assets.xcassets in Resources */,
+				E0C4E55D1C14D2AE0059386D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0C4E5691C14D2AE0059386D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0C4E5741C14D2AE0059386D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E0C4E5501C14D2AE0059386D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0C4E55A1C14D2AE0059386D /* ViewController.swift in Sources */,
+				E0C4E5581C14D2AE0059386D /* AppDelegate.swift in Sources */,
+				E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0C4E5671C14D2AE0059386D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0C4E5701C14D2AE0059386D /* HandyManTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0C4E5721C14D2AE0059386D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0C4E57B1C14D2AE0059386D /* HandyManUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E0C4E56D1C14D2AE0059386D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E0C4E5531C14D2AE0059386D /* HandyMan */;
+			targetProxy = E0C4E56C1C14D2AE0059386D /* PBXContainerItemProxy */;
+		};
+		E0C4E5781C14D2AE0059386D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E0C4E5531C14D2AE0059386D /* HandyMan */;
+			targetProxy = E0C4E5771C14D2AE0059386D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E0C4E55B1C14D2AE0059386D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E0C4E55C1C14D2AE0059386D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E0C4E5631C14D2AE0059386D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E0C4E5641C14D2AE0059386D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E0C4E57D1C14D2AE0059386D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E0C4E57E1C14D2AE0059386D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E0C4E5801C14D2AE0059386D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HandyMan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foodfortech.HandyMan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E0C4E5811C14D2AE0059386D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HandyMan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foodfortech.HandyMan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E0C4E5831C14D2AE0059386D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HandyManTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foodfortech.HandyManTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HandyMan.app/HandyMan";
+			};
+			name = Debug;
+		};
+		E0C4E5841C14D2AE0059386D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HandyManTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foodfortech.HandyManTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HandyMan.app/HandyMan";
+			};
+			name = Release;
+		};
+		E0C4E5861C14D2AE0059386D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HandyManUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foodfortech.HandyManUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HandyMan;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		E0C4E5871C14D2AE0059386D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HandyManUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foodfortech.HandyManUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HandyMan;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E0C4E54F1C14D2AE0059386D /* Build configuration list for PBXProject "HandyMan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0C4E57D1C14D2AE0059386D /* Debug */,
+				E0C4E57E1C14D2AE0059386D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0C4E57F1C14D2AE0059386D /* Build configuration list for PBXNativeTarget "HandyMan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0C4E5801C14D2AE0059386D /* Debug */,
+				E0C4E5811C14D2AE0059386D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E0C4E5821C14D2AE0059386D /* Build configuration list for PBXNativeTarget "HandyManTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0C4E5831C14D2AE0059386D /* Debug */,
+				E0C4E5841C14D2AE0059386D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E0C4E5851C14D2AE0059386D /* Build configuration list for PBXNativeTarget "HandyManUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0C4E5861C14D2AE0059386D /* Debug */,
+				E0C4E5871C14D2AE0059386D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E0C4E55E1C14D2AE0059386D /* HandyMan.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E0C4E55F1C14D2AE0059386D /* HandyMan.xcdatamodel */,
+			);
+			currentVersion = E0C4E55F1C14D2AE0059386D /* HandyMan.xcdatamodel */;
+			path = HandyMan.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E0C4E54C1C14D2AE0059386D /* Project object */;
+}

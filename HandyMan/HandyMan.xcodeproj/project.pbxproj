@@ -15,6 +15,7 @@
 		E0C4E5651C14D2AE0059386D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C4E5631C14D2AE0059386D /* LaunchScreen.storyboard */; };
 		E0C4E5701C14D2AE0059386D /* HandyManTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E56F1C14D2AE0059386D /* HandyManTests.swift */; };
 		E0C4E57B1C14D2AE0059386D /* HandyManUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E57A1C14D2AE0059386D /* HandyManUITests.swift */; };
+		E0D5A37D1C14E407004DEDF6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A37C1C14E407004DEDF6 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E0C4E5761C14D2AE0059386D /* HandyManUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandyManUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C4E57A1C14D2AE0059386D /* HandyManUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandyManUITests.swift; sourceTree = "<group>"; };
 		E0C4E57C1C14D2AE0059386D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0D5A37C1C14E407004DEDF6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 		E0D5A3771C14E07E004DEDF6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E0D5A37C1C14E407004DEDF6 /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0D5A37D1C14E407004DEDF6 /* LoginViewController.swift in Sources */,
 				E0C4E55A1C14D2AE0059386D /* ViewController.swift in Sources */,
 				E0C4E5581C14D2AE0059386D /* AppDelegate.swift in Sources */,
 				E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */,

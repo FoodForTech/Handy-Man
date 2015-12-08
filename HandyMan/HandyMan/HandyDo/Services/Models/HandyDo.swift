@@ -8,8 +8,8 @@
 
 struct HandyDo {
 
-    var title: String
-    var todo: String
-    var status: String
+    var title: String = ""
+    var todo: String = ""
+    var status: String = ""
     
 }

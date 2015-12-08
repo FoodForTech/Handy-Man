@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E02868801C1710D900ED383D /* RetrieveHandyDoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E028687F1C1710D900ED383D /* RetrieveHandyDoService.swift */; };
+		E02868821C17126300ED383D /* HandyDoBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02868811C17126300ED383D /* HandyDoBusinessService.swift */; };
 		E0C4E5581C14D2AE0059386D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E5571C14D2AE0059386D /* AppDelegate.swift */; };
 		E0C4E55D1C14D2AE0059386D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C4E55B1C14D2AE0059386D /* Main.storyboard */; };
 		E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E55E1C14D2AE0059386D /* HandyMan.xcdatamodeld */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E028687F1C1710D900ED383D /* RetrieveHandyDoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetrieveHandyDoService.swift; sourceTree = "<group>"; };
+		E02868811C17126300ED383D /* HandyDoBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyDoBusinessService.swift; sourceTree = "<group>"; };
 		E0C4E5541C14D2AE0059386D /* HandyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C4E5571C14D2AE0059386D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0C4E55C1C14D2AE0059386D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 		E0D5A37F1C153FC3004DEDF6 /* BusinessServices */ = {
 			isa = PBXGroup;
 			children = (
+				E02868811C17126300ED383D /* HandyDoBusinessService.swift */,
 			);
 			path = BusinessServices;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 		E0D5A3831C153FC3004DEDF6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E028687F1C1710D900ED383D /* RetrieveHandyDoService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -386,6 +392,8 @@
 			files = (
 				E0D5A37D1C14E407004DEDF6 /* LoginViewController.swift in Sources */,
 				E0C4E5581C14D2AE0059386D /* AppDelegate.swift in Sources */,
+				E02868801C1710D900ED383D /* RetrieveHandyDoService.swift in Sources */,
+				E02868821C17126300ED383D /* HandyDoBusinessService.swift in Sources */,
 				E0D5A3851C15404E004DEDF6 /* HandyDoListViewController.swift in Sources */,
 				E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */,
 				E0D5A38A1C155FD2004DEDF6 /* HandyDoTodoTableViewCell.swift in Sources */,

@@ -9,16 +9,20 @@
 import UIKit
 
 class HandyDoTodoTableViewCell: UITableViewCell {
+    struct Constants {
+        static let kViewHeight: CGFloat = 80.0
+    }
+    
+    class func viewHeight() -> CGFloat {
+        return Constants.kViewHeight
+    }
     
     private var model: HandyDo
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    init(style: UITableViewCellStyle, reuseIdentifier: String?, model:HandyDo) {
-        self.model = model
+    // MARK: - Init
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        self.model = HandyDo()
         super.init(style:style, reuseIdentifier: reuseIdentifier)
         self.setUpConstraints()
     }
@@ -27,19 +31,28 @@ class HandyDoTodoTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     private func setUpConstraints() -> Void {
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(todoDescriptionLabel)
         self.contentView.addSubview(statusLabel)
+        
+        let metrics: [String: AnyObject] = ["":""]
+        let views: [String: AnyObject] = ["titleLabel": self.titleLabel,
+                                          "todoDescriptionLabel": self.todoDescriptionLabel,
+                                          "statusLabel": self.statusLabel]
+        
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[titleLabel][todoDescriptionLabel][statusLabel]-|", options: NSLayoutFormatOptions.AlignAllLeading , metrics: metrics, views: views))
     }
     
-    // MARK: Lazy Loaded Properties
+    // MARK: - Public Properties
+    
+    func configureWithModel(handyDo: HandyDo) -> Void {
+        titleLabel.text = handyDo.title
+        todoDescriptionLabel.text = handyDo.todo
+        statusLabel.text = handyDo.status
+    }
+    
+    // MARK: - Lazy Loaded Properties
     
     private lazy var titleLabel: UILabel! = {
         let label = UILabel()

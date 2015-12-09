@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E02868801C1710D900ED383D /* RetrieveHandyDoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E028687F1C1710D900ED383D /* RetrieveHandyDoService.swift */; };
+		E02868821C17126300ED383D /* HandyDoBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02868811C17126300ED383D /* HandyDoBusinessService.swift */; };
 		E0C4E5581C14D2AE0059386D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E5571C14D2AE0059386D /* AppDelegate.swift */; };
-		E0C4E55A1C14D2AE0059386D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E5591C14D2AE0059386D /* ViewController.swift */; };
 		E0C4E55D1C14D2AE0059386D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C4E55B1C14D2AE0059386D /* Main.storyboard */; };
 		E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E55E1C14D2AE0059386D /* HandyMan.xcdatamodeld */; };
 		E0C4E5621C14D2AE0059386D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C4E5611C14D2AE0059386D /* Assets.xcassets */; };
@@ -16,6 +17,10 @@
 		E0C4E5701C14D2AE0059386D /* HandyManTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E56F1C14D2AE0059386D /* HandyManTests.swift */; };
 		E0C4E57B1C14D2AE0059386D /* HandyManUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E57A1C14D2AE0059386D /* HandyManUITests.swift */; };
 		E0D5A37D1C14E407004DEDF6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A37C1C14E407004DEDF6 /* LoginViewController.swift */; };
+		E0D5A3851C15404E004DEDF6 /* HandyDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A3841C15404E004DEDF6 /* HandyDoListViewController.swift */; };
+		E0D5A3871C1540D7004DEDF6 /* HandyDo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0D5A3861C1540D7004DEDF6 /* HandyDo.storyboard */; };
+		E0D5A38A1C155FD2004DEDF6 /* HandyDoTodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A3891C155FD2004DEDF6 /* HandyDoTodoTableViewCell.swift */; };
+		E0D5A38C1C156090004DEDF6 /* HandyDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A38B1C156090004DEDF6 /* HandyDo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E028687F1C1710D900ED383D /* RetrieveHandyDoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetrieveHandyDoService.swift; sourceTree = "<group>"; };
+		E02868811C17126300ED383D /* HandyDoBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyDoBusinessService.swift; sourceTree = "<group>"; };
 		E0C4E5541C14D2AE0059386D /* HandyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C4E5571C14D2AE0059386D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E0C4E5591C14D2AE0059386D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E0C4E55C1C14D2AE0059386D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0C4E55F1C14D2AE0059386D /* HandyMan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HandyMan.xcdatamodel; sourceTree = "<group>"; };
 		E0C4E5611C14D2AE0059386D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +57,10 @@
 		E0C4E57A1C14D2AE0059386D /* HandyManUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandyManUITests.swift; sourceTree = "<group>"; };
 		E0C4E57C1C14D2AE0059386D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0D5A37C1C14E407004DEDF6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E0D5A3841C15404E004DEDF6 /* HandyDoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyDoListViewController.swift; sourceTree = "<group>"; };
+		E0D5A3861C1540D7004DEDF6 /* HandyDo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HandyDo.storyboard; sourceTree = "<group>"; };
+		E0D5A3891C155FD2004DEDF6 /* HandyDoTodoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyDoTodoTableViewCell.swift; sourceTree = "<group>"; };
+		E0D5A38B1C156090004DEDF6 /* HandyDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyDo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +113,8 @@
 			children = (
 				E0D5A37B1C14E0D1004DEDF6 /* Common */,
 				E0D5A3751C14E07E004DEDF6 /* Login */,
+				E0D5A37E1C153FC3004DEDF6 /* HandyDo */,
 				E0C4E5571C14D2AE0059386D /* AppDelegate.swift */,
-				E0C4E5591C14D2AE0059386D /* ViewController.swift */,
-				E0C4E55B1C14D2AE0059386D /* Main.storyboard */,
 				E0C4E5611C14D2AE0059386D /* Assets.xcassets */,
 				E0C4E5631C14D2AE0059386D /* LaunchScreen.storyboard */,
 				E0C4E5661C14D2AE0059386D /* Info.plist */,
@@ -138,6 +147,7 @@
 				E0D5A3761C14E07E004DEDF6 /* BusinessService */,
 				E0D5A3771C14E07E004DEDF6 /* Controllers */,
 				E0D5A3781C14E07E004DEDF6 /* Service */,
+				E0C4E55B1C14D2AE0059386D /* Main.storyboard */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -185,6 +195,67 @@
 			children = (
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		E0D5A37E1C153FC3004DEDF6 /* HandyDo */ = {
+			isa = PBXGroup;
+			children = (
+				E0D5A3881C155FA1004DEDF6 /* Cells */,
+				E0D5A37F1C153FC3004DEDF6 /* BusinessServices */,
+				E0D5A3801C153FC3004DEDF6 /* Controllers */,
+				E0D5A3811C153FC3004DEDF6 /* Services */,
+				E0D5A3861C1540D7004DEDF6 /* HandyDo.storyboard */,
+			);
+			path = HandyDo;
+			sourceTree = "<group>";
+		};
+		E0D5A37F1C153FC3004DEDF6 /* BusinessServices */ = {
+			isa = PBXGroup;
+			children = (
+				E02868811C17126300ED383D /* HandyDoBusinessService.swift */,
+			);
+			path = BusinessServices;
+			sourceTree = "<group>";
+		};
+		E0D5A3801C153FC3004DEDF6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E0D5A3841C15404E004DEDF6 /* HandyDoListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E0D5A3811C153FC3004DEDF6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E0D5A3821C153FC3004DEDF6 /* Models */,
+				E0D5A3831C153FC3004DEDF6 /* Services */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E0D5A3821C153FC3004DEDF6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E0D5A38B1C156090004DEDF6 /* HandyDo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E0D5A3831C153FC3004DEDF6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E028687F1C1710D900ED383D /* RetrieveHandyDoService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E0D5A3881C155FA1004DEDF6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E0D5A3891C155FD2004DEDF6 /* HandyDoTodoTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0D5A3871C1540D7004DEDF6 /* HandyDo.storyboard in Resources */,
 				E0C4E5651C14D2AE0059386D /* LaunchScreen.storyboard in Resources */,
 				E0C4E5621C14D2AE0059386D /* Assets.xcassets in Resources */,
 				E0C4E55D1C14D2AE0059386D /* Main.storyboard in Resources */,
@@ -319,9 +391,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0D5A37D1C14E407004DEDF6 /* LoginViewController.swift in Sources */,
-				E0C4E55A1C14D2AE0059386D /* ViewController.swift in Sources */,
 				E0C4E5581C14D2AE0059386D /* AppDelegate.swift in Sources */,
+				E02868801C1710D900ED383D /* RetrieveHandyDoService.swift in Sources */,
+				E02868821C17126300ED383D /* HandyDoBusinessService.swift in Sources */,
+				E0D5A3851C15404E004DEDF6 /* HandyDoListViewController.swift in Sources */,
 				E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */,
+				E0D5A38A1C155FD2004DEDF6 /* HandyDoTodoTableViewCell.swift in Sources */,
+				E0D5A38C1C156090004DEDF6 /* HandyDo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +439,7 @@
 				E0C4E55C1C14D2AE0059386D /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E0C4E5631C14D2AE0059386D /* LaunchScreen.storyboard */ = {

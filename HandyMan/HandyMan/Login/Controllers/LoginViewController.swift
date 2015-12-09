@@ -34,6 +34,7 @@ class LoginViewController: UIViewController, HandyDoBusinessServiceNavigationDel
     // MARK: - Control Events
     
     @IBAction func logOn(sender: UIButton) {
+        // TODO authentication
         self.handyDoBusinessService.retrieveHandyDoList()
     }
     
@@ -61,7 +62,7 @@ class LoginViewController: UIViewController, HandyDoBusinessServiceNavigationDel
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if let handyDoListViewController = segue.destinationViewController as? HandyDoListViewController {
+        if let handyDoListViewController: HandyDoListViewController = segue.destinationViewController as? HandyDoListViewController {
             handyDoListViewController.handyDoList = self.handyDoList
             self.navigationController?.pushViewController(handyDoListViewController, animated: true)
         }

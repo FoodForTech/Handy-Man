@@ -10,7 +10,8 @@ import UIKit
 
 class HandyDoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var handyDoList: [HandyDo]
-    var handyDoTableViewCell: HandyDoTodoTableViewCell
+    
+    private var handyDoTableViewCell: HandyDoTodoTableViewCell
     
     @IBOutlet weak var handyManImageView: UIImageView!
     @IBOutlet weak var handyManNameLabel: UILabel!

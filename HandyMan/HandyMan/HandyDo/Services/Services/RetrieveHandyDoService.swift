@@ -10,6 +10,8 @@ import UIKit
 
 class RetrieveHandyDoService: NSObject {
 
+    // MOCK UP of data TODO link to real service
+    
     func retrieveHandyDoList()->[HandyDo] {
         var handyDoList = Array<HandyDo>()
         for var i = 0; i<10; i++ {

@@ -25,6 +25,7 @@ class HandyDoTodoTableViewCell: UITableViewCell {
         self.model = HandyDo()
         super.init(style:style, reuseIdentifier: reuseIdentifier)
         self.setUpConstraints()
+        self.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -50,6 +51,11 @@ class HandyDoTodoTableViewCell: UITableViewCell {
         titleLabel.text = handyDo.title
         todoDescriptionLabel.text = handyDo.todo
         statusLabel.text = handyDo.status
+        if (handyDo.status == "complete") {
+           
+        } else {
+           
+        }
     }
     
     // MARK: - Lazy Loaded Properties

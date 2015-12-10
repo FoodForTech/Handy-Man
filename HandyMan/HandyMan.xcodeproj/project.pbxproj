@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E017713E1C17FDF900616B9C /* CommonBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E017713D1C17FDF900616B9C /* CommonBusinessService.swift */; };
+		E01771401C17FE1700616B9C /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E017713F1C17FE1700616B9C /* CommonViewController.swift */; };
+		E01771421C17FE2F00616B9C /* CommonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01771411C17FE2F00616B9C /* CommonTableViewController.swift */; };
+		E01771481C17FF6100616B9C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01771471C17FF6100616B9C /* UIViewController.swift */; };
+		E017714A1C1861B100616B9C /* AuthenticatedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01771491C1861B100616B9C /* AuthenticatedService.swift */; };
 		E02868801C1710D900ED383D /* RetrieveHandyDoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E028687F1C1710D900ED383D /* RetrieveHandyDoService.swift */; };
 		E02868821C17126300ED383D /* HandyDoBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02868811C17126300ED383D /* HandyDoBusinessService.swift */; };
+		E03A88AB1C192593007A78EA /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A88AA1C192593007A78EA /* SwiftyJSON.swift */; };
+		E03A88AD1C1936D3007A78EA /* HandyManRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03A88AC1C1936D3007A78EA /* HandyManRestClient.swift */; };
+		E09E49B41C186438002D202E /* UpdateHandyDoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09E49B31C186438002D202E /* UpdateHandyDoService.swift */; };
+		E09E49B61C186469002D202E /* DeleteHandyDoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09E49B51C186469002D202E /* DeleteHandyDoService.swift */; };
+		E09E49B81C18654A002D202E /* CreateHandyDoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09E49B71C18654A002D202E /* CreateHandyDoService.swift */; };
 		E0C4E5581C14D2AE0059386D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E5571C14D2AE0059386D /* AppDelegate.swift */; };
 		E0C4E55D1C14D2AE0059386D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C4E55B1C14D2AE0059386D /* Main.storyboard */; };
 		E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E55E1C14D2AE0059386D /* HandyMan.xcdatamodeld */; };
@@ -16,6 +26,8 @@
 		E0C4E5651C14D2AE0059386D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C4E5631C14D2AE0059386D /* LaunchScreen.storyboard */; };
 		E0C4E5701C14D2AE0059386D /* HandyManTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E56F1C14D2AE0059386D /* HandyManTests.swift */; };
 		E0C4E57B1C14D2AE0059386D /* HandyManUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E57A1C14D2AE0059386D /* HandyManUITests.swift */; };
+		E0D168371C17D167009FDDD8 /* HandyDoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D168361C17D167009FDDD8 /* HandyDoDetailViewController.swift */; };
+		E0D1683A1C17F171009FDDD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D168391C17F171009FDDD8 /* User.swift */; };
 		E0D5A37D1C14E407004DEDF6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A37C1C14E407004DEDF6 /* LoginViewController.swift */; };
 		E0D5A3851C15404E004DEDF6 /* HandyDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A3841C15404E004DEDF6 /* HandyDoListViewController.swift */; };
 		E0D5A3871C1540D7004DEDF6 /* HandyDo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0D5A3861C1540D7004DEDF6 /* HandyDo.storyboard */; };
@@ -24,6 +36,55 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E035996F1C19C9D10049EC0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		E03599711C19C9D10049EC0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		E03599731C19C9D10049EC0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+		E03599751C19C9D10049EC0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
+		};
+		E03599771C19C9D10049EC0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF626EF1BA7CB3E0011A099;
+			remoteInfo = "Alamofire tvOS";
+		};
+		E03599791C19C9D10049EC0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF626F81BA7CB3E0011A099;
+			remoteInfo = "Alamofire tvOS Tests";
+		};
+		E035997B1C19C9D10049EC0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4202FE01B667AA100C997FB;
+			remoteInfo = "Alamofire watchOS";
+		};
 		E0C4E56C1C14D2AE0059386D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E0C4E54C1C14D2AE0059386D /* Project object */;
@@ -40,9 +101,33 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E03A88A71C187420007A78EA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		E017713D1C17FDF900616B9C /* CommonBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonBusinessService.swift; sourceTree = "<group>"; };
+		E017713F1C17FE1700616B9C /* CommonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
+		E01771411C17FE2F00616B9C /* CommonTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTableViewController.swift; sourceTree = "<group>"; };
+		E01771471C17FF6100616B9C /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		E01771491C1861B100616B9C /* AuthenticatedService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatedService.swift; sourceTree = "<group>"; };
 		E028687F1C1710D900ED383D /* RetrieveHandyDoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetrieveHandyDoService.swift; sourceTree = "<group>"; };
 		E02868811C17126300ED383D /* HandyDoBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyDoBusinessService.swift; sourceTree = "<group>"; };
+		E03A88AA1C192593007A78EA /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		E03A88AC1C1936D3007A78EA /* HandyManRestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyManRestClient.swift; sourceTree = "<group>"; };
+		E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Alamofire.xcodeproj; sourceTree = "<group>"; };
+		E09E49B31C186438002D202E /* UpdateHandyDoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHandyDoService.swift; sourceTree = "<group>"; };
+		E09E49B51C186469002D202E /* DeleteHandyDoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteHandyDoService.swift; sourceTree = "<group>"; };
+		E09E49B71C18654A002D202E /* CreateHandyDoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateHandyDoService.swift; sourceTree = "<group>"; };
 		E0C4E5541C14D2AE0059386D /* HandyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C4E5571C14D2AE0059386D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0C4E55C1C14D2AE0059386D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,6 +141,8 @@
 		E0C4E5761C14D2AE0059386D /* HandyManUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandyManUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C4E57A1C14D2AE0059386D /* HandyManUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandyManUITests.swift; sourceTree = "<group>"; };
 		E0C4E57C1C14D2AE0059386D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0D168361C17D167009FDDD8 /* HandyDoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyDoDetailViewController.swift; sourceTree = "<group>"; };
+		E0D168391C17F171009FDDD8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E0D5A37C1C14E407004DEDF6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E0D5A3841C15404E004DEDF6 /* HandyDoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyDoListViewController.swift; sourceTree = "<group>"; };
 		E0D5A3861C1540D7004DEDF6 /* HandyDo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HandyDo.storyboard; sourceTree = "<group>"; };
@@ -88,6 +175,166 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E017713A1C17FD9400616B9C /* BusinessService */ = {
+			isa = PBXGroup;
+			children = (
+				E017713D1C17FDF900616B9C /* CommonBusinessService.swift */,
+			);
+			path = BusinessService;
+			sourceTree = "<group>";
+		};
+		E017713B1C17FDBC00616B9C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E017713F1C17FE1700616B9C /* CommonViewController.swift */,
+				E01771411C17FE2F00616B9C /* CommonTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E017713C1C17FDD000616B9C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E01771491C1861B100616B9C /* AuthenticatedService.swift */,
+				E03A88AA1C192593007A78EA /* SwiftyJSON.swift */,
+				E03A88AC1C1936D3007A78EA /* HandyManRestClient.swift */,
+			);
+			name = Service;
+			path = HandyMan/Common/Service;
+			sourceTree = SOURCE_ROOT;
+		};
+		E01771461C17FF6100616B9C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E01771471C17FF6100616B9C /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E03599661C19C9D00049EC0B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E03599701C19C9D10049EC0B /* Alamofire.framework */,
+				E03599721C19C9D10049EC0B /* Alamofire iOS Tests.xctest */,
+				E03599741C19C9D10049EC0B /* Alamofire.framework */,
+				E03599761C19C9D10049EC0B /* Alamofire OSX Tests.xctest */,
+				E03599781C19C9D10049EC0B /* Alamofire.framework */,
+				E035997A1C19C9D10049EC0B /* Alamofire tvOS Tests.xctest */,
+				E035997C1C19C9D10049EC0B /* Alamofire.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E09E49A51C186373002D202E /* HandyDone */ = {
+			isa = PBXGroup;
+			children = (
+				E09E49A61C186373002D202E /* BusinessServices */,
+				E09E49A71C186373002D202E /* Cells */,
+				E09E49A81C186373002D202E /* Controllers */,
+				E09E49A91C186373002D202E /* Services */,
+			);
+			path = HandyDone;
+			sourceTree = "<group>";
+		};
+		E09E49A61C186373002D202E /* BusinessServices */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BusinessServices;
+			sourceTree = "<group>";
+		};
+		E09E49A71C186373002D202E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E09E49A81C186373002D202E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E09E49A91C186373002D202E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E09E49AA1C186373002D202E /* Models */,
+				E09E49AB1C186373002D202E /* Services */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E09E49AA1C186373002D202E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E09E49AB1C186373002D202E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E09E49AC1C18637E002D202E /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				E09E49AD1C18637E002D202E /* BusinessServices */,
+				E09E49AE1C18637E002D202E /* Cells */,
+				E09E49AF1C18637E002D202E /* Controllers */,
+				E09E49B01C18637E002D202E /* Services */,
+			);
+			path = Expenses;
+			sourceTree = "<group>";
+		};
+		E09E49AD1C18637E002D202E /* BusinessServices */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BusinessServices;
+			sourceTree = "<group>";
+		};
+		E09E49AE1C18637E002D202E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E09E49AF1C18637E002D202E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E09E49B01C18637E002D202E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E09E49B11C18637E002D202E /* Models */,
+				E09E49B21C18637E002D202E /* Services */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E09E49B11C18637E002D202E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E09E49B21C18637E002D202E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		E0C4E54B1C14D2AE0059386D = {
 			isa = PBXGroup;
 			children = (
@@ -111,9 +358,12 @@
 		E0C4E5561C14D2AE0059386D /* HandyMan */ = {
 			isa = PBXGroup;
 			children = (
+				E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */,
 				E0D5A37B1C14E0D1004DEDF6 /* Common */,
 				E0D5A3751C14E07E004DEDF6 /* Login */,
 				E0D5A37E1C153FC3004DEDF6 /* HandyDo */,
+				E09E49A51C186373002D202E /* HandyDone */,
+				E09E49AC1C18637E002D202E /* Expenses */,
 				E0C4E5571C14D2AE0059386D /* AppDelegate.swift */,
 				E0C4E5611C14D2AE0059386D /* Assets.xcassets */,
 				E0C4E5631C14D2AE0059386D /* LaunchScreen.storyboard */,
@@ -139,6 +389,14 @@
 				E0C4E57C1C14D2AE0059386D /* Info.plist */,
 			);
 			path = HandyManUITests;
+			sourceTree = "<group>";
+		};
+		E0D168381C17F159009FDDD8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E0D168391C17F171009FDDD8 /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E0D5A3751C14E07E004DEDF6 /* Login */ = {
@@ -193,6 +451,11 @@
 		E0D5A37B1C14E0D1004DEDF6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E017713A1C17FD9400616B9C /* BusinessService */,
+				E017713B1C17FDBC00616B9C /* Controllers */,
+				E0D168381C17F159009FDDD8 /* Models */,
+				E01771461C17FF6100616B9C /* Extensions */,
+				E017713C1C17FDD000616B9C /* Service */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -200,8 +463,8 @@
 		E0D5A37E1C153FC3004DEDF6 /* HandyDo */ = {
 			isa = PBXGroup;
 			children = (
-				E0D5A3881C155FA1004DEDF6 /* Cells */,
 				E0D5A37F1C153FC3004DEDF6 /* BusinessServices */,
+				E0D5A3881C155FA1004DEDF6 /* Cells */,
 				E0D5A3801C153FC3004DEDF6 /* Controllers */,
 				E0D5A3811C153FC3004DEDF6 /* Services */,
 				E0D5A3861C1540D7004DEDF6 /* HandyDo.storyboard */,
@@ -221,6 +484,7 @@
 			isa = PBXGroup;
 			children = (
 				E0D5A3841C15404E004DEDF6 /* HandyDoListViewController.swift */,
+				E0D168361C17D167009FDDD8 /* HandyDoDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -245,7 +509,10 @@
 		E0D5A3831C153FC3004DEDF6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E09E49B71C18654A002D202E /* CreateHandyDoService.swift */,
 				E028687F1C1710D900ED383D /* RetrieveHandyDoService.swift */,
+				E09E49B31C186438002D202E /* UpdateHandyDoService.swift */,
+				E09E49B51C186469002D202E /* DeleteHandyDoService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -268,6 +535,7 @@
 				E0C4E5501C14D2AE0059386D /* Sources */,
 				E0C4E5511C14D2AE0059386D /* Frameworks */,
 				E0C4E5521C14D2AE0059386D /* Resources */,
+				E03A88A71C187420007A78EA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -348,6 +616,12 @@
 			mainGroup = E0C4E54B1C14D2AE0059386D;
 			productRefGroup = E0C4E5551C14D2AE0059386D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E03599661C19C9D00049EC0B /* Products */;
+					ProjectRef = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E0C4E5531C14D2AE0059386D /* HandyMan */,
@@ -356,6 +630,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E03599701C19C9D10049EC0B /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = E035996F1C19C9D10049EC0B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E03599721C19C9D10049EC0B /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = E03599711C19C9D10049EC0B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E03599741C19C9D10049EC0B /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = E03599731C19C9D10049EC0B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E03599761C19C9D10049EC0B /* Alamofire OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = E03599751C19C9D10049EC0B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E03599781C19C9D10049EC0B /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = E03599771C19C9D10049EC0B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E035997A1C19C9D10049EC0B /* Alamofire tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire tvOS Tests.xctest";
+			remoteRef = E03599791C19C9D10049EC0B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E035997C1C19C9D10049EC0B /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = E035997B1C19C9D10049EC0B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E0C4E5521C14D2AE0059386D /* Resources */ = {
@@ -390,13 +716,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E09E49B41C186438002D202E /* UpdateHandyDoService.swift in Sources */,
 				E0D5A37D1C14E407004DEDF6 /* LoginViewController.swift in Sources */,
+				E01771421C17FE2F00616B9C /* CommonTableViewController.swift in Sources */,
 				E0C4E5581C14D2AE0059386D /* AppDelegate.swift in Sources */,
 				E02868801C1710D900ED383D /* RetrieveHandyDoService.swift in Sources */,
 				E02868821C17126300ED383D /* HandyDoBusinessService.swift in Sources */,
+				E09E49B61C186469002D202E /* DeleteHandyDoService.swift in Sources */,
+				E03A88AB1C192593007A78EA /* SwiftyJSON.swift in Sources */,
+				E017713E1C17FDF900616B9C /* CommonBusinessService.swift in Sources */,
 				E0D5A3851C15404E004DEDF6 /* HandyDoListViewController.swift in Sources */,
 				E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */,
+				E01771481C17FF6100616B9C /* UIViewController.swift in Sources */,
+				E03A88AD1C1936D3007A78EA /* HandyManRestClient.swift in Sources */,
 				E0D5A38A1C155FD2004DEDF6 /* HandyDoTodoTableViewCell.swift in Sources */,
+				E0D168371C17D167009FDDD8 /* HandyDoDetailViewController.swift in Sources */,
+				E09E49B81C18654A002D202E /* CreateHandyDoService.swift in Sources */,
+				E017714A1C1861B100616B9C /* AuthenticatedService.swift in Sources */,
+				E01771401C17FE1700616B9C /* CommonViewController.swift in Sources */,
+				E0D1683A1C17F171009FDDD8 /* User.swift in Sources */,
 				E0D5A38C1C156090004DEDF6 /* HandyDo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,6 +878,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = HandyMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.foodfortech.HandyMan;
@@ -551,6 +890,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = HandyMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.foodfortech.HandyMan;

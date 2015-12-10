@@ -58,20 +58,20 @@
                     <connections>
                         <outlet property="passwordTextField" destination="55d-qP-tNH" id="awH-if-lb4"/>
                         <outlet property="userNameTextField" destination="NC5-aL-Pae" id="9EY-2z-hJL"/>
-                        <segue destination="zgo-gE-Mze" kind="showDetail" identifier="HandyDoListViewControllerSegue" id="sEm-Id-d8q"/>
+                        <segue destination="zgo-gE-Mze" kind="show" identifier="HandyDoListViewControllerSegue" action="showDetailViewController:sender:" id="sEm-Id-d8q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-243" y="-75"/>
         </scene>
-        <!--HandyDoListViewControllerId-->
+        <!--HandyDoNavigationControllerrId-->
         <scene sceneID="WRg-mk-bQ6">
             <objects>
-                <viewControllerPlaceholder storyboardName="HandyDo" referencedIdentifier="HandyDoListViewControllerId" id="zgo-gE-Mze" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="HandyDoListViewControllerStoryboardReferenceId" storyboardName="HandyDo" referencedIdentifier="HandyDoNavigationControllerrId" id="zgo-gE-Mze" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scJ-Jg-8EB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="374" y="-75"/>
+            <point key="canvasLocation" x="294" y="-75"/>
         </scene>
     </scenes>
 </document>

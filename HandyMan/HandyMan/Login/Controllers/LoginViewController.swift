@@ -40,18 +40,30 @@ class LoginViewController: UIViewController, HandyDoBusinessServiceNavigationDel
     
     // MARK: - HandyDoBusinessService NavigationDelegate
     
+    func didCreateHandyDo(businessService: HandyDoBusinessService) {
+        // left intentionally blank
+    }
+    
     func didRetrieveHandyDoList(businessService: HandyDoBusinessService, handyDoList: [HandyDo]) {
         self.handyDoList = handyDoList
-        self .performSegueWithIdentifier(Constants.HandyDoListViewControllerSegue, sender: self)
+        self.performSegueWithIdentifier(Constants.HandyDoListViewControllerSegue, sender: self)
+    }
+    
+    func didUpdateHandyDo(businessService: HandyDoBusinessService) {
+        // left intentionally blank
+    }
+    
+    func didDeleteHandyDo(businessService: HandyDoBusinessService) {
+        // left intentionally blank
     }
     
     // MARK: - HandyDoBusinessService UIDelegate
     
-    func didCallBlockingService(businessService: HandyDoBusinessService) {
+    func didCallBlockingServiceWithBusinessService(businessService: HandyDoBusinessService) {
         // left intentionally blank
     }
     
-    func didCompleteBlockingService(businessService: HandyDoBusinessService) {
+    func didCompleteBlockingServiceWithBusinessService(businessService: HandyDoBusinessService) {
         // left intentionally blank
     }
     
@@ -62,9 +74,10 @@ class LoginViewController: UIViewController, HandyDoBusinessServiceNavigationDel
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if let handyDoListViewController: HandyDoListViewController = segue.destinationViewController as? HandyDoListViewController {
-            handyDoListViewController.handyDoList = self.handyDoList
-            self.navigationController?.pushViewController(handyDoListViewController, animated: true)
+        if let navigationController = segue.destinationViewController as? UINavigationController {
+            if let handyDoListViewController: HandyDoListViewController = navigationController.topViewController as? HandyDoListViewController {
+                handyDoListViewController.handyDoList = self.handyDoList
+            }
         }
     }
     

@@ -1,18 +1,18 @@
 //
-//  CommonViewController.swift
+//  CommonCollectionViewController.swift
 //  HandyMan
 //
-//  Created by Don Johnson on 12/9/15.
+//  Created by Don Johnson on 12/10/15.
 //  Copyright © 2015 Don Johnson. All rights reserved.
 //
 
 import UIKit
 
-class CommonViewController: UIViewController {
+class CommonCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("CommonViewController")
+        print("CommonCollectionViewController")
         
         // initial configuration
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HandyDoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HandyDoListViewController: CommonViewController, UITableViewDataSource, UITableViewDelegate {
     var handyDoList: [HandyDo]
     var handyDoToPass: HandyDo
     

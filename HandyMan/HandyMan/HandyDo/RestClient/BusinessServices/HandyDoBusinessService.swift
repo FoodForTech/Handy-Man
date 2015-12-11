@@ -15,12 +15,9 @@ protocol HandyDoBusinessServiceNavigationDelegate {
     func didDeleteHandyDo(businessService: HandyDoBusinessService) -> Void
 }
 
-protocol HandyDoBusinessServiceUIDelegate {
-    func didCallBlockingServiceWithBusinessService(businessService: HandyDoBusinessService) -> Void
-    func didCompleteBlockingServiceWithBusinessService(businessService: HandyDoBusinessService) -> Void
-}
+protocol HandyDoBusinessServiceUIDelegate: CommonBusinessServiceUIDelegate {}
 
-class HandyDoBusinessService: NSObject {
+class HandyDoBusinessService: CommonBusinessService {
     let navigationDelegate: HandyDoBusinessServiceNavigationDelegate
     let uiDelegate: HandyDoBusinessServiceUIDelegate
     let createHandyDoService: CreateHandyDoService
@@ -38,53 +35,49 @@ class HandyDoBusinessService: NSObject {
     }
     
     func createHandyDo(handyDo: HandyDo) {
-        self.uiDelegate.didCallBlockingServiceWithBusinessService(self)
+        self.uiDelegate.willCallBlockingBusinessService(self)
         self.createHandyDoService.createHandyDo(handyDo,
-            success: { (NSURLResponse) -> Void in
-                // success
+            success: {(response) -> Void in
                 self.navigationDelegate.didCreateHandyDo(self)
-                self.uiDelegate.didCompleteBlockingServiceWithBusinessService(self)
+                self.uiDelegate.didCompleteBlockingBusinessService(self)
             },
-            failure: {(NSError) -> Void in
-                // failure
+            failure: {(errors) -> Void in
                 // should call failure delegation
         })
     }
     
     func retrieveHandyDoList() -> Void {
-        self.uiDelegate.didCallBlockingServiceWithBusinessService(self)
+        self.uiDelegate.willCallBlockingBusinessService(self)
         self.retrieveHandyDoService.retrieveHandyDoList(
-            success: { (handyDoList) -> Void in
+            success: {(handyDoList) -> Void in
                 self.navigationDelegate.didRetrieveHandyDoList(self, handyDoList: handyDoList)
-                self.uiDelegate.didCompleteBlockingServiceWithBusinessService(self)
+                self.uiDelegate.didCompleteBlockingBusinessService(self)
             },
-            failure: {(nsError) -> Void in
+            failure: {(errors) -> Void in
                 // failure call failure delegation
         })
     }
     
     func updateHandyDo(handyDo: HandyDo) {
-        self.uiDelegate.didCallBlockingServiceWithBusinessService(self)
-        
+        self.uiDelegate.willCallBlockingBusinessService(self)
         self.updateHandyDoService.updateHandyDo(handyDo,
             success: {(response) -> Void in
                 self.navigationDelegate.didUpdateHandyDo(self)
-                self.uiDelegate.didCompleteBlockingServiceWithBusinessService(self)
+                self.uiDelegate.didCompleteBlockingBusinessService(self)
             },
-            failure: { (nsError) -> Void in
+            failure: {(errors) -> Void in
                 // failure call failure delegation
         })
     }
     
     func deleteHandyDo(handyDo: HandyDo) {
-        self.uiDelegate.didCallBlockingServiceWithBusinessService(self)
-        
+        self.uiDelegate.willCallBlockingBusinessService(self)
         self.deleteHandyDoService.deleteHandyDo(handyDo,
             success: {(response) -> Void in
                 self.navigationDelegate.didDeleteHandyDo(self)
-                self.uiDelegate.didCompleteBlockingServiceWithBusinessService(self)
+                self.uiDelegate.didCompleteBlockingBusinessService(self)
             },
-            failure: {(error) -> Void in
+            failure: {(errors) -> Void in
                 // failure call failure delegation
         })
     }

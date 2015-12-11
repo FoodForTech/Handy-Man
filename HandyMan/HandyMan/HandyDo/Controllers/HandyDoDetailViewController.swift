@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HandyDoDetailViewController: UIViewController {
+class HandyDoDetailViewController: CommonViewController {
     
     var handyDo: HandyDo = HandyDo()
     
@@ -27,7 +27,6 @@ class HandyDoDetailViewController: UIViewController {
     @IBAction func done(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
     
     /*
     // MARK: - Navigation

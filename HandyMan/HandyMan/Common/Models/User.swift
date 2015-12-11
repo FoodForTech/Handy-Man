@@ -8,14 +8,20 @@
 
 import UIKit
 
-class User: NSObject {
+enum UserType: Int {
+    case User
+    case HandyMan
+}
+
+class User {
 
     // Singleton
     static let sharedInstance: User = User()
-    private override init(){}
+    private init(){}
     
     var firstName = "Donald"
     var lastName = "Johnson"
     var occupation = "Software Engineer"
+    var userType: UserType = .User
     
 }

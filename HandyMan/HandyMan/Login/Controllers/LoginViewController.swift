@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, HandyDoBusinessServiceNavigationDelegate, HandyDoBusinessServiceUIDelegate {
+class LoginViewController: CommonViewController, HandyDoBusinessServiceNavigationDelegate, HandyDoBusinessServiceUIDelegate {
     
     struct Constants {
         static let HandyDoListViewControllerSegue: String = "HandyDoListViewControllerSegue"
@@ -40,31 +40,13 @@ class LoginViewController: UIViewController, HandyDoBusinessServiceNavigationDel
     
     // MARK: - HandyDoBusinessService NavigationDelegate
     
-    func didCreateHandyDo(businessService: HandyDoBusinessService) {
-        // left intentionally blank
-    }
+    func didCreateHandyDo(businessService: HandyDoBusinessService) {}
+    func didUpdateHandyDo(businessService: HandyDoBusinessService) {}
+    func didDeleteHandyDo(businessService: HandyDoBusinessService) {}
     
     func didRetrieveHandyDoList(businessService: HandyDoBusinessService, handyDoList: [HandyDo]) {
         self.handyDoList = handyDoList
         self.performSegueWithIdentifier(Constants.HandyDoListViewControllerSegue, sender: self)
-    }
-    
-    func didUpdateHandyDo(businessService: HandyDoBusinessService) {
-        // left intentionally blank
-    }
-    
-    func didDeleteHandyDo(businessService: HandyDoBusinessService) {
-        // left intentionally blank
-    }
-    
-    // MARK: - HandyDoBusinessService UIDelegate
-    
-    func didCallBlockingServiceWithBusinessService(businessService: HandyDoBusinessService) {
-        // left intentionally blank
-    }
-    
-    func didCompleteBlockingServiceWithBusinessService(businessService: HandyDoBusinessService) {
-        // left intentionally blank
     }
     
     // MARK: - Navigation

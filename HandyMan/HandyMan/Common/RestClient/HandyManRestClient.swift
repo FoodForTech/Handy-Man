@@ -15,10 +15,16 @@ class HandyManRestClient {
     // Singleton
     static let sharedInstance: HandyManRestClient = HandyManRestClient()
     private init() {
-        baseURL = "https://api.500px.com/"
+        baseURL = "http://localhost:3000"
     }
     
-    func getForService(service: ServiceRequest, parameters: [String: String], success:(Response<AnyObject, NSError>?) -> Void, failure:(AnyObject)->Void) -> Void {
+    // MARK: - GET Methods
+    
+    func getForService(service: ServiceRequest, success:(Response<AnyObject, NSError>?) -> Void, failure:(AnyObject) -> Void ) -> Void {
+        getForService(service, parameters: nil, success: success, failure: failure)
+    }
+    
+    func getForService(service: ServiceRequest, parameters: [String: String]?, success:(Response<AnyObject, NSError>?) -> Void, failure:(AnyObject) -> Void) -> Void {
         
         let url = baseURL + service.serviceEndpoint()
         Alamofire.request(.GET, url, parameters: parameters)
@@ -31,5 +37,40 @@ class HandyManRestClient {
                     failure(response.result.error!)
                 }
         }
+        
     }
+    
+    // MARK: - POST Methods
+    
+    func postForService(service: ServiceRequest, postObjectDictionary: Dictionary<String, AnyObject>, success:(Response<AnyObject, NSError>?) -> Void, failure:(AnyObject) -> Void) {
+    
+        let url = baseURL + service.serviceEndpoint()
+        Alamofire.request(.POST, url, parameters: postObjectDictionary, encoding: .JSON).responseJSON {
+            (response) -> Void in
+            switch response.result {
+            case .Success:
+                success(response)
+            case .Failure:
+                failure(response.result.error!)
+            }
+        }
+
+    }
+    
+    // MARK: - DELETE Methods
+    
+    func deleteForService(service: ServiceRequest, success:(Response<AnyObject, NSError>?) -> Void, failure:(AnyObject) -> Void) -> Void {
+        
+        let url = baseURL + service.serviceEndpoint()
+        Alamofire.request(.DELETE, url).responseJSON { (response) -> Void in
+            switch response.result {
+            case .Success:
+                success(response)
+            case .Failure:
+                failure(response.result.error!)
+            }
+        }
+        
+    }
+    
 }

@@ -14,8 +14,7 @@ class RetrieveHandyDoService: AuthenticatedService {
      *   GET Retrieves HandyDo List 
      */
     func retrieveHandyDoList(success success:[HandyDo]->Void, failure:NSError? -> Void) -> Void {
-        let parameters = ["consumer_key":"5jvwMuSo2ofiAUCx0wNar7OvDlE8m22tpdGJXcYx"]
-        HandyManRestClient.sharedInstance.getForService(self, parameters: parameters,
+        HandyManRestClient.sharedInstance.getForService(self,
             success: { (response) -> Void in
                 success(self.mapModelToResponse(response!))
             },
@@ -28,13 +27,14 @@ class RetrieveHandyDoService: AuthenticatedService {
         let json = JSON(data: response.data!)
         
         var handyDoList: [HandyDo] = []
-        let photos = json["photos"].array!
-        for var i=0; i < photos.count; i++ {
-            let camera = photos[i]["camera"].stringValue
-            let category = photos[i]["category"].stringValue
-            let description = photos[i]["description"].stringValue
+        let handyDos = json.array!
+        for var i=0; i < handyDos.count; i++ {
+            let handyDoId = handyDos[i]["id"].intValue
+            let title = handyDos[i]["title"].stringValue
+            let description = handyDos[i]["description"].stringValue
+            let status = handyDos[i]["status"].stringValue
             
-            let handyDo: HandyDo = HandyDo(id:1, title: camera, todo: description, status: category)
+            let handyDo: HandyDo = HandyDo(id: handyDoId, title: title, todo: description, status: status)
             handyDoList.append(handyDo)
         }
         return handyDoList
@@ -43,7 +43,7 @@ class RetrieveHandyDoService: AuthenticatedService {
     // MARK: ServiceEndpoint Protocol
     
     override func serviceEndpoint() -> String {
-        return "v1/photos"
+        return "/v1/handyDo"
     }
     
 }

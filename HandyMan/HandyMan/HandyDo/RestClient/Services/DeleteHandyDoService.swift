@@ -11,11 +11,11 @@ import Alamofire
 
 class DeleteHandyDoService: AuthenticatedService {
 
-    // Mock Service to Delete a handy do
+    var handyDo: HandyDo = HandyDo();
     
     func deleteHandyDo(handyDo: HandyDo, success: Bool -> Void, failure: NSError? -> Void) {
-        let parameters = ["consumer_key":"5jvwMuSo2ofiAUCx0wNar7OvDlE8m22tpdGJXcYx"]
-        HandyManRestClient.sharedInstance.getForService(self, parameters: parameters,
+        self.handyDo = handyDo;
+        HandyManRestClient.sharedInstance.deleteForService(self,
             success: { (response) -> Void in
                 success(true)
             },
@@ -27,6 +27,6 @@ class DeleteHandyDoService: AuthenticatedService {
     // MARK: ServiceRequest Protocol
     
     override func serviceEndpoint() -> String {
-        return "v1/"
+        return "/v1/handyDo/\(self.handyDo.id)"
     }
 }

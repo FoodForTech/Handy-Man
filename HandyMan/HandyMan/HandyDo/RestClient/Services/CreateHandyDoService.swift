@@ -10,18 +10,11 @@ import UIKit
 
 class CreateHandyDoService: AuthenticatedService {
     
-    var handyDo: HandyDo
-    
-    override init() {
-        self.handyDo = HandyDo()
-    }
-    
     func createHandyDo(handyDo: HandyDo, success: Bool -> Void, failure: NSError? -> Void) {
-        self.handyDo = handyDo
-        
-        let parameters = ["consumer_key":"5jvwMuSo2ofiAUCx0wNar7OvDlE8m22tpdGJXcYx"]
-        HandyManRestClient.sharedInstance.getForService(self, parameters: parameters,
+        let handyDoDict = self.mapHandyDoToPostDictionary(handyDo)
+        HandyManRestClient.sharedInstance.postForService(self, postObjectDictionary: handyDoDict,
             success: { (response) -> Void in
+                print(response?.description)
                 success(true)
             },
             failure: {(errors) -> Void in
@@ -32,6 +25,15 @@ class CreateHandyDoService: AuthenticatedService {
     // MARK: ServiceRequest Protocol
     
     override func serviceEndpoint() -> String {
-        return "v1/handyDo/\(self.handyDo.id)"
+        return "/v1/handyDo"
+    }
+    
+    // MARK: - Request Mapping
+    
+    func mapHandyDoToPostDictionary(handyDo: HandyDo) -> Dictionary<String, AnyObject> {
+        let dictionary: Dictionary<String, AnyObject> = ["title": handyDo.title,
+                                                         "description":handyDo.todo,
+                                                         "status": handyDo.status]
+        return dictionary
     }
 }

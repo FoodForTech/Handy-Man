@@ -13,19 +13,25 @@ class HandyDoDetailViewController: CommonViewController {
     var handyDo: HandyDo = HandyDo()
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var todoLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var statusLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         titleLabel.text = handyDo.title
-        todoLabel.text = handyDo.todo
+        descriptionTextView.text = handyDo.todo
         statusLabel.text = handyDo.status
     }
 
+    // MARK: - Control Events
+    
     @IBAction func done(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func complete(sender: UIButton) {
+        
     }
     
     /*

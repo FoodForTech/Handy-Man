@@ -34,22 +34,22 @@ class HandyDoTodoTableViewCell: UITableViewCell {
     
     private func setUpConstraints() -> Void {
         self.contentView.addSubview(titleLabel)
-        self.contentView.addSubview(todoDescriptionLabel)
         self.contentView.addSubview(statusLabel)
         
-        let metrics: [String: AnyObject] = ["":""]
-        let views: [String: AnyObject] = ["titleLabel": self.titleLabel,
-                                          "todoDescriptionLabel": self.todoDescriptionLabel,
+        let metrics: [String: NSNumber] = ["vTitleStatusSpacing": 5]
+        let views: [String: UIView] = ["titleLabel": self.titleLabel,
                                           "statusLabel": self.statusLabel]
         
-        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[titleLabel][todoDescriptionLabel][statusLabel]-|", options: NSLayoutFormatOptions.AlignAllLeading , metrics: metrics, views: views))
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[titleLabel][statusLabel]-|", options: NSLayoutFormatOptions.AlignAllLeading , metrics: metrics, views: views))
+        
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[titleLabel]", options: [], metrics: metrics, views: views))
+        
     }
     
     // MARK: - Public Properties
     
     func configureWithModel(handyDo: HandyDo) -> Void {
         titleLabel.text = handyDo.title
-        todoDescriptionLabel.text = handyDo.todo
         statusLabel.text = handyDo.status
         if (handyDo.status == "complete") {
            
@@ -63,12 +63,7 @@ class HandyDoTodoTableViewCell: UITableViewCell {
     private lazy var titleLabel: UILabel! = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var todoDescriptionLabel: UILabel! = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Helvetica-Bold", size: 17)
         return label
     }()
     

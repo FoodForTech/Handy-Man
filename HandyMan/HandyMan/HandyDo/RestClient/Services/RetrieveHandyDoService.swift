@@ -33,8 +33,9 @@ class RetrieveHandyDoService: AuthenticatedService {
             let title = handyDos[i]["title"].stringValue
             let description = handyDos[i]["description"].stringValue
             let status = handyDos[i]["status"].stringValue
+            let dateTime = handyDos[i]["date_time"].stringValue
             
-            let handyDo: HandyDo = HandyDo(id: handyDoId, title: title, todo: description, status: status)
+            let handyDo: HandyDo = HandyDo(id: handyDoId, title: title, todo: description, status: status, dateTime: dateTime)
             handyDoList.append(handyDo)
         }
         return handyDoList
@@ -43,7 +44,7 @@ class RetrieveHandyDoService: AuthenticatedService {
     // MARK: ServiceEndpoint Protocol
     
     override func serviceEndpoint() -> String {
-        return "/v1/handyDo"
+        return "/v1/handyDo/\(User.sharedInstance.id)"
     }
     
 }

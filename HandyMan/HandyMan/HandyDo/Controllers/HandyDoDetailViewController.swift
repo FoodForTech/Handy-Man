@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HandyDoDetailViewController: CommonViewController {
+class HandyDoDetailViewController: CommonViewController, HandyDoBusinessServiceNavigationDelegate, HandyDoBusinessServiceUIDelegate {
     
     var handyDo: HandyDo = HandyDo()
     
@@ -21,7 +21,7 @@ class HandyDoDetailViewController: CommonViewController {
 
         titleLabel.text = handyDo.title
         descriptionTextView.text = handyDo.todo
-        statusLabel.text = handyDo.status
+        statusLabel.text = handyDo.state()
     }
 
     // MARK: - Control Events
@@ -31,7 +31,23 @@ class HandyDoDetailViewController: CommonViewController {
     }
     
     @IBAction func complete(sender: UIButton) {
-        
+        handyDo.status = "3"
+        self.handyDoBusinessService.updateHandyDo(handyDo)
+    }
+    
+    @IBAction func inProgress(sender: UIButton) {
+        handyDo.status = "2"
+        self.handyDoBusinessService.updateHandyDo(handyDo)
+    }
+    
+    // MARK: HandyDoBusinessService NavigationDelegate
+    
+    func didDeleteHandyDo(businessService: HandyDoBusinessService) {}
+    func didCreateHandyDo(businessService: HandyDoBusinessService) {}
+    func didRetrieveHandyDoList(businessService: HandyDoBusinessService, handyDoList: [HandyDo]) {}
+    
+    func didUpdateHandyDo(businessService: HandyDoBusinessService) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     /*
@@ -43,5 +59,11 @@ class HandyDoDetailViewController: CommonViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - Lazy Loaded Properties
+    lazy var handyDoBusinessService: HandyDoBusinessService = {
+        let businessService = HandyDoBusinessService(navigationDelegate: self, uiDelegate: self)
+        return businessService
+    }()
 
 }

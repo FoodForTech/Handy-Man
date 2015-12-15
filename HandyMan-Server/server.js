@@ -53,8 +53,8 @@ app.post("/v1/auth/token", function(req, res) {
 
 // handyDo endpoint
 
-app.get("/v1/handyDo", function(req, res) {
-	var query = "SELECT id, title, description, status FROM HandyDo";
+app.get("/v1/handyDo/:user_id", function(req, res) {
+	var query = "SELECT id, title, description, status, date_time FROM HandyDo WHERE assign_to_user_id = " + req.params.user_id + " ORDER BY status asc";
    	handle_database(req, res, query);
 });
 
@@ -63,8 +63,8 @@ app.post("/v1/handyDo", function(req, res) {
    	handle_database(req, res, query);
 });
 
-app.put("/v1/handyDo/:id", function(req, res) {
-	var query = "UPDATE title, description, status FROM HandyDo where id=";
+app.put("/v1/handyDo", function(req, res) {
+	var query = "UPDATE HandyDo SET title = '" + req.body.title + "', description = '" + req.body.description + "', status = '" + req.body.status + "' WHERE id = " + req.body.id;
    	handle_database(req, res, query);
 });
 

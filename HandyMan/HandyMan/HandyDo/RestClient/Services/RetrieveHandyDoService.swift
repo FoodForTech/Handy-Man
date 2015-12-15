@@ -44,7 +44,7 @@ class RetrieveHandyDoService: AuthenticatedService {
     // MARK: ServiceEndpoint Protocol
     
     override func serviceEndpoint() -> String {
-        return "/v1/handyDo/\(User.sharedInstance.id)"
+        return "/v1/handyDo/\(UserManager.sharedInstance.user.id)"
     }
     
 }

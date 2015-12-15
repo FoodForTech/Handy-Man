@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D83CEDC40C278186FC31BD8B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1F195D030C249D0B3E9F98 /* Pods.framework */; };
 		E00A02341C1B1C6C009F84DA /* CommonCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A02251C1B1C6C009F84DA /* CommonCollectionViewController.swift */; };
 		E00A02351C1B1C6C009F84DA /* CommonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A02261C1B1C6C009F84DA /* CommonTableViewController.swift */; };
 		E00A02361C1B1C6C009F84DA /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A02271C1B1C6C009F84DA /* CommonViewController.swift */; };
 		E00A02371C1B1C6C009F84DA /* UIViewController_CommonBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A02291C1B1C6C009F84DA /* UIViewController_CommonBusinessService.swift */; };
-		E00A02381C1B1C6C009F84DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A022B1C1B1C6C009F84DA /* User.swift */; };
+		E00A02381C1B1C6C009F84DA /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A022B1C1B1C6C009F84DA /* UserManager.swift */; };
 		E00A02391C1B1C6C009F84DA /* CommonBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A022E1C1B1C6C009F84DA /* CommonBusinessService.swift */; };
 		E00A023A1C1B1C6C009F84DA /* HandyManRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A022F1C1B1C6C009F84DA /* HandyManRestClient.swift */; };
 		E00A023B1C1B1C6C009F84DA /* AuthenticatedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A02311C1B1C6C009F84DA /* AuthenticatedService.swift */; };
@@ -29,7 +30,11 @@
 		E00A02581C1B2319009F84DA /* UpdateHandyDoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A024E1C1B2319009F84DA /* UpdateHandyDoService.swift */; };
 		E00A02691C1B24A9009F84DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A02631C1B24A9009F84DA /* LoginViewController.swift */; };
 		E00A026B1C1B283B009F84DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E00A026A1C1B283B009F84DA /* Main.storyboard */; };
+		E00EB20F1C1F957300A497E4 /* LoginBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00EB20E1C1F957300A497E4 /* LoginBusinessService.swift */; };
+		E00EB2181C1F95C000A497E4 /* AuthorizationTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00EB2171C1F95C000A497E4 /* AuthorizationTokenService.swift */; };
+		E00EB21A1C1FABFE00A497E4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00EB2191C1FABFE00A497E4 /* User.swift */; };
 		E0871F241C1E29E500A2D813 /* HandyDoCreateTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0871F231C1E29E500A2D813 /* HandyDoCreateTodoViewController.swift */; };
+		E08D01661C1FCEB70009968B /* HandyDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08D01651C1FCEB70009968B /* HandyDoList.swift */; };
 		E0C4E5581C14D2AE0059386D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E5571C14D2AE0059386D /* AppDelegate.swift */; };
 		E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E55E1C14D2AE0059386D /* HandyMan.xcdatamodeld */; };
 		E0C4E5621C14D2AE0059386D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C4E5611C14D2AE0059386D /* Assets.xcassets */; };
@@ -39,55 +44,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E035996F1C19C9D10049EC0B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS";
-		};
-		E03599711C19C9D10049EC0B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS Tests";
-		};
-		E03599731C19C9D10049EC0B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
-			remoteInfo = "Alamofire OSX";
-		};
-		E03599751C19C9D10049EC0B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
-			remoteInfo = "Alamofire OSX Tests";
-		};
-		E03599771C19C9D10049EC0B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4CF626EF1BA7CB3E0011A099;
-			remoteInfo = "Alamofire tvOS";
-		};
-		E03599791C19C9D10049EC0B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4CF626F81BA7CB3E0011A099;
-			remoteInfo = "Alamofire tvOS Tests";
-		};
-		E035997B1C19C9D10049EC0B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E4202FE01B667AA100C997FB;
-			remoteInfo = "Alamofire watchOS";
-		};
 		E0C4E56C1C14D2AE0059386D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E0C4E54C1C14D2AE0059386D /* Project object */;
@@ -104,25 +60,15 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		E03A88A71C187420007A78EA /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		3E56AD3364E3C16C9B97CD83 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		574D80BF6784CD52FAF2A66E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8D1F195D030C249D0B3E9F98 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00A02251C1B1C6C009F84DA /* CommonCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonCollectionViewController.swift; sourceTree = "<group>"; };
 		E00A02261C1B1C6C009F84DA /* CommonTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTableViewController.swift; sourceTree = "<group>"; };
 		E00A02271C1B1C6C009F84DA /* CommonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
 		E00A02291C1B1C6C009F84DA /* UIViewController_CommonBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController_CommonBusinessService.swift; sourceTree = "<group>"; };
-		E00A022B1C1B1C6C009F84DA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E00A022B1C1B1C6C009F84DA /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		E00A022E1C1B1C6C009F84DA /* CommonBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonBusinessService.swift; sourceTree = "<group>"; };
 		E00A022F1C1B1C6C009F84DA /* HandyManRestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyManRestClient.swift; sourceTree = "<group>"; };
 		E00A02311C1B1C6C009F84DA /* AuthenticatedService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatedService.swift; sourceTree = "<group>"; };
@@ -140,8 +86,11 @@
 		E00A024E1C1B2319009F84DA /* UpdateHandyDoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHandyDoService.swift; sourceTree = "<group>"; };
 		E00A02631C1B24A9009F84DA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E00A026A1C1B283B009F84DA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Alamofire.xcodeproj; sourceTree = "<group>"; };
+		E00EB20E1C1F957300A497E4 /* LoginBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginBusinessService.swift; sourceTree = "<group>"; };
+		E00EB2171C1F95C000A497E4 /* AuthorizationTokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationTokenService.swift; sourceTree = "<group>"; };
+		E00EB2191C1FABFE00A497E4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E0871F231C1E29E500A2D813 /* HandyDoCreateTodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyDoCreateTodoViewController.swift; sourceTree = "<group>"; };
+		E08D01651C1FCEB70009968B /* HandyDoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyDoList.swift; sourceTree = "<group>"; };
 		E0C4E5541C14D2AE0059386D /* HandyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C4E5571C14D2AE0059386D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0C4E55F1C14D2AE0059386D /* HandyMan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HandyMan.xcdatamodel; sourceTree = "<group>"; };
@@ -161,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D83CEDC40C278186FC31BD8B /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +131,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11EADDD07EDF78894689F37B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E56AD3364E3C16C9B97CD83 /* Pods.debug.xcconfig */,
+				574D80BF6784CD52FAF2A66E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AB96B7D39B1049C5E62EE5BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D1F195D030C249D0B3E9F98 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E00A021B1C1B1B9A009F84DA /* Expenses */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,7 +243,7 @@
 		E00A022A1C1B1C6C009F84DA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E00A022B1C1B1C6C009F84DA /* User.swift */,
+				E00A022B1C1B1C6C009F84DA /* UserManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -343,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				E00A02461C1B2319009F84DA /* HandyDo.swift */,
+				E08D01651C1FCEB70009968B /* HandyDoList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -461,6 +429,7 @@
 		E00A02641C1B24A9009F84DA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E00EB2191C1FABFE00A497E4 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -477,6 +446,7 @@
 		E00A02661C1B24A9009F84DA /* BusinessService */ = {
 			isa = PBXGroup;
 			children = (
+				E00EB20E1C1F957300A497E4 /* LoginBusinessService.swift */,
 			);
 			path = BusinessService;
 			sourceTree = "<group>";
@@ -484,6 +454,7 @@
 		E00A02671C1B24A9009F84DA /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				E00EB2171C1F95C000A497E4 /* AuthorizationTokenService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -495,20 +466,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		E03599661C19C9D00049EC0B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E03599701C19C9D10049EC0B /* Alamofire.framework */,
-				E03599721C19C9D10049EC0B /* Alamofire iOS Tests.xctest */,
-				E03599741C19C9D10049EC0B /* Alamofire.framework */,
-				E03599761C19C9D10049EC0B /* Alamofire OSX Tests.xctest */,
-				E03599781C19C9D10049EC0B /* Alamofire.framework */,
-				E035997A1C19C9D10049EC0B /* Alamofire tvOS Tests.xctest */,
-				E035997C1C19C9D10049EC0B /* Alamofire.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		E0C4E54B1C14D2AE0059386D = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +473,8 @@
 				E0C4E56E1C14D2AE0059386D /* HandyManTests */,
 				E0C4E5791C14D2AE0059386D /* HandyManUITests */,
 				E0C4E5551C14D2AE0059386D /* Products */,
+				11EADDD07EDF78894689F37B /* Pods */,
+				AB96B7D39B1049C5E62EE5BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -532,7 +491,6 @@
 		E0C4E5561C14D2AE0059386D /* HandyMan */ = {
 			isa = PBXGroup;
 			children = (
-				E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */,
 				E00A02231C1B1C6C009F84DA /* Common */,
 				E00A02611C1B24A9009F84DA /* Login */,
 				E00A023E1C1B2318009F84DA /* HandyDo */,
@@ -572,10 +530,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0C4E57F1C14D2AE0059386D /* Build configuration list for PBXNativeTarget "HandyMan" */;
 			buildPhases = (
+				4E09D6A9FA0E4B16C41AD59F /* Check Pods Manifest.lock */,
 				E0C4E5501C14D2AE0059386D /* Sources */,
 				E0C4E5511C14D2AE0059386D /* Frameworks */,
 				E0C4E5521C14D2AE0059386D /* Resources */,
-				E03A88A71C187420007A78EA /* Embed Frameworks */,
+				3F3B8FF37CF050A950FA150C /* Embed Pods Frameworks */,
+				BD6060C60890A40186AFFD68 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -634,6 +594,7 @@
 				TargetAttributes = {
 					E0C4E5531C14D2AE0059386D = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 76YDMH49MP;
 					};
 					E0C4E56A1C14D2AE0059386D = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -656,12 +617,6 @@
 			mainGroup = E0C4E54B1C14D2AE0059386D;
 			productRefGroup = E0C4E5551C14D2AE0059386D /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = E03599661C19C9D00049EC0B /* Products */;
-					ProjectRef = E03A88AF1C19BB9F007A78EA /* Alamofire.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				E0C4E5531C14D2AE0059386D /* HandyMan */,
@@ -670,58 +625,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		E03599701C19C9D10049EC0B /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = E035996F1C19C9D10049EC0B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E03599721C19C9D10049EC0B /* Alamofire iOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire iOS Tests.xctest";
-			remoteRef = E03599711C19C9D10049EC0B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E03599741C19C9D10049EC0B /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = E03599731C19C9D10049EC0B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E03599761C19C9D10049EC0B /* Alamofire OSX Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire OSX Tests.xctest";
-			remoteRef = E03599751C19C9D10049EC0B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E03599781C19C9D10049EC0B /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = E03599771C19C9D10049EC0B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E035997A1C19C9D10049EC0B /* Alamofire tvOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire tvOS Tests.xctest";
-			remoteRef = E03599791C19C9D10049EC0B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E035997C1C19C9D10049EC0B /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = E035997B1C19C9D10049EC0B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E0C4E5521C14D2AE0059386D /* Resources */ = {
@@ -751,19 +654,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F3B8FF37CF050A950FA150C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E09D6A9FA0E4B16C41AD59F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BD6060C60890A40186AFFD68 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E0C4E5501C14D2AE0059386D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E00EB21A1C1FABFE00A497E4 /* User.swift in Sources */,
 				E00A023B1C1B1C6C009F84DA /* AuthenticatedService.swift in Sources */,
 				E00A023D1C1B1C6C009F84DA /* SwiftyJSON.swift in Sources */,
 				E00A02391C1B1C6C009F84DA /* CommonBusinessService.swift in Sources */,
+				E00EB2181C1F95C000A497E4 /* AuthorizationTokenService.swift in Sources */,
+				E00EB20F1C1F957300A497E4 /* LoginBusinessService.swift in Sources */,
 				E0C4E5581C14D2AE0059386D /* AppDelegate.swift in Sources */,
 				E00A023A1C1B1C6C009F84DA /* HandyManRestClient.swift in Sources */,
 				E00A02351C1B1C6C009F84DA /* CommonTableViewController.swift in Sources */,
 				E00A02501C1B2319009F84DA /* HandyDoDetailViewController.swift in Sources */,
-				E00A02381C1B1C6C009F84DA /* User.swift in Sources */,
+				E00A02381C1B1C6C009F84DA /* UserManager.swift in Sources */,
 				E00A02571C1B2319009F84DA /* RetrieveHandyDoService.swift in Sources */,
 				E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */,
 				E00A02691C1B24A9009F84DA /* LoginViewController.swift in Sources */,
@@ -779,6 +733,7 @@
 				E00A02531C1B2319009F84DA /* HandyDo.swift in Sources */,
 				E0871F241C1E29E500A2D813 /* HandyDoCreateTodoViewController.swift in Sources */,
 				E00A02541C1B2319009F84DA /* HandyDoBusinessService.swift in Sources */,
+				E08D01661C1FCEB70009968B /* HandyDoList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,9 +865,10 @@
 		};
 		E0C4E5801C14D2AE0059386D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E56AD3364E3C16C9B97CD83 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HandyMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.foodfortech.HandyMan;
@@ -922,9 +878,10 @@
 		};
 		E0C4E5811C14D2AE0059386D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 574D80BF6784CD52FAF2A66E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HandyMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.foodfortech.HandyMan;

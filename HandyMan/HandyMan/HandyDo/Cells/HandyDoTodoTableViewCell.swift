@@ -60,11 +60,11 @@ class HandyDoTodoTableViewCell: UITableViewCell {
         descriptionLabel.text = handyDo.todo
         dateTimeLabel.text = handyDo.formattedDate()
         if state == "New" {
-            statusView.backgroundColor = UIColor.redColor()
+            statusView.backgroundColor = UIColor.yellowColor()
         } else if state == "In Progress" {
-            statusView.backgroundColor = UIColor.brownColor()
+            statusView.backgroundColor = UIColor.orangeColor()
         } else if state == "Complete" {
-            statusView.backgroundColor = UIColor.blueColor()
+            statusView.backgroundColor = UIColor.greenColor()
         } else {
             statusView.backgroundColor = UIColor.blackColor()
         }

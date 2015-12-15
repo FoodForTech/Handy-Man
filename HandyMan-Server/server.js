@@ -47,11 +47,11 @@ function handle_database(req, res, query) {
 // authorization end point
 
 app.post("/v1/auth/token", function(req, res) {
-	var query = "SELECT id, type, first_name, last_name, email_address FROM User"
+	var query = "SELECT id, type, email_address, first_name, last_name, phone_number FROM User WHERE email_address = '" + req.body.emailAddress + "' and password = '" + req.body.password + "'";
 	handle_database(req, res, query);
 });
 
-// handyDo endpoint
+// handyDo end point
 
 app.get("/v1/handyDo/:user_id", function(req, res) {
 	var query = "SELECT id, title, description, status, date_time FROM HandyDo WHERE assign_to_user_id = " + req.params.user_id + " ORDER BY status asc";

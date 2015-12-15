@@ -15,7 +15,9 @@ class HandyManRestClient {
     // Singleton
     static let sharedInstance: HandyManRestClient = HandyManRestClient()
     private init() {
-        baseURL = "http://localhost:3000"
+//        baseURL = "http://localhost:3000"
+        
+        baseURL = "http://10.0.0.59:3000"
     }
     
     // MARK: - GET Methods

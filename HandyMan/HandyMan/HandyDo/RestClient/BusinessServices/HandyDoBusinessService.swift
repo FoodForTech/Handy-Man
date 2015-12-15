@@ -6,8 +6,6 @@
 //  Copyright © 2015 Don Johnson. All rights reserved.
 //
 
-import UIKit
-
 protocol HandyDoBusinessServiceNavigationDelegate {
     func didCreateHandyDo(businessService: HandyDoBusinessService) -> Void
     func didRetrieveHandyDoList(businessService: HandyDoBusinessService, handyDoList: [HandyDo]) -> Void

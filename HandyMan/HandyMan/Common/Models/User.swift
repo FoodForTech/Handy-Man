@@ -9,8 +9,8 @@
 import UIKit
 
 enum UserType: Int {
-    case User
-    case HandyMan
+    case Issuer
+    case Fixer
 }
 
 class User {
@@ -19,9 +19,14 @@ class User {
     static let sharedInstance: User = User()
     private init(){}
     
-    var firstName = "Donald"
-    var lastName = "Johnson"
+    var id = "2"
+    var firstName = "John"
+    var lastName = "Doe"
     var occupation = "Software Engineer"
-    var userType: UserType = .User
+    var userType: UserType = .Fixer
+    
+    func fullNameFormatted() -> String {
+        return firstName + " " + lastName
+    }
     
 }

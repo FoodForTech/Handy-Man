@@ -73,4 +73,20 @@ class HandyManRestClient {
         
     }
     
+    // MARK: - PUT Methods
+    
+    func putForService(service: ServiceRequest, postObjectDictionary: Dictionary<String, AnyObject>, success:(Response<AnyObject, NSError>?) -> Void, failure:(AnyObject) -> Void) {
+        
+        let url = baseURL + service.serviceEndpoint()
+        Alamofire.request(.PUT, url, parameters: postObjectDictionary, encoding: .JSON).responseJSON {
+            (response) -> Void in
+            switch response.result {
+            case .Success:
+                success(response)
+            case .Failure:
+                failure(response.result.error!)
+            }
+        }
+        
+    }
 }

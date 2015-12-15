@@ -10,7 +10,9 @@ import UIKit
 
 class HandyDoListViewController: CommonViewController, UITableViewDataSource, UITableViewDelegate, HandyDoBusinessServiceNavigationDelegate, HandyDoBusinessServiceUIDelegate {
     var handyDoList: [HandyDo]
-    var handyDoToPass: HandyDo
+    
+    var handyDoSectionList = [[HandyDo]]()
+    
     var indexPath: NSIndexPath
     
     private var handyDoTableViewCell: HandyDoTodoTableViewCell
@@ -29,7 +31,6 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     
     required init?(coder aDecoder: NSCoder) {
         self.handyDoList = []
-        self.handyDoToPass = HandyDo()
         self.handyDoTableViewCell = HandyDoTodoTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: Constants.HandyDoTodoTableViewCellId)
         self.indexPath = NSIndexPath()
         super.init(coder: aDecoder)
@@ -41,16 +42,63 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.handyManNameLabel.text = User.sharedInstance.firstName + " " + User.sharedInstance.lastName
+        self.handyManNameLabel.text = User.sharedInstance.fullNameFormatted()
         self.updateTodoProgress()
+        
+        var newHandyDoList = [HandyDo]()
+        var inProgressHandyDoList = [HandyDo]()
+        var completeHandyDoList = [HandyDo]()
+        for handyDo: HandyDo in self.handyDoList {
+            if handyDo.status == "1" {
+                newHandyDoList.append(handyDo)
+            } else if handyDo.status == "2" {
+                inProgressHandyDoList.append(handyDo)
+            } else if handyDo.status == "3" {
+                completeHandyDoList.append(handyDo)
+            }
+        }
+        self.handyDoSectionList.append(newHandyDoList)
+        self.handyDoSectionList.append(inProgressHandyDoList)
+        self.handyDoSectionList.append(completeHandyDoList)
         
         tableView.registerClass(HandyDoTodoTableViewCell.self, forCellReuseIdentifier: Constants.HandyDoTodoTableViewCellId)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateTodoProgress()
+        self.tableView.reloadData()
+    }
+    
     // MARK: UITableView DataSource Methods
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.min
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "New"
+        case 1:
+            return "In Progress"
+        case 2:
+            return "Completed"
+        default:
+            return "Default"
+        }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.handyDoSectionList.count
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return handyDoList.count;
+        return self.handyDoSectionList[section].count;
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -59,24 +107,25 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: HandyDoTodoTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(Constants.HandyDoTodoTableViewCellId) as! HandyDoTodoTableViewCell
-        let handyDo = handyDoList[indexPath.row]
+        let handyDo = handyDoSectionList[indexPath.section][indexPath.row]
         cell.configureWithModel(handyDo)
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.handyDoToPass = handyDoList[indexPath.row]
+        self.indexPath = indexPath
         self.performSegueWithIdentifier(Constants.HandyDoListViewControllerSegue, sender: self)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+        let handyDo = self.handyDoSectionList[indexPath.section][indexPath.row]
+        return handyDo.state() == "Complete"
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             self.indexPath = indexPath
-            let handyDo: HandyDo = self.handyDoList[self.indexPath.row]
+            let handyDo: HandyDo = self.handyDoSectionList[self.indexPath.section][indexPath.row]
             self.handyDoBusinessService.deleteHandyDo(handyDo)
         }
     }
@@ -98,7 +147,7 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     func updateTodoProgress() {
         var completedHandyDos = 0
         for handyDo in self.handyDoList {
-            if handyDo.status == "1" {
+            if handyDo.state() == "Complete" {
                 completedHandyDos++
             }
         }
@@ -110,8 +159,10 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let navigationController = segue.destinationViewController as? UINavigationController {
             if let handyDoDetailViewController = navigationController.topViewController as? HandyDoDetailViewController {
-                handyDoDetailViewController.handyDo = self.handyDoToPass
+                handyDoDetailViewController.handyDo = self.handyDoList[self.indexPath.row]
             }
+        } else if let createHandyDoViewController = segue.destinationViewController as? HandyDoCreateTodoViewController {
+            createHandyDoViewController.handyDoList = self.handyDoList
         }
     }
     

@@ -10,6 +10,8 @@ import UIKit
 
 class HandyDoCreateTodoViewController: UIViewController, HandyDoBusinessServiceNavigationDelegate, HandyDoBusinessServiceUIDelegate {
 
+    var handyDoList: [HandyDo] = [HandyDo]()
+    
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
     
@@ -22,7 +24,8 @@ class HandyDoCreateTodoViewController: UIViewController, HandyDoBusinessServiceN
     // MARK: - Control Events
     
     @IBAction func create(sender: UIButton) {
-        let handyDo = HandyDo(id: 0, title: titleField.text!, todo: descriptionField.text!, status: "1")
+        let handyDo = HandyDo(id: 0, title: titleField.text!, todo: descriptionField.text!, status: "1", dateTime: "")
+        self.handyDoList.append(handyDo)
         self.handyDoBusinessService.createHandyDo(handyDo)
     }
     

@@ -10,12 +10,10 @@ import UIKit
 import Alamofire
 
 class UpdateHandyDoService: AuthenticatedService {
-
-    // Mock Service to update a HandyDo
     
     func updateHandyDo(handyDo: HandyDo, success: Bool -> Void, failure: NSError? -> Void) {
-        let parameters = ["consumer_key":"5jvwMuSo2ofiAUCx0wNar7OvDlE8m22tpdGJXcYx"]
-        HandyManRestClient.sharedInstance.getForService(self, parameters: parameters,
+        let handyDoDict: [String: AnyObject] = self.mapHandyDoToDictionary(handyDo)
+        HandyManRestClient.sharedInstance.putForService(self, postObjectDictionary: handyDoDict,
             success: { (response) -> Void in
                 success(true)
             },
@@ -27,6 +25,15 @@ class UpdateHandyDoService: AuthenticatedService {
     // MARK: ServiceRequest Protocol
     
     override func serviceEndpoint() -> String {
-        return "v1/"
+        return "/v1/handyDo"
+    }
+    
+    // MARK: - Request Mapping
+    
+    func mapHandyDoToDictionary(handyDo:HandyDo) -> Dictionary<String, AnyObject> {
+        return ["id": handyDo.id,
+                "title": handyDo.title,
+                "description": handyDo.todo,
+                "status": handyDo.status]
     }
 }

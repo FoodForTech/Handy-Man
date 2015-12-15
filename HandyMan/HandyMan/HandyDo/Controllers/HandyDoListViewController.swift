@@ -9,10 +9,7 @@
 import UIKit
 
 class HandyDoListViewController: CommonViewController, UITableViewDataSource, UITableViewDelegate, HandyDoBusinessServiceNavigationDelegate, HandyDoBusinessServiceUIDelegate {
-    var handyDoList: [HandyDo]
-    
-    var handyDoSectionList = [[HandyDo]]()
-    
+    var handyDoList: HandyDoList
     var indexPath: NSIndexPath
     
     private var handyDoTableViewCell: HandyDoTodoTableViewCell
@@ -30,7 +27,7 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     // MARK: - Init
     
     required init?(coder aDecoder: NSCoder) {
-        self.handyDoList = []
+        self.handyDoList = HandyDoList()
         self.handyDoTableViewCell = HandyDoTodoTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: Constants.HandyDoTodoTableViewCellId)
         self.indexPath = NSIndexPath()
         super.init(coder: aDecoder)
@@ -42,32 +39,24 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.handyManNameLabel.text = User.sharedInstance.fullNameFormatted()
+        self.handyManNameLabel.text = UserManager.sharedInstance.fullNameFormatted()
         self.updateTodoProgress()
-        
-        var newHandyDoList = [HandyDo]()
-        var inProgressHandyDoList = [HandyDo]()
-        var completeHandyDoList = [HandyDo]()
-        for handyDo: HandyDo in self.handyDoList {
-            if handyDo.status == "1" {
-                newHandyDoList.append(handyDo)
-            } else if handyDo.status == "2" {
-                inProgressHandyDoList.append(handyDo)
-            } else if handyDo.status == "3" {
-                completeHandyDoList.append(handyDo)
-            }
-        }
-        self.handyDoSectionList.append(newHandyDoList)
-        self.handyDoSectionList.append(inProgressHandyDoList)
-        self.handyDoSectionList.append(completeHandyDoList)
         
         tableView.registerClass(HandyDoTodoTableViewCell.self, forCellReuseIdentifier: Constants.HandyDoTodoTableViewCellId)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.handyDoList.sortHandyDoListByStatus()
         self.updateTodoProgress()
         self.tableView.reloadData()
+    }
+    
+    // MARK: Control Events
+    
+    @IBAction func logout(sender: UIBarButtonItem) {
+        UserManager.sharedInstance.logout()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: UITableView DataSource Methods
@@ -94,11 +83,11 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.handyDoSectionList.count
+        return self.handyDoList.handyDoSectionList.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.handyDoSectionList[section].count;
+        return self.handyDoList.handyDoSectionList[section].count;
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -107,7 +96,7 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: HandyDoTodoTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(Constants.HandyDoTodoTableViewCellId) as! HandyDoTodoTableViewCell
-        let handyDo = handyDoSectionList[indexPath.section][indexPath.row]
+        let handyDo = self.handyDoList.handyDoSectionList[indexPath.section][indexPath.row]
         cell.configureWithModel(handyDo)
         return cell
     }
@@ -118,14 +107,14 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        let handyDo = self.handyDoSectionList[indexPath.section][indexPath.row]
+        let handyDo = self.handyDoList.handyDoSectionList[indexPath.section][indexPath.row]
         return handyDo.state() == "Complete"
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             self.indexPath = indexPath
-            let handyDo: HandyDo = self.handyDoSectionList[self.indexPath.section][indexPath.row]
+            let handyDo: HandyDo = self.handyDoList.handyDoSectionList[self.indexPath.section][indexPath.row]
             self.handyDoBusinessService.deleteHandyDo(handyDo)
         }
     }
@@ -137,7 +126,7 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     func didUpdateHandyDo(businessService: HandyDoBusinessService) {}
     
     func didDeleteHandyDo(businessService: HandyDoBusinessService) {
-        self.handyDoList.removeAtIndex(self.indexPath.row)
+        self.handyDoList.handyDoSectionList[indexPath.section].removeAtIndex(self.indexPath.row)
         tableView.deleteRowsAtIndexPaths([self.indexPath], withRowAnimation: .Fade)
         self.updateTodoProgress()
     }
@@ -146,12 +135,16 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     
     func updateTodoProgress() {
         var completedHandyDos = 0
-        for handyDo in self.handyDoList {
-            if handyDo.state() == "Complete" {
-                completedHandyDos++
+        var totalHandyDos = 0
+        for handyDoArray in self.handyDoList.handyDoSectionList {
+            for handyDo in handyDoArray {
+                if handyDo.state() == "Complete" {
+                    completedHandyDos++
+                }
+                totalHandyDos++
             }
         }
-        self.todoProgressLabel.text = "\(completedHandyDos) of \(self.handyDoList.count)"
+        self.todoProgressLabel.text = "\(completedHandyDos) of \(totalHandyDos)"
     }
     
     // MARK: - Navigation
@@ -159,7 +152,7 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let navigationController = segue.destinationViewController as? UINavigationController {
             if let handyDoDetailViewController = navigationController.topViewController as? HandyDoDetailViewController {
-                handyDoDetailViewController.handyDo = self.handyDoList[self.indexPath.row]
+                handyDoDetailViewController.handyDo = self.handyDoList.handyDoSectionList[self.indexPath.section][indexPath.row]
             }
         } else if let createHandyDoViewController = segue.destinationViewController as? HandyDoCreateTodoViewController {
             createHandyDoViewController.handyDoList = self.handyDoList

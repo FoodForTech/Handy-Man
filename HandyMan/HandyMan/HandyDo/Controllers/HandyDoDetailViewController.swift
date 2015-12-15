@@ -49,18 +49,9 @@ class HandyDoDetailViewController: CommonViewController, HandyDoBusinessServiceN
     func didUpdateHandyDo(businessService: HandyDoBusinessService) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+ 
     // MARK: - Lazy Loaded Properties
+    
     lazy var handyDoBusinessService: HandyDoBusinessService = {
         let businessService = HandyDoBusinessService(navigationDelegate: self, uiDelegate: self)
         return businessService

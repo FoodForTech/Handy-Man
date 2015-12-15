@@ -8,33 +8,30 @@
 
 import UIKit
 
-class LoginViewController: CommonViewController, HandyDoBusinessServiceNavigationDelegate, HandyDoBusinessServiceUIDelegate {
+class LoginViewController: CommonViewController, LoginBusinessServiceNavigationDelegate, LoginBusinessServiceUIDelegate,  HandyDoBusinessServiceNavigationDelegate, HandyDoBusinessServiceUIDelegate {
     
     struct Constants {
         static let HandyDoListViewControllerSegue: String = "HandyDoListViewControllerSegue"
     }
     
-    var handyDoList: [HandyDo] = []
+    var handyDoList: HandyDoList = HandyDoList()
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    // MARK: - Lifecycle Methods
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: - Control Events
     
     @IBAction func logOn(sender: UIButton) {
-        // TODO authentication
+        let emailAddress = userNameTextField.text!
+        let password = passwordTextField.text!
+        passwordTextField.text! = ""
+        self.loginBusinessService.authorizeUserWithEmailAddress(emailAddress, password: password)
+    }
+    
+    // MARK: - LoginBusinessService NavigationDelegate
+    
+    func didLoginWithBusinessService(service: LoginBusinessService, user: User) {
+        userNameTextField.text! = ""
         self.handyDoBusinessService.retrieveHandyDoList()
     }
     
@@ -45,17 +42,13 @@ class LoginViewController: CommonViewController, HandyDoBusinessServiceNavigatio
     func didDeleteHandyDo(businessService: HandyDoBusinessService) {}
     
     func didRetrieveHandyDoList(businessService: HandyDoBusinessService, handyDoList: [HandyDo]) {
-        self.handyDoList = handyDoList
+        self.handyDoList.handyDoList = handyDoList
         self.performSegueWithIdentifier(Constants.HandyDoListViewControllerSegue, sender: self)
     }
     
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
         if let navigationController = segue.destinationViewController as? UINavigationController {
             if let handyDoListViewController: HandyDoListViewController = navigationController.topViewController as? HandyDoListViewController {
                 handyDoListViewController.handyDoList = self.handyDoList
@@ -64,6 +57,11 @@ class LoginViewController: CommonViewController, HandyDoBusinessServiceNavigatio
     }
     
     // MARK: - Lazy Loaded Properties
+    
+    lazy var loginBusinessService: LoginBusinessService = {
+        let businessService = LoginBusinessService(navigationDelegate: self, uiDelegate: self)
+        return businessService
+    }()
     
     lazy var handyDoBusinessService: HandyDoBusinessService = {
         let businessService = HandyDoBusinessService(navigationDelegate: self, uiDelegate: self)

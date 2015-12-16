@@ -14,7 +14,6 @@ class CreateHandyDoService: AuthenticatedService {
         let handyDoDict = self.mapHandyDoToPostDictionary(handyDo)
         HandyManRestClient.sharedInstance.postForService(self, postObjectDictionary: handyDoDict,
             success: { (response) -> Void in
-                print(response?.description)
                 success(true)
             },
             failure: {(errors) -> Void in

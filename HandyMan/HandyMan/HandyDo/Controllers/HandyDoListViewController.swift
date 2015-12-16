@@ -11,6 +11,7 @@ import UIKit
 class HandyDoListViewController: CommonViewController, UITableViewDataSource, UITableViewDelegate, HandyDoBusinessServiceNavigationDelegate, HandyDoBusinessServiceUIDelegate {
     var handyDoList: HandyDoList
     var indexPath: NSIndexPath
+    var refreshControl: UIRefreshControl
     
     private var handyDoTableViewCell: HandyDoTodoTableViewCell
     
@@ -30,6 +31,7 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
         self.handyDoList = HandyDoList()
         self.handyDoTableViewCell = HandyDoTodoTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: Constants.HandyDoTodoTableViewCellId)
         self.indexPath = NSIndexPath()
+        self.refreshControl = UIRefreshControl()
         super.init(coder: aDecoder)
     }
     
@@ -43,6 +45,16 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
         self.updateTodoProgress()
         
         tableView.registerClass(HandyDoTodoTableViewCell.self, forCellReuseIdentifier: Constants.HandyDoTodoTableViewCellId)
+        
+        self.refreshControl.backgroundColor = UIColor(red: 0.1, green: 0.5, blue: 0.8, alpha: 0.4)
+        self.refreshControl.tintColor = UIColor.whiteColor()
+        self.refreshControl.addTarget(self, action: "reloadData", forControlEvents: .ValueChanged)
+        self.tableView.addSubview(self.refreshControl)
+        self.tableView.sendSubviewToBack(self.refreshControl)
+    }
+    
+    func reloadData() -> Void {
+        self.handyDoBusinessService.retrieveHandyDoList()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -122,7 +134,18 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     // MARK: - HandyDoBusinessService NavigationDelegate
     
     func didCreateHandyDo(businessService: HandyDoBusinessService) {}
-    func didRetrieveHandyDoList(businessService: HandyDoBusinessService, handyDoList: [HandyDo]) {}
+    
+    func didRetrieveHandyDoList(businessService: HandyDoBusinessService, handyDoList: [HandyDo]) {
+        self.handyDoList.handyDoList = handyDoList
+        self.handyDoList.sortHandyDoListByStatus()
+        self.updateTodoProgress()
+        self.tableView.reloadData()
+        let myAttributes = [ NSForegroundColorAttributeName: UIColor.whiteColor() ]
+        let attributedTitle = NSAttributedString(string: "Updated", attributes: myAttributes)
+        self.refreshControl.attributedTitle = attributedTitle
+        self.refreshControl.endRefreshing()
+    }
+    
     func didUpdateHandyDo(businessService: HandyDoBusinessService) {}
     
     func didDeleteHandyDo(businessService: HandyDoBusinessService) {

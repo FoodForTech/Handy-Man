@@ -15,9 +15,7 @@ class HandyManRestClient {
     // Singleton
     static let sharedInstance: HandyManRestClient = HandyManRestClient()
     private init() {
-//        baseURL = "http://localhost:3000"
-        
-        baseURL = "http://10.0.0.59:3000"
+        baseURL = "http://localhost:3000";
     }
     
     // MARK: - GET Methods
@@ -45,7 +43,7 @@ class HandyManRestClient {
     // MARK: - POST Methods
     
     func postForService(service: ServiceRequest, postObjectDictionary: Dictionary<String, AnyObject>, success:(Response<AnyObject, NSError>?) -> Void, failure:(AnyObject) -> Void) {
-    
+        
         let url = baseURL + service.serviceEndpoint()
         Alamofire.request(.POST, url, parameters: postObjectDictionary, encoding: .JSON).responseJSON {
             (response) -> Void in
@@ -56,7 +54,7 @@ class HandyManRestClient {
                 failure(response.result.error!)
             }
         }
-
+        
     }
     
     // MARK: - DELETE Methods

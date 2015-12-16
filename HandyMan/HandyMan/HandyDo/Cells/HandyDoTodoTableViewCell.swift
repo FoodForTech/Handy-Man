@@ -27,7 +27,8 @@ class HandyDoTodoTableViewCell: UITableViewCell {
         self.setUpConstraints()
         self.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     }
-
+    
+    /** This cell has been programmically created with no associated xib file.  */
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -40,15 +41,17 @@ class HandyDoTodoTableViewCell: UITableViewCell {
         
         let metrics: [String: NSNumber] = ["vTitleStatusSpacing": 5]
         let views: [String: UIView] = ["statusView": self.statusView,
-                                       "titleLabel": self.titleLabel,
-                                       "descriptionLabel": self.descriptionLabel,
-                                       "dateTimeLabel": self.dateTimeLabel]
+            "titleLabel": self.titleLabel,
+            "descriptionLabel": self.descriptionLabel,
+            "dateTimeLabel": self.dateTimeLabel]
         
         self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[statusView]|", options: [], metrics: metrics, views: views))
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-1-[statusView(==6)]", options: [], metrics: metrics, views: views))
         self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[titleLabel]-3-[descriptionLabel]", options: NSLayoutFormatOptions.AlignAllLeading, metrics: metrics, views: views))
-        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-1-[statusView(==4)]-[titleLabel]->=8-[dateTimeLabel]|", options: NSLayoutFormatOptions.AlignAllFirstBaseline, metrics: metrics, views: views))
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[titleLabel]->=8-[dateTimeLabel]|", options: NSLayoutFormatOptions.AlignAllFirstBaseline, metrics: metrics, views: views))
         self.dateTimeLabel.setContentCompressionResistancePriority(1000.0, forAxis: UILayoutConstraintAxis.Horizontal)
         self.dateTimeLabel.setContentHuggingPriority(1000.0, forAxis: UILayoutConstraintAxis.Horizontal)
+        
         self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[descriptionLabel]-13-|", options: [], metrics: metrics, views: views))
     }
     
@@ -68,7 +71,7 @@ class HandyDoTodoTableViewCell: UITableViewCell {
         } else {
             statusView.backgroundColor = UIColor.blackColor()
         }
-
+        
     }
     
     // MARK: - Lazy Loaded Properties
@@ -100,5 +103,5 @@ class HandyDoTodoTableViewCell: UITableViewCell {
         label.font = UIFont(name: "Helvetica", size: 10)
         return label
     }()
-
+    
 }

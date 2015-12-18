@@ -26,10 +26,6 @@ class HandyDoDetailViewController: CommonViewController, HandyDoBusinessServiceN
 
     // MARK: - Control Events
     
-    @IBAction func done(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     @IBAction func complete(sender: UIButton) {
         handyDo.status = "3"
         self.handyDoBusinessService.updateHandyDo(handyDo)
@@ -47,7 +43,7 @@ class HandyDoDetailViewController: CommonViewController, HandyDoBusinessServiceN
     func didRetrieveHandyDoList(businessService: HandyDoBusinessService, handyDoList: [HandyDo]) {}
     
     func didUpdateHandyDo(businessService: HandyDoBusinessService) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
  
     // MARK: - Lazy Loaded Properties

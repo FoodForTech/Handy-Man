@@ -9,16 +9,15 @@
 import UIKit
 
 class HandyDoListViewController: CommonViewController, UITableViewDataSource, UITableViewDelegate, HandyDoBusinessServiceNavigationDelegate, HandyDoBusinessServiceUIDelegate {
-    var handyDoList: HandyDoList
-    var indexPath: NSIndexPath
-    var refreshControl: UIRefreshControl
     
+    private var handyDoList: HandyDoList
+    private var assignmentType: AssignmentType
+    private var indexPath: NSIndexPath
+    private var refreshControl: UIRefreshControl
     private var handyDoTableViewCell: HandyDoTodoTableViewCell
-    
-    @IBOutlet weak var handyManImageView: UIImageView!
-    @IBOutlet weak var handyManNameLabel: UILabel!
-    @IBOutlet weak var todoProgressLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var assignmentSegmentControl: UISegmentedControl!
     
     struct Constants {
         static let HandyDoTodoTableViewCellId = "HandyDoTodoTableViewCellId"
@@ -32,6 +31,7 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
         self.handyDoTableViewCell = HandyDoTodoTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: Constants.HandyDoTodoTableViewCellId)
         self.indexPath = NSIndexPath()
         self.refreshControl = UIRefreshControl()
+        self.assignmentType = .Assignee
         super.init(coder: aDecoder)
     }
     
@@ -41,27 +41,23 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.handyManNameLabel.text = UserManager.sharedInstance.fullNameFormatted()
-        self.updateTodoProgress()
-        
-        tableView.registerClass(HandyDoTodoTableViewCell.self, forCellReuseIdentifier: Constants.HandyDoTodoTableViewCellId)
-        
+        self.tableView.registerClass(HandyDoTodoTableViewCell.self, forCellReuseIdentifier: Constants.HandyDoTodoTableViewCellId)
         self.refreshControl.backgroundColor = UIColor(red: 0.1, green: 0.5, blue: 0.8, alpha: 0.4)
         self.refreshControl.tintColor = UIColor.whiteColor()
         self.refreshControl.addTarget(self, action: "reloadData", forControlEvents: .ValueChanged)
         self.tableView.addSubview(self.refreshControl)
         self.tableView.sendSubviewToBack(self.refreshControl)
-    }
-    
-    func reloadData() -> Void {
-        self.handyDoBusinessService.retrieveHandyDoList()
+        self.assignmentSegmentControl.addTarget(self, action: "assignmentChanged:", forControlEvents: UIControlEvents.ValueChanged)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.handyDoList.sortHandyDoListByStatus()
-        self.updateTodoProgress()
         self.tableView.reloadData()
+    }
+    
+    func configureWithHandyDoList(handyDoList: HandyDoList) {
+        self.handyDoList = handyDoList
     }
     
     // MARK: Control Events
@@ -72,6 +68,10 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     }
     
     // MARK: UITableView DataSource Methods
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.handyDoList.handyDoSectionList.count
+    }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
@@ -84,18 +84,14 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "New"
+            return "New (\(self.handyDoList.handyDoSectionList[section].count))"
         case 1:
-            return "In Progress"
+            return "In Progress (\(self.handyDoList.handyDoSectionList[section].count))"
         case 2:
-            return "Completed"
+            return "Completed (\(self.handyDoList.handyDoSectionList[section].count))"
         default:
             return "Default"
         }
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.handyDoList.handyDoSectionList.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -138,7 +134,6 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     func didRetrieveHandyDoList(businessService: HandyDoBusinessService, handyDoList: [HandyDo]) {
         self.handyDoList.handyDoList = handyDoList
         self.handyDoList.sortHandyDoListByStatus()
-        self.updateTodoProgress()
         self.tableView.reloadData()
         let myAttributes = [ NSForegroundColorAttributeName: UIColor.whiteColor() ]
         let attributedTitle = NSAttributedString(string: "Updated", attributes: myAttributes)
@@ -151,32 +146,31 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     func didDeleteHandyDo(businessService: HandyDoBusinessService) {
         self.handyDoList.handyDoSectionList[indexPath.section].removeAtIndex(self.indexPath.row)
         tableView.deleteRowsAtIndexPaths([self.indexPath], withRowAnimation: .Fade)
-        self.updateTodoProgress()
     }
     
     // MARK: - Helper Methods
     
-    func updateTodoProgress() {
-        var completedHandyDos = 0
-        var totalHandyDos = 0
-        for handyDoArray in self.handyDoList.handyDoSectionList {
-            for handyDo in handyDoArray {
-                if handyDo.state() == "Complete" {
-                    completedHandyDos++
-                }
-                totalHandyDos++
-            }
+    func reloadData() -> Void {
+        self.handyDoBusinessService.retrieveHandyDoList(assignmentType)
+    }
+    
+    func assignmentChanged(sender: UISegmentedControl) -> Void {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.assignmentType = .Assignee
+        case 1:
+            self.assignmentType = .AssignTo
+        default:
+            break;
         }
-        self.todoProgressLabel.text = "\(completedHandyDos) of \(totalHandyDos)"
+        self.reloadData()
     }
     
     // MARK: - Navigation
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let navigationController = segue.destinationViewController as? UINavigationController {
-            if let handyDoDetailViewController = navigationController.topViewController as? HandyDoDetailViewController {
-                handyDoDetailViewController.handyDo = self.handyDoList.handyDoSectionList[self.indexPath.section][indexPath.row]
-            }
+        if let handyDoDetailViewController = segue.destinationViewController as? HandyDoDetailViewController {
+            handyDoDetailViewController.handyDo = self.handyDoList.handyDoSectionList[self.indexPath.section][indexPath.row]
         } else if let createHandyDoViewController = segue.destinationViewController as? HandyDoCreateTodoViewController {
             createHandyDoViewController.handyDoList = self.handyDoList
         }

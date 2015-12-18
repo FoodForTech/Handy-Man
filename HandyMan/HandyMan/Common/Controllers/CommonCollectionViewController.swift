@@ -12,9 +12,9 @@ class CommonCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("CommonCollectionViewController")
         
         // initial configuration
+        self.navigationController?.navigationBar.backgroundColor = UIColor.orangeColor()
     }
     
 }

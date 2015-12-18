@@ -10,8 +10,10 @@ import Alamofire
 
 class RetrieveHandyDoService: AuthenticatedService {
     
+    var assignmentType: AssignmentType = AssignmentType(rawValue: 0)!
+    
     /**
-     *   GET Retrieves HandyDo List 
+     *   GET Retrieves HandyDo List
      */
     func retrieveHandyDoList(success success:[HandyDo]->Void, failure:NSError? -> Void) -> Void {
         HandyManRestClient.sharedInstance.getForService(self,
@@ -20,9 +22,22 @@ class RetrieveHandyDoService: AuthenticatedService {
             },
             failure: {(errors) -> Void in
                 failure(errors as? NSError)
-            })
+        })
     }
-
+    
+    // MARK: ServiceEndpoint Protocol
+    
+    override func serviceEndpoint() -> String {
+        switch self.assignmentType {
+        case .Assignee:
+            return "/v1/handyDo/\(UserManager.sharedInstance.user.id)/assignee"
+        case .AssignTo:
+            return "/v1/handyDo/\(UserManager.sharedInstance.user.id)/assign_to"
+        }
+    }
+    
+    // MARK: - Helper Methods
+    
     private func mapModelToResponse(response: Response<AnyObject, NSError>) -> [HandyDo] {
         let json = JSON(data: response.data!)
         
@@ -40,11 +55,4 @@ class RetrieveHandyDoService: AuthenticatedService {
         }
         return handyDoList
     }
-    
-    // MARK: ServiceEndpoint Protocol
-    
-    override func serviceEndpoint() -> String {
-        return "/v1/handyDo/\(UserManager.sharedInstance.user.id)"
-    }
-    
 }

@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 var express = require("express");
-var mysql = require('mysql');
-var bodyParser = require('body-parser');
+var mysql = require("mysql");
+var bodyParser = require("body-parser");
 var app = express();
 
 app.use(bodyParser.json());
@@ -28,7 +28,7 @@ function handle_database(req, res, query) {
           return;
         }   
 
-        console.log('connected as id ' + connection.threadId);
+        console.log("Query: " + query + "\n Connection: " + connection.threadId);
         
         connection.query(query, function(err, rows) {
             connection.release();
@@ -53,13 +53,18 @@ app.post("/v1/auth/token", function(req, res) {
 
 // handyDo end point
 
-app.get("/v1/handyDo/:user_id", function(req, res) {
-	var query = "SELECT id, title, description, status, date_time FROM HandyDo WHERE assign_to_user_id = " + req.params.user_id + " ORDER BY status asc";
+app.get("/v1/handyDo/:user_id/assignee", function(req, res) {
+	var query = "SELECT id, title, description, status, date_time FROM HandyDo WHERE assignee_user_id = " + req.params.user_id + " ORDER BY status asc";
    	handle_database(req, res, query);
 });
 
+app.get("/v1/handyDo/:user_id/assign_to", function(req, res) {
+  var query = "SELECT id, title, description, status, date_time FROM HandyDo WHERE assign_to_user_id = " + req.params.user_id + " ORDER BY status asc";
+    handle_database(req, res, query);
+});
+
 app.post("/v1/handyDo", function(req, res) {
-	var query = "INSERT INTO HandyDo (title, description, status, date_time, assignee_user_id, assign_to_user_id) VALUES ('" + req.body.title + "', '" + req.body.description + "', '" + req.body.status + "', NOW(), '1', '2')";																																		
+	var query = "INSERT INTO HandyDo (title, description, status, date_time, assignee_user_id, assign_to_user_id) VALUES ('" + req.body.title + "', '" + req.body.description + "', '" + req.body.status + "', NOW(), " + req.body.id + ", 2)";																																		
    	handle_database(req, res, query);
 });
 

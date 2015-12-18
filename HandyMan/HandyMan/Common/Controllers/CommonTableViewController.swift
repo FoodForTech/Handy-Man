@@ -12,9 +12,9 @@ class CommonTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("CommonTableViewController")
         
         // initial configuration
+        self.navigationController?.navigationBar.backgroundColor = UIColor.orangeColor()
     }
     
 }

@@ -33,6 +33,7 @@
 		E00EB20F1C1F957300A497E4 /* LoginBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00EB20E1C1F957300A497E4 /* LoginBusinessService.swift */; };
 		E00EB2181C1F95C000A497E4 /* AuthorizationTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00EB2171C1F95C000A497E4 /* AuthorizationTokenService.swift */; };
 		E00EB21A1C1FABFE00A497E4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00EB2191C1FABFE00A497E4 /* User.swift */; };
+		E02B60881C2249D200699D62 /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02B60871C2249D200699D62 /* LoginRegisterViewController.swift */; };
 		E0871F241C1E29E500A2D813 /* HandyDoCreateTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0871F231C1E29E500A2D813 /* HandyDoCreateTodoViewController.swift */; };
 		E08D01661C1FCEB70009968B /* HandyDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08D01651C1FCEB70009968B /* HandyDoList.swift */; };
 		E0C4E5581C14D2AE0059386D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E5571C14D2AE0059386D /* AppDelegate.swift */; };
@@ -89,6 +90,7 @@
 		E00EB20E1C1F957300A497E4 /* LoginBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginBusinessService.swift; sourceTree = "<group>"; };
 		E00EB2171C1F95C000A497E4 /* AuthorizationTokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationTokenService.swift; sourceTree = "<group>"; };
 		E00EB2191C1FABFE00A497E4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E02B60871C2249D200699D62 /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
 		E0871F231C1E29E500A2D813 /* HandyDoCreateTodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyDoCreateTodoViewController.swift; sourceTree = "<group>"; };
 		E08D01651C1FCEB70009968B /* HandyDoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyDoList.swift; sourceTree = "<group>"; };
 		E0C4E5541C14D2AE0059386D /* HandyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -422,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				E00A02631C1B24A9009F84DA /* LoginViewController.swift */,
+				E02B60871C2249D200699D62 /* LoginRegisterViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				E00EB21A1C1FABFE00A497E4 /* User.swift in Sources */,
 				E00A023B1C1B1C6C009F84DA /* AuthenticatedService.swift in Sources */,
 				E00A023D1C1B1C6C009F84DA /* SwiftyJSON.swift in Sources */,
+				E02B60881C2249D200699D62 /* LoginRegisterViewController.swift in Sources */,
 				E00A02391C1B1C6C009F84DA /* CommonBusinessService.swift in Sources */,
 				E00EB2181C1F95C000A497E4 /* AuthorizationTokenService.swift in Sources */,
 				E00EB20F1C1F957300A497E4 /* LoginBusinessService.swift in Sources */,

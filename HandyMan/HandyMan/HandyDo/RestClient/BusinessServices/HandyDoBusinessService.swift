@@ -6,6 +6,11 @@
 //  Copyright © 2015 Don Johnson. All rights reserved.
 //
 
+enum AssignmentType: Int {
+    case Assignee = 0
+    case AssignTo
+}
+
 protocol HandyDoBusinessServiceNavigationDelegate {
     func didCreateHandyDo(businessService: HandyDoBusinessService) -> Void
     func didRetrieveHandyDoList(businessService: HandyDoBusinessService, handyDoList: [HandyDo]) -> Void
@@ -44,8 +49,9 @@ class HandyDoBusinessService: CommonBusinessService {
         })
     }
     
-    func retrieveHandyDoList() -> Void {
+    func retrieveHandyDoList(assingmentType: AssignmentType) -> Void {
         self.uiDelegate.willCallBlockingBusinessService(self)
+        self.retrieveHandyDoService.assignmentType = assingmentType
         self.retrieveHandyDoService.retrieveHandyDoList(
             success: {(handyDoList) -> Void in
                 self.navigationDelegate.didRetrieveHandyDoList(self, handyDoList: handyDoList)

@@ -30,7 +30,8 @@ class CreateHandyDoService: AuthenticatedService {
     // MARK: - Request Mapping
     
     func mapHandyDoToPostDictionary(handyDo: HandyDo) -> Dictionary<String, AnyObject> {
-        let dictionary: Dictionary<String, AnyObject> = ["title": handyDo.title,
+        let dictionary: Dictionary<String, AnyObject> = ["id": handyDo.id,
+                                                         "title": handyDo.title,
                                                          "description":handyDo.todo,
                                                          "status": handyDo.status]
         return dictionary

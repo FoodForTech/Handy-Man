@@ -8,8 +8,9 @@
 
 import UIKit
 
-// MARK: CommonBusinessService Extension
-
+/**
+ *  CommonBusinessService Extension
+ */
 extension UIViewController {
     
     // MARK: CommonBusinessService UIDelegate

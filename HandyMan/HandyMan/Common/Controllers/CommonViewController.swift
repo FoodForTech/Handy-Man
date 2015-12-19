@@ -12,9 +12,8 @@ class CommonViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("CommonViewController")
-        
+
         // initial configuration
+        self.navigationController?.navigationBar.backgroundColor = UIColor.orangeColor()
     }
-    
 }

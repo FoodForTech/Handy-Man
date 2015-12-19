@@ -11,7 +11,8 @@ import UIKit
 class LoginViewController: CommonViewController, LoginBusinessServiceNavigationDelegate, LoginBusinessServiceUIDelegate,  HandyDoBusinessServiceNavigationDelegate, HandyDoBusinessServiceUIDelegate {
     
     struct Constants {
-        static let HandyDoListViewControllerSegue: String = "HandyDoListViewControllerSegue"
+        static let kLoginRegisterViewControllerSegue: String = "LoginRegisterViewControllerSegue"
+        static let kHandyDoListViewControllerSegue: String = "HandyDoListViewControllerSegue"
     }
     
     var handyDoList: HandyDoList = HandyDoList()
@@ -24,15 +25,20 @@ class LoginViewController: CommonViewController, LoginBusinessServiceNavigationD
     @IBAction func logOn(sender: UIButton) {
         let emailAddress = userNameTextField.text!
         let password = passwordTextField.text!
-        passwordTextField.text! = ""
-        self.loginBusinessService.authorizeUserWithEmailAddress(emailAddress, password: password)
+        
+        if (emailAddress == "" || password == "") {
+            
+        } else {
+            passwordTextField.text! = ""
+            self.loginBusinessService.authorizeUserWithEmailAddress(emailAddress, password: password)
+        }
     }
     
     // MARK: - LoginBusinessService NavigationDelegate
     
     func didLoginWithBusinessService(service: LoginBusinessService, user: User) {
         userNameTextField.text! = ""
-        self.handyDoBusinessService.retrieveHandyDoList()
+        self.handyDoBusinessService.retrieveHandyDoList(AssignmentType.Assignee)
     }
     
     // MARK: - HandyDoBusinessService NavigationDelegate
@@ -43,7 +49,7 @@ class LoginViewController: CommonViewController, LoginBusinessServiceNavigationD
     
     func didRetrieveHandyDoList(businessService: HandyDoBusinessService, handyDoList: [HandyDo]) {
         self.handyDoList.handyDoList = handyDoList
-        self.performSegueWithIdentifier(Constants.HandyDoListViewControllerSegue, sender: self)
+        self.performSegueWithIdentifier(Constants.kHandyDoListViewControllerSegue, sender: self)
     }
     
     // MARK: - Navigation
@@ -51,7 +57,7 @@ class LoginViewController: CommonViewController, LoginBusinessServiceNavigationD
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let navigationController = segue.destinationViewController as? UINavigationController {
             if let handyDoListViewController: HandyDoListViewController = navigationController.topViewController as? HandyDoListViewController {
-                handyDoListViewController.handyDoList = self.handyDoList
+                handyDoListViewController.configureWithHandyDoList(self.handyDoList)
             }
         }
     }

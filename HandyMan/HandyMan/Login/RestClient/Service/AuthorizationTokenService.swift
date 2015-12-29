@@ -42,7 +42,9 @@ class AuthorizationTokenService: AuthenticatedService {
                     firstName: json[0]["first_name"].stringValue,
                     lastName: json[0]["last_name"].stringValue,
                     emailAddress: json[0]["email_address"].stringValue,
-                    phoneNumber: json[0]["phone_number"].stringValue)
+                    phoneNumber: json[0]["phone_number"].stringValue,
+                    assignToFirstName: json[0]["assign_to_first_name"].stringValue,
+                    assignToLastName: json[0]["assign_to_last_name"].stringValue)
     }
     
 }

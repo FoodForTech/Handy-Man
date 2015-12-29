@@ -9,11 +9,12 @@
 import UIKit
 
 class CommonViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // initial configuration
-        self.navigationController?.navigationBar.backgroundColor = UIColor.orangeColor()
+       // self.navigationController?.navigationBar.backgroundColor = UIColor.orangeColor()
     }
+    
 }

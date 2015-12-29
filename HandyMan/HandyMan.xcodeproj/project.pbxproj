@@ -36,6 +36,10 @@
 		E02B60881C2249D200699D62 /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02B60871C2249D200699D62 /* LoginRegisterViewController.swift */; };
 		E0871F241C1E29E500A2D813 /* HandyDoCreateTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0871F231C1E29E500A2D813 /* HandyDoCreateTodoViewController.swift */; };
 		E08D01661C1FCEB70009968B /* HandyDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08D01651C1FCEB70009968B /* HandyDoList.swift */; };
+		E0BD0BBF1C24DA91006589EB /* ProfileAndSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD0BBE1C24DA91006589EB /* ProfileAndSettingsViewController.swift */; };
+		E0BD0BC11C24DAB2006589EB /* ProfileAndSettingsBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD0BC01C24DAB2006589EB /* ProfileAndSettingsBusinessService.swift */; };
+		E0BD0BC31C24DB0F006589EB /* UpdateUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD0BC21C24DB0F006589EB /* UpdateUserService.swift */; };
+		E0BD0BC51C2515AA006589EB /* ProfileAndSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0BD0BC41C2515AA006589EB /* ProfileAndSettings.storyboard */; };
 		E0C4E5581C14D2AE0059386D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E5571C14D2AE0059386D /* AppDelegate.swift */; };
 		E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E55E1C14D2AE0059386D /* HandyMan.xcdatamodeld */; };
 		E0C4E5621C14D2AE0059386D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C4E5611C14D2AE0059386D /* Assets.xcassets */; };
@@ -93,6 +97,10 @@
 		E02B60871C2249D200699D62 /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
 		E0871F231C1E29E500A2D813 /* HandyDoCreateTodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyDoCreateTodoViewController.swift; sourceTree = "<group>"; };
 		E08D01651C1FCEB70009968B /* HandyDoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyDoList.swift; sourceTree = "<group>"; };
+		E0BD0BBE1C24DA91006589EB /* ProfileAndSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAndSettingsViewController.swift; sourceTree = "<group>"; };
+		E0BD0BC01C24DAB2006589EB /* ProfileAndSettingsBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAndSettingsBusinessService.swift; sourceTree = "<group>"; };
+		E0BD0BC21C24DB0F006589EB /* UpdateUserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserService.swift; sourceTree = "<group>"; };
+		E0BD0BC41C2515AA006589EB /* ProfileAndSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileAndSettings.storyboard; sourceTree = "<group>"; };
 		E0C4E5541C14D2AE0059386D /* HandyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C4E5571C14D2AE0059386D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0C4E55F1C14D2AE0059386D /* HandyMan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HandyMan.xcdatamodel; sourceTree = "<group>"; };
@@ -469,6 +477,49 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		E0BD0BB91C24DA69006589EB /* ProfileAndSettings */ = {
+			isa = PBXGroup;
+			children = (
+				E0BD0BBA1C24DA69006589EB /* Controllers */,
+				E0BD0BBB1C24DA69006589EB /* RestClient */,
+				E0BD0BC41C2515AA006589EB /* ProfileAndSettings.storyboard */,
+			);
+			path = ProfileAndSettings;
+			sourceTree = "<group>";
+		};
+		E0BD0BBA1C24DA69006589EB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E0BD0BBE1C24DA91006589EB /* ProfileAndSettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E0BD0BBB1C24DA69006589EB /* RestClient */ = {
+			isa = PBXGroup;
+			children = (
+				E0BD0BBC1C24DA69006589EB /* BusinessServices */,
+				E0BD0BBD1C24DA69006589EB /* Services */,
+			);
+			path = RestClient;
+			sourceTree = "<group>";
+		};
+		E0BD0BBC1C24DA69006589EB /* BusinessServices */ = {
+			isa = PBXGroup;
+			children = (
+				E0BD0BC01C24DAB2006589EB /* ProfileAndSettingsBusinessService.swift */,
+			);
+			path = BusinessServices;
+			sourceTree = "<group>";
+		};
+		E0BD0BBD1C24DA69006589EB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E0BD0BC21C24DB0F006589EB /* UpdateUserService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		E0C4E54B1C14D2AE0059386D = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +550,7 @@
 				E00A023E1C1B2318009F84DA /* HandyDo */,
 				E00A02591C1B23FD009F84DA /* HandyDone */,
 				E00A021B1C1B1B9A009F84DA /* Expenses */,
+				E0BD0BB91C24DA69006589EB /* ProfileAndSettings */,
 				E0C4E5571C14D2AE0059386D /* AppDelegate.swift */,
 				E0C4E5611C14D2AE0059386D /* Assets.xcassets */,
 				E0C4E5631C14D2AE0059386D /* LaunchScreen.storyboard */,
@@ -634,6 +686,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0BD0BC51C2515AA006589EB /* ProfileAndSettings.storyboard in Resources */,
 				E00A02521C1B2319009F84DA /* HandyDo.storyboard in Resources */,
 				E0C4E5651C14D2AE0059386D /* LaunchScreen.storyboard in Resources */,
 				E0C4E5621C14D2AE0059386D /* Assets.xcassets in Resources */,
@@ -720,13 +773,16 @@
 				E0C4E5581C14D2AE0059386D /* AppDelegate.swift in Sources */,
 				E00A023A1C1B1C6C009F84DA /* HandyManRestClient.swift in Sources */,
 				E00A02351C1B1C6C009F84DA /* CommonTableViewController.swift in Sources */,
+				E0BD0BC31C24DB0F006589EB /* UpdateUserService.swift in Sources */,
 				E00A02501C1B2319009F84DA /* HandyDoDetailViewController.swift in Sources */,
 				E00A02381C1B1C6C009F84DA /* UserManager.swift in Sources */,
 				E00A02571C1B2319009F84DA /* RetrieveHandyDoService.swift in Sources */,
 				E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */,
 				E00A02691C1B24A9009F84DA /* LoginViewController.swift in Sources */,
 				E00A02551C1B2319009F84DA /* CreateHandyDoService.swift in Sources */,
+				E0BD0BBF1C24DA91006589EB /* ProfileAndSettingsViewController.swift in Sources */,
 				E00A02581C1B2319009F84DA /* UpdateHandyDoService.swift in Sources */,
+				E0BD0BC11C24DAB2006589EB /* ProfileAndSettingsBusinessService.swift in Sources */,
 				E00A024F1C1B2319009F84DA /* HandyDoTodoTableViewCell.swift in Sources */,
 				E00A02371C1B1C6C009F84DA /* UIViewController_CommonBusinessService.swift in Sources */,
 				E00A02511C1B2319009F84DA /* HandyDoListViewController.swift in Sources */,

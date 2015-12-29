@@ -27,10 +27,10 @@ class LoginBusinessService: CommonBusinessService {
     func authorizeUserWithEmailAddress(emailAddress: String, password: String) {
         self.authorizationTokenService.authorizeUser(emailAddress, password: password,
             success: {(user) -> Void in
-                UserManager.sharedInstance.user(user)
+                UserManager.sharedInstance.user = user
                 self.navigationDelegate.didLoginWithBusinessService(self, user: user)
             }, failure: {(errors) -> Void in
-                //
+                self.uiDelegate.didFailWithBusinessService(self)
             })
     }
  

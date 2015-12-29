@@ -6,11 +6,12 @@
 //  Copyright © 2015 Don Johnson. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol CommonBusinessServiceUIDelegate {
     func willCallBlockingBusinessService(businessService: CommonBusinessService)
     func didCompleteBlockingBusinessService(businessService: CommonBusinessService)
+    func didFailWithBusinessService(businessService: CommonBusinessService)
 }
 
 class CommonBusinessService: NSObject {

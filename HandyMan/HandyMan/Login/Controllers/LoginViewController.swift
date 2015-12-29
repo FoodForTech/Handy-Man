@@ -28,6 +28,14 @@ class LoginViewController: CommonViewController, LoginBusinessServiceNavigationD
         
         if (emailAddress == "" || password == "") {
             
+            let alertController: UIAlertController = UIAlertController(title: "Missing Required Info", message: "Both the email and password are required to log on.", preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (alert: UIAlertAction) -> Void in
+                self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+            })
+            alertController.addAction(okAction)
+            
+            self.presentViewController(alertController, animated: true, completion:nil)
+            
         } else {
             passwordTextField.text! = ""
             self.loginBusinessService.authorizeUserWithEmailAddress(emailAddress, password: password)

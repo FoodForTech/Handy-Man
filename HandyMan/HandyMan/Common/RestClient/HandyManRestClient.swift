@@ -6,7 +6,6 @@
 //  Copyright © 2015 Don Johnson. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 
 class HandyManRestClient {

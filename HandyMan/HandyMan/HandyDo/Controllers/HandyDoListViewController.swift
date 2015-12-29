@@ -48,6 +48,8 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
         self.tableView.addSubview(self.refreshControl)
         self.tableView.sendSubviewToBack(self.refreshControl)
         self.assignmentSegmentControl.addTarget(self, action: "assignmentChanged:", forControlEvents: UIControlEvents.ValueChanged)
+        
+        self.navigationController?.navigationBar.backgroundColor = UIColor.orangeColor()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -58,13 +60,6 @@ class HandyDoListViewController: CommonViewController, UITableViewDataSource, UI
     
     func configureWithHandyDoList(handyDoList: HandyDoList) {
         self.handyDoList = handyDoList
-    }
-    
-    // MARK: Control Events
-    
-    @IBAction func logout(sender: UIBarButtonItem) {
-        UserManager.sharedInstance.logout()
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: UITableView DataSource Methods

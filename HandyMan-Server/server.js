@@ -54,12 +54,12 @@ app.post("/v1/auth/token", function(req, res) {
 // handyDo end point
 
 app.get("/v1/handyDo/:user_id/assignee", function(req, res) {
-	var query = "SELECT id, title, description, status, date_time FROM HandyDo WHERE assignee_user_id = " + req.params.user_id + " ORDER BY status asc";
+	var query = "SELECT hd.id, title, description, status, date_time, assign_to_user_id, u.first_name, u.last_name FROM HandyDo hd left join User u on hd.assign_to_user_id = u.id WHERE assignee_user_id = " + req.params.user_id + " ORDER BY u.last_name, status asc";
    	handle_database(req, res, query);
 });
 
 app.get("/v1/handyDo/:user_id/assign_to", function(req, res) {
-  var query = "SELECT id, title, description, status, date_time FROM HandyDo WHERE assign_to_user_id = " + req.params.user_id + " ORDER BY status asc";
+  var query = "SELECT id, title, description, status, date_time, assignee_user_id FROM HandyDo WHERE assign_to_user_id = " + req.params.user_id + " ORDER BY assignee_user_id, status asc";
     handle_database(req, res, query);
 });
 

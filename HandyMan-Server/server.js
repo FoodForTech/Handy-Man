@@ -12,10 +12,10 @@ app.use(bodyParser.urlencoded({
 
 var pool = mysql.createPool({
     connectionLimit: 100, //important
-    host: 'localhost',
-    user: 'root',
-    password: 'Donald!1983',
-    database: 'HandyMan',
+    host: '<host>',
+    user: '<user>',
+    password: '<password>',
+    database: '<database>',
     debug: false
 });
 

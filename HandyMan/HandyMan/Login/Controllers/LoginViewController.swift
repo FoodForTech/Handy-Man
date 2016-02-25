@@ -10,34 +10,28 @@ import UIKit
 
 class LoginViewController: CommonViewController, LoginBusinessServiceNavigationDelegate, LoginBusinessServiceUIDelegate,  HandyDoBusinessServiceNavigationDelegate, HandyDoBusinessServiceUIDelegate {
     
-    struct Constants {
+    private struct Constants {
         static let kLoginRegisterViewControllerSegue: String = "LoginRegisterViewControllerSegue"
         static let kHandyDoListViewControllerSegue: String = "HandyDoListViewControllerSegue"
+        static let kLoginErrorTitle: String = "Missing Required Info"
+        static let kLoginErrorMessage: String = "Both the email and password are required to access your accounts."
+        static let kAuthErrorTitle: String = "Authentication Failed"
+        static let kAuthErrorMessage: String = "Your credentials cannot be authenticated.  Please try again."
     }
     
     var handyDoList: HandyDoList = HandyDoList()
     
-    @IBOutlet weak var userNameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet private weak var userNameTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
     
     // MARK: - Control Events
     
-    @IBAction func logOn(sender: UIButton) {
+    @IBAction private func logOn(sender: UIButton) {
         let emailAddress = userNameTextField.text!
         let password = passwordTextField.text!
-        
-        if (emailAddress == "" || password == "") {
-            
-            let alertController: UIAlertController = UIAlertController(title: "Missing Required Info", message: "Both the email and password are required to log on.", preferredStyle: UIAlertControllerStyle.Alert)
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (alert: UIAlertAction) -> Void in
-                self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
-            })
-            alertController.addAction(okAction)
-            
-            self.presentViewController(alertController, animated: true, completion:nil)
-            
+        if (emailAddress.isEmpty || password.isEmpty) {
+            self.presentUIAlertControllerWithTitle(Constants.kLoginErrorTitle, message: Constants.kLoginErrorMessage)
         } else {
-            passwordTextField.text! = ""
             self.loginBusinessService.authorizeUserWithEmailAddress(emailAddress, password: password)
         }
     }
@@ -45,8 +39,13 @@ class LoginViewController: CommonViewController, LoginBusinessServiceNavigationD
     // MARK: - LoginBusinessService NavigationDelegate
     
     func didLoginWithBusinessService(service: LoginBusinessService, user: User) {
-        userNameTextField.text! = ""
-        self.handyDoBusinessService.retrieveHandyDoList(AssignmentType.Assignee)
+        if (user.isEmpty()) {
+            self.presentUIAlertControllerWithTitle(Constants.kAuthErrorTitle, message: Constants.kAuthErrorMessage)
+        } else {
+            userNameTextField.text! = ""
+            passwordTextField.text! = ""
+            self.handyDoBusinessService.retrieveHandyDoList(AssignmentType.Assignee)
+        }
     }
     
     // MARK: - HandyDoBusinessService NavigationDelegate
@@ -70,14 +69,25 @@ class LoginViewController: CommonViewController, LoginBusinessServiceNavigationD
         }
     }
     
+    // MARK: - Helper Methods 
+    
+    private func presentUIAlertControllerWithTitle(title: String, message:String) {
+        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (alert: UIAlertAction) -> Void in
+            self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        })
+        alertController.addAction(okAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     // MARK: - Lazy Loaded Properties
     
-    lazy var loginBusinessService: LoginBusinessService = {
+    private lazy var loginBusinessService: LoginBusinessService = {
         let businessService = LoginBusinessService(navigationDelegate: self, uiDelegate: self)
         return businessService
     }()
     
-    lazy var handyDoBusinessService: HandyDoBusinessService = {
+    private lazy var handyDoBusinessService: HandyDoBusinessService = {
         let businessService = HandyDoBusinessService(navigationDelegate: self, uiDelegate: self)
         return businessService
     }()

@@ -13,6 +13,11 @@ import UIKit
  */
 extension UIViewController: CommonBusinessServiceUIDelegate {
     
+    struct Constants {
+        static let kFailureTitle = "Failure"
+        static let kFailureMessage = "Something when wrong while you were accessing the service."
+    }
+    
     // MARK: CommonBusinessService UIDelegate
     
     func willCallBlockingBusinessService(businessService: CommonBusinessService) {
@@ -24,16 +29,13 @@ extension UIViewController: CommonBusinessServiceUIDelegate {
     }
     
     func didFailWithBusinessService(businessService: CommonBusinessService) {
-        print("didFailWithBusinessService:)")
-        
-        let alertController: UIAlertController = UIAlertController(title: "Failure", message: "Something went wrong while you were accessing the service.", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController: UIAlertController = UIAlertController(title: Constants.kFailureTitle, message: Constants.kFailureMessage, preferredStyle: UIAlertControllerStyle.Alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (alert: UIAlertAction) -> Void in
             self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
         })
         alertController.addAction(okAction)
         
         self.presentViewController(alertController, animated: true, completion:nil)
-        
     }
     
 }

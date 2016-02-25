@@ -33,8 +33,6 @@ class User {
         self.assignToFirstName = firstName
         self.assignToLastName = lastName
         
-        self.assignToUserId = -1
-        
         if type == 1 {
             userType = .Issuer
         } else {
@@ -48,6 +46,18 @@ class User {
         
     func fullNameFormatted() -> String {
         return firstName + " " + lastName
+    }
+    
+    func isEmpty() -> Bool {
+        let noName = lastName.isEmpty || firstName.isEmpty
+        let noEmail = emailAddress.isEmpty
+        let idIsZero = id == 0
+        
+        if (noName || noEmail || idIsZero) {
+            return true
+        } else {
+            return false
+        }
     }
     
 }

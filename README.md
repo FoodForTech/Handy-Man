@@ -14,6 +14,6 @@ This is still currently under heavy development, but when it is done, the plan i
 
 ##Open source dependencies
 Alamofire
-SwiftyJSON (I am considering moving to Genome)
+SwiftyJSON (I am considering moving to Genome) or even move to Futures and Promises.  
 
 ### Further updates will be coming...

@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -97,10 +96,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if managedObjectContext.hasChanges {
             do {
                 try managedObjectContext.save()
-            } catch {
+            } catch (let nserror as NSError) {
                 // Replace this implementation with code to handle the error appropriately.
                 // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
                 abort()
             }
@@ -108,4 +106,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

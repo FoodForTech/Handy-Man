@@ -17,10 +17,10 @@ class HandyDoBusinessService : HMBusinessService {
     
     weak var uiDelegate: HMBusinessServiceUIDelegate?
     
-    let createHandyDoService: CreateHandyDoService
-    let retrieveHandyDoService: RetrieveHandyDoService
-    let updateHandyDoService: UpdateHandyDoService
-    let deleteHandyDoService: DeleteHandyDoService
+    private let createHandyDoService: CreateHandyDoService
+    private let retrieveHandyDoService: RetrieveHandyDoService
+    private let updateHandyDoService: UpdateHandyDoService
+    private let deleteHandyDoService: DeleteHandyDoService
     
     required init(uiDelegate: HMBusinessServiceUIDelegate?) {
         self.uiDelegate = uiDelegate
@@ -30,52 +30,52 @@ class HandyDoBusinessService : HMBusinessService {
         self.deleteHandyDoService = DeleteHandyDoService()
     }
     
-    func createHandyDo(handyDo: HandyDo) {
+    func createHandyDo(handyDo: HandyDo, completionHandler:(Bool) -> Void) {
         self.uiDelegate?.willCallBlockingBusinessService(self)
         self.createHandyDoService.createHandyDo(handyDo,
             success: { response in
-                // TODO
+                completionHandler(response)
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
             },
             failure: { errors in
-                // should call failure delegation
+                // TODO failure call failure delegation
         })
     }
     
-    func retrieveHandyDoList(assingmentType: AssignmentType, completionHandler:([HandyDo]) -> Void) -> Void {
+    func retrieveHandyDoList(assignmentType: AssignmentType, completionHandler:[HandyDo] -> Void) -> Void {
         self.uiDelegate?.willCallBlockingBusinessService(self)
-        self.retrieveHandyDoService.assignmentType = assingmentType
+        self.retrieveHandyDoService.assignmentType = assignmentType
         self.retrieveHandyDoService.retrieveHandyDoList(
             success: { handyDoList in
                 completionHandler(handyDoList)
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
             },
             failure: { errors in
-                // failure call failure delegation
+                // TODO failure call failure delegation
         })
     }
     
-    func updateHandyDo(handyDo: HandyDo) {
+    func updateHandyDo(handyDo: HandyDo, completionHandler:Bool -> Void) {
         self.uiDelegate?.willCallBlockingBusinessService(self)
         self.updateHandyDoService.updateHandyDo(handyDo,
             success: { response in
-                // TODO
+                completionHandler(response)
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
             },
             failure: { errors in
-                // failure call failure delegation
+                // TODO failure call failure delegation
         })
     }
     
-    func deleteHandyDo(handyDo: HandyDo) {
+    func deleteHandyDo(handyDo: HandyDo, completionHandler:Bool -> Void) {
         self.uiDelegate?.willCallBlockingBusinessService(self)
         self.deleteHandyDoService.deleteHandyDo(handyDo,
             success: { response in
-                // TODO
+                completionHandler(response)
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
             },
             failure: { errors in
-                // failure call failure delegation
+                // TODO failure call failure delegation
         })
     }
     

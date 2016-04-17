@@ -8,13 +8,15 @@
 
 import UIKit
 
-class HMCollectionViewController: UICollectionViewController {
-
+class HMCollectionViewController : UICollectionViewController {
+    
+    let configurer = HMControllerConfigurer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // initial configuration
-        self.navigationController?.navigationBar.backgroundColor = UIColor.orangeColor()
+       configurer.setUpNavigationController(self.navigationController)
     }
     
 }

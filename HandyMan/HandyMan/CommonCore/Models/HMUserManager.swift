@@ -8,16 +8,47 @@
 
 class HMUserManager {
     
-    var user: User
+    var id: Int {
+        get {
+            return self.user.id
+        }
+    }
     
-    // Singleton
-    static let sharedInstance: UserManager = UserManager()
-    private init(){
+    var firstName: String {
+        get {
+            return self.user.firstName
+        }
+    }
+    
+    var lastName: String {
+        get {
+            return self.user.lastName
+        }
+    }
+    
+    var emailAddress: String {
+        get {
+            return self.user.emailAddress
+        }
+    }
+    
+    var phoneNumber: String {
+        get {
+            return self.user.phoneNumber
+        }
+    }
+    
+    // Singleton implementation
+    static let sharedInstance: HMUserManager = HMUserManager()
+    private var user: User
+    private init() {
         self.user = User()
     }
-  
-    func fullNameFormatted() -> String {
-        return self.user.firstName + " " + self.user.lastName
+    
+    func setEmptyUser(user: User) {
+        if self.user.isEmpty() {
+            self.user = user
+        }
     }
     
     func logout() -> Void {

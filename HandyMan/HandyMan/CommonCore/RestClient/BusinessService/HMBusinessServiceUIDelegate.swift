@@ -6,8 +6,11 @@
 //  Copyright © 2016 Don Johnson. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
-class HMBusinessServiceUIDelegate: NSObject {
+protocol HMBusinessServiceUIDelegate : class {
+
+    func willCallBlockingBusinessService(businessService: HMBusinessService)
+    func didCompleteBlockingBusinessService(businessService: HMBusinessService)
 
 }

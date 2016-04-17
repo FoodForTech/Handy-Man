@@ -10,11 +10,11 @@ import UIKit
 
 class ProfileAndSettingsViewController: HMViewController {
     
-    @IBOutlet weak var userImageField: UIImageView!
-    @IBOutlet weak var firstNameLabel: UITextField!
-    @IBOutlet weak var lastNameField: UITextField!
-    @IBOutlet weak var emailAddressField: UITextField!
-    @IBOutlet weak var phoneNumberField: UITextField!
+    @IBOutlet private weak var userImageField: UIImageView!
+    @IBOutlet private weak var firstNameLabel: UITextField!
+    @IBOutlet private weak var lastNameField: UITextField!
+    @IBOutlet private weak var emailAddressField: UITextField!
+    @IBOutlet private weak var phoneNumberField: UITextField!
     
     // MARK: - Lifecycle
     
@@ -27,15 +27,16 @@ class ProfileAndSettingsViewController: HMViewController {
         self.userImageField.layer.borderColor = UIColor.whiteColor().CGColor
         self.userImageField.layer.borderWidth = 2
         
-        self.firstNameLabel.text = HMUserManager.sharedInstance.user.firstName
-        self.lastNameField.text = HMUserManager.sharedInstance.user.lastName
-        self.emailAddressField.text = HMUserManager.sharedInstance.user.emailAddress
-        self.phoneNumberField.text = HMUserManager.sharedInstance.user.phoneNumber
+        self.firstNameLabel.text = HMUserManager.sharedInstance.firstName
+        self.lastNameField.text = HMUserManager.sharedInstance.lastName
+        self.emailAddressField.text = HMUserManager.sharedInstance.emailAddress
+        self.phoneNumberField.text = HMUserManager.sharedInstance.phoneNumber
     }
     
     // MARK: - Control Events
     
     @IBAction func deleteAccount(sender: UIButton) {
+        // TODO
         print("deleteAccount")
     }
     

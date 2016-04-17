@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E49a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wdv-bD-AGd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F18b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wdv-bD-AGd">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -28,10 +28,10 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="prototypeCellId" id="g6s-Ze-DmT">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="1"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="1"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g6s-Ze-DmT" id="1XI-oo-jb9">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="0.0"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="0.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -286,7 +286,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DaG-2M-8Af">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="487"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZL-re-1wb">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZL-re-1wb">
                                                 <rect key="frame" x="256" y="99" width="49" height="19"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -312,7 +312,7 @@
                                                     <action selector="inProgress:" destination="9wu-Ls-V4V" eventType="touchUpInside" id="7ZI-ka-gvx"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="task_blank_image" translatesAutoresizingMaskIntoConstraints="NO" id="hC6-UO-icR">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="task_blank_image" translatesAutoresizingMaskIntoConstraints="NO" id="hC6-UO-icR">
                                                 <rect key="frame" x="180" y="126" width="200" height="200"/>
                                                 <color key="backgroundColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
                                                 <constraints>
@@ -320,7 +320,7 @@
                                                     <constraint firstAttribute="width" secondItem="hC6-UO-icR" secondAttribute="height" id="iJt-rF-Tiw"/>
                                                 </constraints>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I1g-Ui-Zrv">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I1g-Ui-Zrv">
                                                 <rect key="frame" x="20" y="334" width="520" height="153"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -375,7 +375,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Handy Details" id="lNu-wC-uEr"/>
                     <connections>
+                        <outlet property="completeButton" destination="dVH-7b-Phe" id="bas-66-heC"/>
                         <outlet property="descriptionTextView" destination="I1g-Ui-Zrv" id="ypc-Xn-3yr"/>
+                        <outlet property="inProgressButton" destination="VrU-bO-sD3" id="YIm-7g-llq"/>
                         <outlet property="statusLabel" destination="6ZL-re-1wb" id="GTD-FY-QTv"/>
                         <outlet property="titleLabel" destination="nLX-B8-l8R" id="fPu-7x-1cQ"/>
                     </connections>

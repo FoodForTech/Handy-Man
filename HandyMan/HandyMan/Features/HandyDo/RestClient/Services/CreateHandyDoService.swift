@@ -13,15 +13,15 @@ class CreateHandyDoService: HMAuthenticatedService {
     func createHandyDo(handyDo: HandyDo, success: Bool -> Void, failure: NSError? -> Void) {
         let handyDoDict = self.mapHandyDoToPostDictionary(handyDo)
         HMRestClient.sharedInstance.postForService(self, postObjectDictionary: handyDoDict,
-            success: { (response) -> Void in
+            success: { response in
                 success(true)
             },
-            failure: {(errors) -> Void in
+            failure: { errors in
                 failure(errors as? NSError)
         })
     }
     
-    // MARK: ServiceRequest Protocol
+    // MARK: - ServiceRequest Protocol
     
     func serviceEndpoint() -> String {
         return "/v1/handyDo"
@@ -29,11 +29,11 @@ class CreateHandyDoService: HMAuthenticatedService {
     
     // MARK: - Request Mapping
     
-    func mapHandyDoToPostDictionary(handyDo: HandyDo) -> Dictionary<String, AnyObject> {
-        let dictionary: Dictionary<String, AnyObject> = ["id": handyDo.id,
-                                                         "title": handyDo.title,
-                                                         "description":handyDo.todo,
-                                                         "status": handyDo.status]
-        return dictionary
+    private func mapHandyDoToPostDictionary(handyDo: HandyDo) -> Dictionary<String, AnyObject> {
+        return ["id": handyDo.id,
+                "title": handyDo.title,
+                "description":handyDo.todo,
+                "status": handyDo.status]
     }
+    
 }

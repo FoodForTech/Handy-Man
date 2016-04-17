@@ -6,7 +6,7 @@
 //  Copyright © 2015 Don Johnson. All rights reserved.
 //
 
-class User {
+struct User {
     
     let id: Int
     let firstName: String
@@ -18,7 +18,7 @@ class User {
     let assignToFirstName:String
     let assignToLastName: String
     
-     var fullName: String {
+    var fullName: String {
         get {
             return "\(firstName) \(lastName)"
         }
@@ -30,7 +30,7 @@ class User {
         self.lastName = lastName
         self.emailAddress = emailAddress
         self.phoneNumber = phoneNumber
-        self.assignToUserId = -1 // TODO add to init signaature
+        self.assignToUserId = -1 // TODO add to init signature
         self.assignToFirstName = firstName
         self.assignToLastName = lastName
         

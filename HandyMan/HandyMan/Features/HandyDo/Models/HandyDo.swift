@@ -8,31 +8,20 @@
 
 class HandyDo {
 
-    var id: Int
+    let id: Int
+    
     var title: String
     var todo: String
-    var status: String
     var dateTime: String
-
-    // MARK: Init
+    var status: String
     
-    init() {
-        self.id = 0
-        self.title = ""
-        self.todo = ""
-        self.status = ""
-        self.dateTime = ""
-    }
-    
-    init(id: Int, title: String, todo: String, status: String, dateTime: String) {
+    init(id: Int = 0, title: String = "", todo: String = "", status: String = "", dateTime: String = "") {
         self.id = id
         self.title = title
         self.todo = todo
         self.status = status
         self.dateTime = dateTime
     }
-    
-    // Internal Helper Methods
     
     func state() -> String {
         if status == "1" {
@@ -42,7 +31,6 @@ class HandyDo {
         } else if status == "3" {
             return "Complete"
         }
-        
         return "Unknown"
     }
     

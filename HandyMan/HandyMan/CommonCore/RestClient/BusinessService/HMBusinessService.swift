@@ -6,9 +6,10 @@
 //  Copyright © 2015 Don Johnson. All rights reserved.
 //
 
-protocol HMBusinessServiceUIDelegate {
-    func willCallBlockingBusinessService(businessService: HMBusinessService)
-    func didCompleteBlockingBusinessService(businessService: HMBusinessService)
-}
+protocol HMBusinessService : class {
 
-class HMBusinessService {}
+    weak var uiDelegate: HMBusinessServiceUIDelegate? { get }
+    
+    init(uiDelegate: HMBusinessServiceUIDelegate?)
+    
+}

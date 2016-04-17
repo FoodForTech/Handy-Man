@@ -8,13 +8,30 @@
 
 import UIKit
 
-class HMViewController: UIViewController {
+class HMViewController : UIViewController {
+    
+    let configurer = HMControllerConfigurer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // initial configuration
-       // self.navigationController?.navigationBar.backgroundColor = UIColor.orangeColor()
+       configurer.setUpNavigationController(self.navigationController)
+    }
+    
+}
+
+extension UIViewController : HMBusinessServiceUIDelegate {
+    
+    // MARK: CommonBusinessService UIDelegate
+    
+    // this seems to be locked and cannot be over written due to being in an extension of the main class ???  static dispatch rules...
+    func willCallBlockingBusinessService(businessService: HMBusinessService) {
+        print("willCallBlockingBusinessService:")
+    }
+    
+    func didCompleteBlockingBusinessService(businessService: HMBusinessService) {
+        print("didCompleteBlockingBusinessService:")
     }
     
 }

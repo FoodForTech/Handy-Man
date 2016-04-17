@@ -15,7 +15,7 @@ class RetrieveHandyDoService: HMAuthenticatedService {
     /**
      *   GET Retrieves HandyDo List
      */
-    func retrieveHandyDoList(success success:[HandyDo]->Void, failure:NSError? -> Void) -> Void {
+    func retrieveHandyDoList(success success:[HandyDo] -> Void, failure:NSError? -> Void) -> Void {
         HMRestClient.sharedInstance.getForService(self,
             success: { response in
                 success(self.mapModelToResponse(response!))
@@ -30,9 +30,9 @@ class RetrieveHandyDoService: HMAuthenticatedService {
     func serviceEndpoint() -> String {
         switch self.assignmentType {
         case .Assignee:
-            return "/v1/handyDo/\(HMUserManager.sharedInstance.user.id)/assignee"
+            return "/v1/handyDo/\(HMUserManager.sharedInstance.id)/assignee"  // TODO remove user.id dependency this should be passed in.
         case .AssignTo:
-            return "/v1/handyDo/\(HMUserManager.sharedInstance.user.id)/assign_to"
+            return "/v1/handyDo/\(HMUserManager.sharedInstance.id)/assign_to"
         }
     }
     

@@ -6,15 +6,4 @@
 //  Copyright © 2015 Don Johnson. All rights reserved.
 //
 
-import UIKit
-import Alamofire
-
-class AuthenticatedService: ServiceRequest {
-
-    // MARK: ServiceRequest Protocol
-    
-    func serviceEndpoint() -> String {
-        fatalError("Please override serviceEndpoint()")
-    }
-    
-}
+protocol HMAuthenticatedService: HMServiceRequest {}

@@ -8,9 +8,13 @@
 
 import UIKit
 
-class HandyDoListViewController: HMViewController, UITableViewDataSource, UITableViewDelegate {
+class HandyDoListViewController : HMViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private var handyDoList: HandyDoList
+    private var handyDoList: HandyDoList {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     private var assignmentType: AssignmentType
     private var indexPath: NSIndexPath
     private var refreshControl: UIRefreshControl
@@ -44,7 +48,7 @@ class HandyDoListViewController: HMViewController, UITableViewDataSource, UITabl
         self.tableView.registerClass(HandyDoTodoTableViewCell.self, forCellReuseIdentifier: Constants.HandyDoTodoTableViewCellId)
         self.refreshControl.backgroundColor = UIColor(red: 0.1, green: 0.5, blue: 0.8, alpha: 0.4)
         self.refreshControl.tintColor = UIColor.whiteColor()
-        self.refreshControl.addTarget(self, action: #selector(HandyDoListViewController.reloadData), forControlEvents: .ValueChanged)
+        self.refreshControl.addTarget(self, action: #selector(HandyDoListViewController.refreshData), forControlEvents: .ValueChanged)
         self.tableView.addSubview(self.refreshControl)
         self.tableView.sendSubviewToBack(self.refreshControl)
         self.assignmentSegmentControl.addTarget(self, action: #selector(HandyDoListViewController.assignmentChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
@@ -55,7 +59,6 @@ class HandyDoListViewController: HMViewController, UITableViewDataSource, UITabl
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.handyDoList.sortHandyDoListByStatus()
-        self.tableView.reloadData()
     }
     
     func configureWithHandyDoList(handyDoList: HandyDoList) {
@@ -118,13 +121,14 @@ class HandyDoListViewController: HMViewController, UITableViewDataSource, UITabl
         if editingStyle == .Delete {
             self.indexPath = indexPath
             let handyDo: HandyDo = self.handyDoList.handyDoSectionList[self.indexPath.section][indexPath.row]
-            self.handyDoBusinessService.deleteHandyDo(handyDo)
+            self.handyDoBusinessService.deleteHandyDo(handyDo) { response in
+                self.handyDoList.handyDoSectionList[indexPath.section].removeAtIndex(self.indexPath.row)
+                tableView.deleteRowsAtIndexPaths([self.indexPath], withRowAnimation: .Fade)
+            }
         }
     }
     
     // MARK: - HandyDoBusinessService NavigationDelegate
-    
-    func didCreateHandyDo(businessService: HandyDoBusinessService) {}
     
     func didRetrieveHandyDoList(handyDoList: [HandyDo]) {
         self.handyDoList.handyDoList = handyDoList
@@ -136,16 +140,9 @@ class HandyDoListViewController: HMViewController, UITableViewDataSource, UITabl
         self.refreshControl.endRefreshing()
     }
     
-    func didUpdateHandyDo(businessService: HandyDoBusinessService) {}
+    // MARK: - Selector Methods
     
-    func didDeleteHandyDo(businessService: HandyDoBusinessService) {
-        self.handyDoList.handyDoSectionList[indexPath.section].removeAtIndex(self.indexPath.row)
-        tableView.deleteRowsAtIndexPaths([self.indexPath], withRowAnimation: .Fade)
-    }
-    
-    // MARK: - Helper Methods
-    
-    func reloadData() -> Void {
+    func refreshData() -> Void {
         self.handyDoBusinessService.retrieveHandyDoList(assignmentType) { (handyDoList) in
             self.didRetrieveHandyDoList(handyDoList)
         }
@@ -160,7 +157,7 @@ class HandyDoListViewController: HMViewController, UITableViewDataSource, UITabl
         default:
             break;
         }
-        self.reloadData()
+        self.refreshData()
     }
     
     // MARK: - Navigation

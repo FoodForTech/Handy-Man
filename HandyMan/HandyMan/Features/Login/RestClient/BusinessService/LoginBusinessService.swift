@@ -16,10 +16,10 @@ class LoginBusinessService: HMBusinessService {
         authorizationTokenService = AuthorizationTokenService()
     }
     
-    func authorizeUserWithEmailAddress(emailAddress: String, password: String, completionHandler:(user: User) -> Void) {
-        self.authorizationTokenService.authorizeUser(emailAddress, password: password,
+    func authorizeUser(userCredentials: UserCredentials, completionHandler:(user: User) -> Void) {
+        self.authorizationTokenService.authorizeUser(userCredentials,
             success: { user in
-                HMUserManager.sharedInstance.user = user
+                HMUserManager.sharedInstance.setEmptyUser(user)
                 completionHandler(user: user)
             }, failure: { errors in
                 // TODO

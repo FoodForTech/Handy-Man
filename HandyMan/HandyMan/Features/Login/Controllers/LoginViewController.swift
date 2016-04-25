@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: HMViewController {
+class LoginViewController: HMViewController, UITextFieldDelegate {
     
     private struct Constants {
         static let LoginRegisterViewControllerSegue = "LoginRegisterViewControllerSegue"
@@ -20,14 +20,83 @@ class LoginViewController: HMViewController {
         static let AuthErrorOkButtonTitle = "OK"
     }
     
-    var handyDoList = HandyDoList()
+    private var registerUserCredentials: UserCredentials?
+    private var handyDoList = HandyDoList()
     
-    @IBOutlet private weak var userNameTextField: UITextField!
-    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var userNameTextField: DesignableTextField!
+    @IBOutlet private weak var passwordTextField: DesignableTextField!
+    @IBOutlet weak var logOnButton: SpringButton!
+    @IBOutlet weak var loginCredentialsView: SpringView!
+    @IBOutlet weak var brandingLabel: SpringLabel!
+    
+    // MARK: - Lifecycle Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.userNameTextField.delegate = self
+        self.passwordTextField.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.brandingLabel.animation = "slideLeft"
+        self.brandingLabel.animate()
+    }
+    
+    // MARK: - UITextField Delegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.userNameTextField.resignFirstResponder()
+        self.passwordTextField.resignFirstResponder()
+        
+        let emailAddress = userNameTextField.text!
+        let password = userNameTextField.text!
+        if !emailAddress.isEmpty && !password.isEmpty {
+            self.logOn()
+            return true
+        }
+        return false
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let navigationController = segue.destinationViewController as? UINavigationController {
+            if let handyDoListViewController: HandyDoListViewController = navigationController.topViewController as? HandyDoListViewController {
+                handyDoListViewController.configureWithHandyDoList(self.handyDoList)
+                return
+            }
+        }
+        if let loginRegisterViewController = segue.destinationViewController as? LoginRegisterViewController {
+            loginRegisterViewController.userCredentials = registerUserCredentials
+            return
+        }
+    }
     
     // MARK: - Control Events
     
     @IBAction private func logOn(sender: UIButton) {
+        self.logOn()
+    }
+    
+    @IBAction func register(sender: UIButton) {
+        let emailAddress = self.userNameTextField.text!
+        let password = self.passwordTextField.text!
+        registerUserCredentials = UserCredentials(emailAddress: emailAddress, password: password)
+        if !emailAddress.isEmpty {
+            self.performSegueWithIdentifier(Constants.LoginRegisterViewControllerSegue, sender: self)
+        } else {
+            loginCredentialsView.animateWithAnimation("swing")
+        }
+    }
+    
+    // MARK: - Helper Methods
+    
+    private func logOn() {
+        decorate(self.userNameTextField, borderWidth: 0, color: UIColor.blackColor())
+        decorate(self.passwordTextField, borderWidth: 0, color: UIColor.blackColor())
         let emailAddress = userNameTextField.text!
         let password = passwordTextField.text!
         let userCredentials = UserCredentials(emailAddress: emailAddress, password: password)
@@ -38,28 +107,36 @@ class LoginViewController: HMViewController {
                 } else {
                     self.userNameTextField.text! = ""
                     self.passwordTextField.text! = ""
-                    self.handyDoBusinessService.retrieveHandyDoList(AssignmentType.Assignee, completionHandler: { handyDoList in
-                        self.handyDoList.handyDoList = handyDoList
-                        self.performSegueWithIdentifier(Constants.HandyDoListViewControllerSegue, sender: self)
+                    self.handyDoBusinessService.retrieveHandyDoList(AssignmentType.Assignee, completionHandler: {
+                        handyDoList in
+                        
+                        switch handyDoList {
+                        case .Items(let handyDoList):
+                            self.handyDoList.handyDoList = handyDoList
+                            self.performSegueWithIdentifier(Constants.HandyDoListViewControllerSegue, sender: self)
+                        case .Failure(_):
+                            break;
+                        default:
+                            break;
+                        }
                     })
                 }
             })
         } else {
-            self.presentUIAlertControllerWithTitle(Constants.LoginErrorTitle, message: Constants.LoginErrorMessage)
-        }
-    }
-    
-    // MARK: - Navigation
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let navigationController = segue.destinationViewController as? UINavigationController {
-            if let handyDoListViewController: HandyDoListViewController = navigationController.topViewController as? HandyDoListViewController {
-                handyDoListViewController.configureWithHandyDoList(self.handyDoList)
+            loginCredentialsView.animateWithAnimation("shake")
+            if emailAddress.isEmpty {
+                decorate(self.userNameTextField, borderWidth: 2, color: UIColor.redColor())
+            }
+            if password.isEmpty {
+                decorate(self.passwordTextField, borderWidth: 2, color: UIColor.redColor())
             }
         }
     }
     
-    // MARK: - Helper Methods
+    private func decorate(textField: DesignableTextField, borderWidth: CGFloat, color: UIColor) {
+        textField.borderWidth = borderWidth
+        textField.borderColor = color
+    }
     
     private func presentUIAlertControllerWithTitle(title: String, message:String) {
         let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)

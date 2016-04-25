@@ -6,6 +6,8 @@
 //  Copyright © 2015 Don Johnson. All rights reserved.
 //
 
+import UIKit
+
 class LoginBusinessService: HMBusinessService {
 
     weak var uiDelegate: HMBusinessServiceUIDelegate?
@@ -17,13 +19,22 @@ class LoginBusinessService: HMBusinessService {
     }
     
     func authorizeUser(userCredentials: UserCredentials, completionHandler:(user: User) -> Void) {
+        self.uiDelegate?.willCallBlockingBusinessService(self)
         self.authorizationTokenService.authorizeUser(userCredentials,
             success: { user in
-                HMUserManager.sharedInstance.setEmptyUser(user)
+                self.uiDelegate?.didCompleteBlockingBusinessService(self)
+                HMUserManager.sharedInstance.replaceEmptyUser(user)
                 completionHandler(user: user)
             }, failure: { errors in
-                // TODO
+                self.uiDelegate?.didCompleteBlockingBusinessService(self)
+                self.handleErrors(errors)
             })
+    }
+    
+    private func handleErrors(errors: NSError?) {
+        if let errs = errors {
+            print(errs)
+        }
     }
  
 }

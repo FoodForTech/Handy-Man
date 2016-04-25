@@ -9,7 +9,7 @@
 import UIKit
 
 class HMTableViewController : UITableViewController {
-
+    
     let configurer = HMControllerConfigurer()
     
     override func viewDidLoad() {

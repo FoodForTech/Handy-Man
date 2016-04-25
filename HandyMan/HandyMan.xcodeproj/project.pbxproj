@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D83CEDC40C278186FC31BD8B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1F195D030C249D0B3E9F98 /* Pods.framework */; };
+		D83CEDC40C278186FC31BD8B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1F195D030C249D0B3E9F98 /* Pods.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		E0070D8C1CC1AD2B00E970A2 /* HandyDoTodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070D5E1CC1AD2B00E970A2 /* HandyDoTodoTableViewCell.swift */; };
 		E0070D8D1CC1AD2B00E970A2 /* HandyDoCreateTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070D601CC1AD2B00E970A2 /* HandyDoCreateTodoViewController.swift */; };
 		E0070D8E1CC1AD2B00E970A2 /* HandyDoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070D611CC1AD2B00E970A2 /* HandyDoDetailViewController.swift */; };
@@ -22,7 +22,7 @@
 		E0070D971CC1AD2B00E970A2 /* UpdateHandyDoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070D6E1CC1AD2B00E970A2 /* UpdateHandyDoService.swift */; };
 		E0070D981CC1AD2B00E970A2 /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070D781CC1AD2B00E970A2 /* LoginRegisterViewController.swift */; };
 		E0070D991CC1AD2B00E970A2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070D791CC1AD2B00E970A2 /* LoginViewController.swift */; };
-		E0070D9A1CC1AD2B00E970A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0070D7A1CC1AD2B00E970A2 /* Main.storyboard */; };
+		E0070D9A1CC1AD2B00E970A2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0070D7A1CC1AD2B00E970A2 /* Login.storyboard */; };
 		E0070D9B1CC1AD2B00E970A2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070D7C1CC1AD2B00E970A2 /* User.swift */; };
 		E0070D9C1CC1AD2B00E970A2 /* LoginBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070D7F1CC1AD2B00E970A2 /* LoginBusinessService.swift */; };
 		E0070D9D1CC1AD2B00E970A2 /* AuthorizationTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070D811CC1AD2B00E970A2 /* AuthorizationTokenService.swift */; };
@@ -30,22 +30,54 @@
 		E0070DA01CC1AD2B00E970A2 /* ProfileAndSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0070D861CC1AD2B00E970A2 /* ProfileAndSettings.storyboard */; };
 		E0070DA11CC1AD2B00E970A2 /* ProfileAndSettingsBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070D891CC1AD2B00E970A2 /* ProfileAndSettingsBusinessService.swift */; };
 		E0070DA21CC1AD2B00E970A2 /* UpdateUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070D8B1CC1AD2B00E970A2 /* UpdateUserService.swift */; };
-		E0070DA51CC1AE8A00E970A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DA41CC1AE8A00E970A2 /* AppDelegate.swift */; };
 		E0070DA71CC1B19000E970A2 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DA61CC1B19000E970A2 /* UserCredentials.swift */; };
+		E0070DC81CC487B500E970A2 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DAA1CC487B500E970A2 /* AsyncButton.swift */; };
+		E0070DC91CC487B500E970A2 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DAB1CC487B500E970A2 /* AsyncImageView.swift */; };
+		E0070DCA1CC487B500E970A2 /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DAC1CC487B500E970A2 /* AutoTextView.swift */; };
+		E0070DCB1CC487B500E970A2 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DAD1CC487B500E970A2 /* BlurView.swift */; };
+		E0070DCC1CC487B500E970A2 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DAE1CC487B500E970A2 /* DesignableButton.swift */; };
+		E0070DCD1CC487B500E970A2 /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DAF1CC487B500E970A2 /* DesignableImageView.swift */; };
+		E0070DCE1CC487B500E970A2 /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DB01CC487B500E970A2 /* DesignableLabel.swift */; };
+		E0070DCF1CC487B500E970A2 /* DesignableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DB11CC487B500E970A2 /* DesignableTabBarController.swift */; };
+		E0070DD01CC487B500E970A2 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DB21CC487B500E970A2 /* DesignableTextField.swift */; };
+		E0070DD11CC487B500E970A2 /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DB31CC487B500E970A2 /* DesignableTextView.swift */; };
+		E0070DD21CC487B500E970A2 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DB41CC487B500E970A2 /* DesignableView.swift */; };
+		E0070DD31CC487B500E970A2 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DB51CC487B500E970A2 /* ImageLoader.swift */; };
+		E0070DD41CC487B500E970A2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0070DB61CC487B500E970A2 /* Info.plist */; };
+		E0070DD51CC487B500E970A2 /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DB71CC487B500E970A2 /* KeyboardLayoutConstraint.swift */; };
+		E0070DD61CC487B500E970A2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DB81CC487B500E970A2 /* LoadingView.swift */; };
+		E0070DD71CC487B500E970A2 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0070DB91CC487B500E970A2 /* LoadingView.xib */; };
+		E0070DD81CC487B500E970A2 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DBA1CC487B500E970A2 /* Misc.swift */; };
+		E0070DD91CC487B500E970A2 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DBB1CC487B500E970A2 /* SoundPlayer.swift */; };
+		E0070DDA1CC487B500E970A2 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DBD1CC487B500E970A2 /* Spring.swift */; };
+		E0070DDB1CC487B500E970A2 /* SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DBE1CC487B500E970A2 /* SpringAnimation.swift */; };
+		E0070DDC1CC487B500E970A2 /* SpringButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DBF1CC487B500E970A2 /* SpringButton.swift */; };
+		E0070DDD1CC487B500E970A2 /* SpringImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DC01CC487B500E970A2 /* SpringImageView.swift */; };
+		E0070DDE1CC487B500E970A2 /* SpringLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DC11CC487B500E970A2 /* SpringLabel.swift */; };
+		E0070DDF1CC487B500E970A2 /* SpringTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DC21CC487B500E970A2 /* SpringTextField.swift */; };
+		E0070DE01CC487B500E970A2 /* SpringTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DC31CC487B500E970A2 /* SpringTextView.swift */; };
+		E0070DE11CC487B500E970A2 /* SpringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DC41CC487B500E970A2 /* SpringView.swift */; };
+		E0070DE21CC487B500E970A2 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DC51CC487B500E970A2 /* TransitionManager.swift */; };
+		E0070DE31CC487B500E970A2 /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DC61CC487B500E970A2 /* TransitionZoom.swift */; };
+		E0070DE41CC487B500E970A2 /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0070DC71CC487B500E970A2 /* UnwindSegue.swift */; };
+		E007D2D01CCAE6B500B5F008 /* HMBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007D2CA1CCAE6B500B5F008 /* HMBusinessService.swift */; };
+		E007D2D11CCAE6B500B5F008 /* HMBusinessServiceUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007D2CB1CCAE6B500B5F008 /* HMBusinessServiceUIDelegate.swift */; };
+		E007D2D21CCAE6B500B5F008 /* HMAuthenticatedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007D2CD1CCAE6B500B5F008 /* HMAuthenticatedService.swift */; };
+		E007D2D31CCAE6B500B5F008 /* HMServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007D2CE1CCAE6B500B5F008 /* HMServiceRequest.swift */; };
+		E007D2D41CCAE6B500B5F008 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007D2CF1CCAE6B500B5F008 /* SwiftyJSON.swift */; };
+		E007D2E11CCAE92700B5F008 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E007D2DF1CCAE92700B5F008 /* Info.plist */; };
+		E007D2E41CCAE92F00B5F008 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007D2E31CCAE92F00B5F008 /* AppDelegate.swift */; };
+		E007D2E81CCAE9D300B5F008 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E007D2E61CCAE9D300B5F008 /* LaunchScreen.storyboard */; };
+		E007D2EA1CCB1B3000B5F008 /* RegisterUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007D2E91CCB1B3000B5F008 /* RegisterUserService.swift */; };
+		E007D2EC1CCB1F4500B5F008 /* RegisterBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007D2EB1CCB1F4500B5F008 /* RegisterBusinessService.swift */; };
 		E01114AE1CBD275B00AD08C8 /* HMControllerConfigurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01114AD1CBD275B00AD08C8 /* HMControllerConfigurer.swift */; };
 		E06F7C871CB47B8200D6EF12 /* HMCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F7C781CB47B8200D6EF12 /* HMCollectionViewController.swift */; };
 		E06F7C881CB47B8200D6EF12 /* HMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F7C791CB47B8200D6EF12 /* HMTableViewController.swift */; };
 		E06F7C891CB47B8200D6EF12 /* HMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F7C7A1CB47B8200D6EF12 /* HMViewController.swift */; };
 		E06F7C8B1CB47B8200D6EF12 /* HMUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F7C7E1CB47B8200D6EF12 /* HMUserManager.swift */; };
-		E06F7C8C1CB47B8200D6EF12 /* HMBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F7C811CB47B8200D6EF12 /* HMBusinessService.swift */; };
 		E06F7C8D1CB47B8200D6EF12 /* HMRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F7C821CB47B8200D6EF12 /* HMRestClient.swift */; };
-		E06F7C8E1CB47B8200D6EF12 /* HMAuthenticatedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F7C841CB47B8200D6EF12 /* HMAuthenticatedService.swift */; };
-		E06F7C8F1CB47B8200D6EF12 /* HMServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F7C851CB47B8200D6EF12 /* HMServiceRequest.swift */; };
-		E06F7C901CB47B8200D6EF12 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F7C861CB47B8200D6EF12 /* SwiftyJSON.swift */; };
-		E06F7C931CB48AB200D6EF12 /* HMBusinessServiceUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F7C921CB48AB200D6EF12 /* HMBusinessServiceUIDelegate.swift */; };
 		E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E55E1C14D2AE0059386D /* HandyMan.xcdatamodeld */; };
 		E0C4E5621C14D2AE0059386D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C4E5611C14D2AE0059386D /* Assets.xcassets */; };
-		E0C4E5651C14D2AE0059386D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C4E5631C14D2AE0059386D /* LaunchScreen.storyboard */; };
 		E0C4E5701C14D2AE0059386D /* HandyManTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E56F1C14D2AE0059386D /* HandyManTests.swift */; };
 		E0C4E57B1C14D2AE0059386D /* HandyManUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4E57A1C14D2AE0059386D /* HandyManUITests.swift */; };
 /* End PBXBuildFile section */
@@ -85,7 +117,7 @@
 		E0070D6E1CC1AD2B00E970A2 /* UpdateHandyDoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHandyDoService.swift; sourceTree = "<group>"; };
 		E0070D781CC1AD2B00E970A2 /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
 		E0070D791CC1AD2B00E970A2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		E0070D7A1CC1AD2B00E970A2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E0070D7A1CC1AD2B00E970A2 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		E0070D7C1CC1AD2B00E970A2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E0070D7F1CC1AD2B00E970A2 /* LoginBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginBusinessService.swift; sourceTree = "<group>"; };
 		E0070D811CC1AD2B00E970A2 /* AuthorizationTokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationTokenService.swift; sourceTree = "<group>"; };
@@ -93,24 +125,56 @@
 		E0070D861CC1AD2B00E970A2 /* ProfileAndSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileAndSettings.storyboard; sourceTree = "<group>"; };
 		E0070D891CC1AD2B00E970A2 /* ProfileAndSettingsBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAndSettingsBusinessService.swift; sourceTree = "<group>"; };
 		E0070D8B1CC1AD2B00E970A2 /* UpdateUserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserService.swift; sourceTree = "<group>"; };
-		E0070DA41CC1AE8A00E970A2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0070DA61CC1B19000E970A2 /* UserCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
+		E0070DAA1CC487B500E970A2 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
+		E0070DAB1CC487B500E970A2 /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		E0070DAC1CC487B500E970A2 /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
+		E0070DAD1CC487B500E970A2 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		E0070DAE1CC487B500E970A2 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		E0070DAF1CC487B500E970A2 /* DesignableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
+		E0070DB01CC487B500E970A2 /* DesignableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
+		E0070DB11CC487B500E970A2 /* DesignableTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTabBarController.swift; sourceTree = "<group>"; };
+		E0070DB21CC487B500E970A2 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
+		E0070DB31CC487B500E970A2 /* DesignableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextView.swift; sourceTree = "<group>"; };
+		E0070DB41CC487B500E970A2 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		E0070DB51CC487B500E970A2 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		E0070DB61CC487B500E970A2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0070DB71CC487B500E970A2 /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
+		E0070DB81CC487B500E970A2 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E0070DB91CC487B500E970A2 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		E0070DBA1CC487B500E970A2 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		E0070DBB1CC487B500E970A2 /* SoundPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		E0070DBC1CC487B500E970A2 /* Spring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spring.h; sourceTree = "<group>"; };
+		E0070DBD1CC487B500E970A2 /* Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
+		E0070DBE1CC487B500E970A2 /* SpringAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringAnimation.swift; sourceTree = "<group>"; };
+		E0070DBF1CC487B500E970A2 /* SpringButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringButton.swift; sourceTree = "<group>"; };
+		E0070DC01CC487B500E970A2 /* SpringImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringImageView.swift; sourceTree = "<group>"; };
+		E0070DC11CC487B500E970A2 /* SpringLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringLabel.swift; sourceTree = "<group>"; };
+		E0070DC21CC487B500E970A2 /* SpringTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringTextField.swift; sourceTree = "<group>"; };
+		E0070DC31CC487B500E970A2 /* SpringTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringTextView.swift; sourceTree = "<group>"; };
+		E0070DC41CC487B500E970A2 /* SpringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringView.swift; sourceTree = "<group>"; };
+		E0070DC51CC487B500E970A2 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
+		E0070DC61CC487B500E970A2 /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
+		E0070DC71CC487B500E970A2 /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
+		E007D2CA1CCAE6B500B5F008 /* HMBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMBusinessService.swift; sourceTree = "<group>"; };
+		E007D2CB1CCAE6B500B5F008 /* HMBusinessServiceUIDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMBusinessServiceUIDelegate.swift; sourceTree = "<group>"; };
+		E007D2CD1CCAE6B500B5F008 /* HMAuthenticatedService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMAuthenticatedService.swift; sourceTree = "<group>"; };
+		E007D2CE1CCAE6B500B5F008 /* HMServiceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMServiceRequest.swift; sourceTree = "<group>"; };
+		E007D2CF1CCAE6B500B5F008 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		E007D2DF1CCAE92700B5F008 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E007D2E31CCAE92F00B5F008 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E007D2E71CCAE9D300B5F008 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E007D2E91CCB1B3000B5F008 /* RegisterUserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserService.swift; sourceTree = "<group>"; };
+		E007D2EB1CCB1F4500B5F008 /* RegisterBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBusinessService.swift; sourceTree = "<group>"; };
 		E01114AD1CBD275B00AD08C8 /* HMControllerConfigurer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMControllerConfigurer.swift; sourceTree = "<group>"; };
 		E06F7C781CB47B8200D6EF12 /* HMCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMCollectionViewController.swift; sourceTree = "<group>"; };
 		E06F7C791CB47B8200D6EF12 /* HMTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMTableViewController.swift; sourceTree = "<group>"; };
 		E06F7C7A1CB47B8200D6EF12 /* HMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMViewController.swift; sourceTree = "<group>"; };
 		E06F7C7E1CB47B8200D6EF12 /* HMUserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMUserManager.swift; sourceTree = "<group>"; };
-		E06F7C811CB47B8200D6EF12 /* HMBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMBusinessService.swift; sourceTree = "<group>"; };
 		E06F7C821CB47B8200D6EF12 /* HMRestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMRestClient.swift; sourceTree = "<group>"; };
-		E06F7C841CB47B8200D6EF12 /* HMAuthenticatedService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMAuthenticatedService.swift; sourceTree = "<group>"; };
-		E06F7C851CB47B8200D6EF12 /* HMServiceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMServiceRequest.swift; sourceTree = "<group>"; };
-		E06F7C861CB47B8200D6EF12 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		E06F7C921CB48AB200D6EF12 /* HMBusinessServiceUIDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMBusinessServiceUIDelegate.swift; sourceTree = "<group>"; };
 		E0C4E5541C14D2AE0059386D /* HandyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C4E55F1C14D2AE0059386D /* HandyMan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HandyMan.xcdatamodel; sourceTree = "<group>"; };
 		E0C4E5611C14D2AE0059386D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E0C4E5641C14D2AE0059386D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E0C4E5661C14D2AE0059386D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0C4E56B1C14D2AE0059386D /* HandyManTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandyManTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C4E56F1C14D2AE0059386D /* HandyManTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandyManTests.swift; sourceTree = "<group>"; };
 		E0C4E5711C14D2AE0059386D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -242,7 +306,7 @@
 		E0070D6F1CC1AD2B00E970A2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				E0070D7A1CC1AD2B00E970A2 /* Main.storyboard */,
+				E0070D7A1CC1AD2B00E970A2 /* Login.storyboard */,
 				E0070D771CC1AD2B00E970A2 /* Controllers */,
 				E0070D7B1CC1AD2B00E970A2 /* Models */,
 				E0070D7D1CC1AD2B00E970A2 /* RestClient */,
@@ -281,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				E0070D7F1CC1AD2B00E970A2 /* LoginBusinessService.swift */,
+				E007D2EB1CCB1F4500B5F008 /* RegisterBusinessService.swift */,
 			);
 			path = BusinessService;
 			sourceTree = "<group>";
@@ -289,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				E0070D811CC1AD2B00E970A2 /* AuthorizationTokenService.swift */,
+				E007D2E91CCB1B3000B5F008 /* RegisterUserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -336,12 +402,79 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		E0070DA91CC487B500E970A2 /* Spring */ = {
+			isa = PBXGroup;
+			children = (
+				E0070DAA1CC487B500E970A2 /* AsyncButton.swift */,
+				E0070DAB1CC487B500E970A2 /* AsyncImageView.swift */,
+				E0070DAC1CC487B500E970A2 /* AutoTextView.swift */,
+				E0070DAD1CC487B500E970A2 /* BlurView.swift */,
+				E0070DAE1CC487B500E970A2 /* DesignableButton.swift */,
+				E0070DAF1CC487B500E970A2 /* DesignableImageView.swift */,
+				E0070DB01CC487B500E970A2 /* DesignableLabel.swift */,
+				E0070DB11CC487B500E970A2 /* DesignableTabBarController.swift */,
+				E0070DB21CC487B500E970A2 /* DesignableTextField.swift */,
+				E0070DB31CC487B500E970A2 /* DesignableTextView.swift */,
+				E0070DB41CC487B500E970A2 /* DesignableView.swift */,
+				E0070DB51CC487B500E970A2 /* ImageLoader.swift */,
+				E0070DB61CC487B500E970A2 /* Info.plist */,
+				E0070DB71CC487B500E970A2 /* KeyboardLayoutConstraint.swift */,
+				E0070DB81CC487B500E970A2 /* LoadingView.swift */,
+				E0070DB91CC487B500E970A2 /* LoadingView.xib */,
+				E0070DBA1CC487B500E970A2 /* Misc.swift */,
+				E0070DBB1CC487B500E970A2 /* SoundPlayer.swift */,
+				E0070DBC1CC487B500E970A2 /* Spring.h */,
+				E0070DBD1CC487B500E970A2 /* Spring.swift */,
+				E0070DBE1CC487B500E970A2 /* SpringAnimation.swift */,
+				E0070DBF1CC487B500E970A2 /* SpringButton.swift */,
+				E0070DC01CC487B500E970A2 /* SpringImageView.swift */,
+				E0070DC11CC487B500E970A2 /* SpringLabel.swift */,
+				E0070DC21CC487B500E970A2 /* SpringTextField.swift */,
+				E0070DC31CC487B500E970A2 /* SpringTextView.swift */,
+				E0070DC41CC487B500E970A2 /* SpringView.swift */,
+				E0070DC51CC487B500E970A2 /* TransitionManager.swift */,
+				E0070DC61CC487B500E970A2 /* TransitionZoom.swift */,
+				E0070DC71CC487B500E970A2 /* UnwindSegue.swift */,
+			);
+			path = Spring;
+			sourceTree = "<group>";
+		};
+		E007D2C91CCAE6B500B5F008 /* BusinessLayer */ = {
+			isa = PBXGroup;
+			children = (
+				E007D2CA1CCAE6B500B5F008 /* HMBusinessService.swift */,
+				E007D2CB1CCAE6B500B5F008 /* HMBusinessServiceUIDelegate.swift */,
+			);
+			path = BusinessLayer;
+			sourceTree = "<group>";
+		};
+		E007D2CC1CCAE6B500B5F008 /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				E007D2CD1CCAE6B500B5F008 /* HMAuthenticatedService.swift */,
+				E007D2CE1CCAE6B500B5F008 /* HMServiceRequest.swift */,
+				E007D2CF1CCAE6B500B5F008 /* SwiftyJSON.swift */,
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		E007D2E51CCAE93A00B5F008 /* Supporting File */ = {
+			isa = PBXGroup;
+			children = (
+				E007D2E61CCAE9D300B5F008 /* LaunchScreen.storyboard */,
+				E007D2E31CCAE92F00B5F008 /* AppDelegate.swift */,
+				E007D2DF1CCAE92700B5F008 /* Info.plist */,
+			);
+			name = "Supporting File";
+			sourceTree = "<group>";
+		};
 		E06F7C761CB47B8200D6EF12 /* CommonCore */ = {
 			isa = PBXGroup;
 			children = (
 				E06F7C771CB47B8200D6EF12 /* Controllers */,
 				E06F7C7D1CB47B8200D6EF12 /* Models */,
 				E06F7C7F1CB47B8200D6EF12 /* RestClient */,
+				E0070DA91CC487B500E970A2 /* Spring */,
 			);
 			path = CommonCore;
 			sourceTree = "<group>";
@@ -368,30 +501,11 @@
 		E06F7C7F1CB47B8200D6EF12 /* RestClient */ = {
 			isa = PBXGroup;
 			children = (
-				E06F7C801CB47B8200D6EF12 /* BusinessService */,
-				E06F7C831CB47B8200D6EF12 /* Service */,
+				E007D2C91CCAE6B500B5F008 /* BusinessLayer */,
+				E007D2CC1CCAE6B500B5F008 /* ServiceLayer */,
 				E06F7C821CB47B8200D6EF12 /* HMRestClient.swift */,
 			);
 			path = RestClient;
-			sourceTree = "<group>";
-		};
-		E06F7C801CB47B8200D6EF12 /* BusinessService */ = {
-			isa = PBXGroup;
-			children = (
-				E06F7C811CB47B8200D6EF12 /* HMBusinessService.swift */,
-				E06F7C921CB48AB200D6EF12 /* HMBusinessServiceUIDelegate.swift */,
-			);
-			path = BusinessService;
-			sourceTree = "<group>";
-		};
-		E06F7C831CB47B8200D6EF12 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				E06F7C841CB47B8200D6EF12 /* HMAuthenticatedService.swift */,
-				E06F7C851CB47B8200D6EF12 /* HMServiceRequest.swift */,
-				E06F7C861CB47B8200D6EF12 /* SwiftyJSON.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		E0C4E54B1C14D2AE0059386D = {
@@ -421,10 +535,8 @@
 			children = (
 				E0070D5B1CC1AD2B00E970A2 /* Features */,
 				E06F7C761CB47B8200D6EF12 /* CommonCore */,
-				E0070DA41CC1AE8A00E970A2 /* AppDelegate.swift */,
+				E007D2E51CCAE93A00B5F008 /* Supporting File */,
 				E0C4E5611C14D2AE0059386D /* Assets.xcassets */,
-				E0C4E5631C14D2AE0059386D /* LaunchScreen.storyboard */,
-				E0C4E5661C14D2AE0059386D /* Info.plist */,
 				E0C4E55E1C14D2AE0059386D /* HandyMan.xcdatamodeld */,
 			);
 			path = HandyMan;
@@ -556,11 +668,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E007D2E11CCAE92700B5F008 /* Info.plist in Resources */,
+				E007D2E81CCAE9D300B5F008 /* LaunchScreen.storyboard in Resources */,
 				E0070DA01CC1AD2B00E970A2 /* ProfileAndSettings.storyboard in Resources */,
-				E0C4E5651C14D2AE0059386D /* LaunchScreen.storyboard in Resources */,
+				E0070DD41CC487B500E970A2 /* Info.plist in Resources */,
 				E0C4E5621C14D2AE0059386D /* Assets.xcassets in Resources */,
+				E0070DD71CC487B500E970A2 /* LoadingView.xib in Resources */,
 				E0070D901CC1AD2B00E970A2 /* HandyDo.storyboard in Resources */,
-				E0070D9A1CC1AD2B00E970A2 /* Main.storyboard in Resources */,
+				E0070D9A1CC1AD2B00E970A2 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,38 +748,67 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E007D2EA1CCB1B3000B5F008 /* RegisterUserService.swift in Sources */,
 				E0070D8C1CC1AD2B00E970A2 /* HandyDoTodoTableViewCell.swift in Sources */,
 				E0070D941CC1AD2B00E970A2 /* CreateHandyDoService.swift in Sources */,
+				E007D2D31CCAE6B500B5F008 /* HMServiceRequest.swift in Sources */,
+				E007D2D41CCAE6B500B5F008 /* SwiftyJSON.swift in Sources */,
+				E0070DC81CC487B500E970A2 /* AsyncButton.swift in Sources */,
 				E0070D8E1CC1AD2B00E970A2 /* HandyDoDetailViewController.swift in Sources */,
+				E007D2D01CCAE6B500B5F008 /* HMBusinessService.swift in Sources */,
+				E0070DCB1CC487B500E970A2 /* BlurView.swift in Sources */,
 				E0070D9C1CC1AD2B00E970A2 /* LoginBusinessService.swift in Sources */,
+				E0070DE41CC487B500E970A2 /* UnwindSegue.swift in Sources */,
 				E0070D981CC1AD2B00E970A2 /* LoginRegisterViewController.swift in Sources */,
-				E06F7C8C1CB47B8200D6EF12 /* HMBusinessService.swift in Sources */,
+				E007D2D11CCAE6B500B5F008 /* HMBusinessServiceUIDelegate.swift in Sources */,
 				E0070D991CC1AD2B00E970A2 /* LoginViewController.swift in Sources */,
 				E06F7C8D1CB47B8200D6EF12 /* HMRestClient.swift in Sources */,
-				E06F7C8F1CB47B8200D6EF12 /* HMServiceRequest.swift in Sources */,
 				E0070D9B1CC1AD2B00E970A2 /* User.swift in Sources */,
+				E007D2EC1CCB1F4500B5F008 /* RegisterBusinessService.swift in Sources */,
 				E0070D8D1CC1AD2B00E970A2 /* HandyDoCreateTodoViewController.swift in Sources */,
-				E0070DA51CC1AE8A00E970A2 /* AppDelegate.swift in Sources */,
+				E0070DCD1CC487B500E970A2 /* DesignableImageView.swift in Sources */,
+				E0070DD61CC487B500E970A2 /* LoadingView.swift in Sources */,
+				E0070DDE1CC487B500E970A2 /* SpringLabel.swift in Sources */,
+				E0070DC91CC487B500E970A2 /* AsyncImageView.swift in Sources */,
 				E0070D921CC1AD2B00E970A2 /* HandyDoList.swift in Sources */,
+				E0070DDB1CC487B500E970A2 /* SpringAnimation.swift in Sources */,
+				E0070DE11CC487B500E970A2 /* SpringView.swift in Sources */,
 				E0070D961CC1AD2B00E970A2 /* RetrieveHandyDoService.swift in Sources */,
 				E06F7C881CB47B8200D6EF12 /* HMTableViewController.swift in Sources */,
 				E0070D8F1CC1AD2B00E970A2 /* HandyDoListViewController.swift in Sources */,
 				E0070DA11CC1AD2B00E970A2 /* ProfileAndSettingsBusinessService.swift in Sources */,
 				E0070D911CC1AD2B00E970A2 /* HandyDo.swift in Sources */,
+				E0070DDC1CC487B500E970A2 /* SpringButton.swift in Sources */,
+				E0070DE01CC487B500E970A2 /* SpringTextView.swift in Sources */,
 				E06F7C871CB47B8200D6EF12 /* HMCollectionViewController.swift in Sources */,
-				E06F7C8E1CB47B8200D6EF12 /* HMAuthenticatedService.swift in Sources */,
+				E0070DD11CC487B500E970A2 /* DesignableTextView.swift in Sources */,
+				E0070DDA1CC487B500E970A2 /* Spring.swift in Sources */,
 				E0070D951CC1AD2B00E970A2 /* DeleteHandyDoService.swift in Sources */,
 				E0C4E5601C14D2AE0059386D /* HandyMan.xcdatamodeld in Sources */,
 				E06F7C891CB47B8200D6EF12 /* HMViewController.swift in Sources */,
-				E06F7C901CB47B8200D6EF12 /* SwiftyJSON.swift in Sources */,
 				E0070D9F1CC1AD2B00E970A2 /* ProfileAndSettingsViewController.swift in Sources */,
 				E0070D971CC1AD2B00E970A2 /* UpdateHandyDoService.swift in Sources */,
-				E06F7C931CB48AB200D6EF12 /* HMBusinessServiceUIDelegate.swift in Sources */,
+				E0070DCE1CC487B500E970A2 /* DesignableLabel.swift in Sources */,
+				E0070DD81CC487B500E970A2 /* Misc.swift in Sources */,
+				E0070DE31CC487B500E970A2 /* TransitionZoom.swift in Sources */,
+				E0070DD31CC487B500E970A2 /* ImageLoader.swift in Sources */,
+				E0070DD01CC487B500E970A2 /* DesignableTextField.swift in Sources */,
+				E0070DD91CC487B500E970A2 /* SoundPlayer.swift in Sources */,
 				E01114AE1CBD275B00AD08C8 /* HMControllerConfigurer.swift in Sources */,
+				E007D2D21CCAE6B500B5F008 /* HMAuthenticatedService.swift in Sources */,
+				E0070DCA1CC487B500E970A2 /* AutoTextView.swift in Sources */,
+				E0070DD21CC487B500E970A2 /* DesignableView.swift in Sources */,
+				E007D2E41CCAE92F00B5F008 /* AppDelegate.swift in Sources */,
 				E0070D9D1CC1AD2B00E970A2 /* AuthorizationTokenService.swift in Sources */,
 				E0070DA21CC1AD2B00E970A2 /* UpdateUserService.swift in Sources */,
 				E0070DA71CC1B19000E970A2 /* UserCredentials.swift in Sources */,
+				E0070DCC1CC487B500E970A2 /* DesignableButton.swift in Sources */,
+				E0070DDD1CC487B500E970A2 /* SpringImageView.swift in Sources */,
 				E0070D931CC1AD2B00E970A2 /* HandyDoBusinessService.swift in Sources */,
+				E0070DD51CC487B500E970A2 /* KeyboardLayoutConstraint.swift in Sources */,
+				E0070DE21CC487B500E970A2 /* TransitionManager.swift in Sources */,
+				E0070DDF1CC487B500E970A2 /* SpringTextField.swift in Sources */,
+				E0070DCF1CC487B500E970A2 /* DesignableTabBarController.swift in Sources */,
 				E06F7C8B1CB47B8200D6EF12 /* HMUserManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -701,10 +845,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E0C4E5631C14D2AE0059386D /* LaunchScreen.storyboard */ = {
+		E007D2E61CCAE9D300B5F008 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E0C4E5641C14D2AE0059386D /* Base */,
+				E007D2E71CCAE9D300B5F008 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -802,6 +946,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HandyMan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.foodfortech.HandyMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -815,6 +960,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HandyMan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.foodfortech.HandyMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";

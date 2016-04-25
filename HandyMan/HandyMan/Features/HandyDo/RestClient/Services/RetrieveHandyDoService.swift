@@ -16,7 +16,7 @@ class RetrieveHandyDoService: HMAuthenticatedService {
      *   GET Retrieves HandyDo List
      */
     func retrieveHandyDoList(success success:[HandyDo] -> Void, failure:NSError? -> Void) -> Void {
-        HMRestClient.sharedInstance.getForService(self,
+        HMRestClient.getForService(self,
             success: { response in
                 success(self.mapModelToResponse(response!))
             },

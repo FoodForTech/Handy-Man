@@ -9,7 +9,7 @@
 import UIKit
 
 class HMControllerConfigurer {
-
+    
     func setUpNavigationController(navigationController: UINavigationController?) {
         navigationController?.navigationBar.backgroundColor = UIColor.blueColor()
     }

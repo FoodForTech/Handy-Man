@@ -6,12 +6,7 @@
 //  Copyright © 2015 Don Johnson. All rights reserved.
 //
 
-enum AssignmentType : Int {
-    
-    case Assignee = 0
-    case AssignTo
-    
-}
+import UIKit
 
 class HandyDoBusinessService : HMBusinessService {
     
@@ -30,53 +25,79 @@ class HandyDoBusinessService : HMBusinessService {
         self.deleteHandyDoService = DeleteHandyDoService()
     }
     
-    func createHandyDo(handyDo: HandyDo, completionHandler:(Bool) -> Void) {
+    func createHandyDo(handyDo: HandyDo, completionHandler: HMHandyDoResults -> Void) {
         self.uiDelegate?.willCallBlockingBusinessService(self)
         self.createHandyDoService.createHandyDo(handyDo,
             success: { response in
-                completionHandler(response)
+                completionHandler(.Success)
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
             },
             failure: { errors in
-                // TODO failure call failure delegation
+                completionHandler(.Failure(errors))
         })
     }
     
-    func retrieveHandyDoList(assignmentType: AssignmentType, completionHandler:[HandyDo] -> Void) -> Void {
+    func retrieveHandyDoList(assignmentType: AssignmentType, completionHandler: HMHandyDoResults -> Void) -> Void {
         self.uiDelegate?.willCallBlockingBusinessService(self)
         self.retrieveHandyDoService.assignmentType = assignmentType
         self.retrieveHandyDoService.retrieveHandyDoList(
             success: { handyDoList in
-                completionHandler(handyDoList)
+                completionHandler(.Items(handyDoList))
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
             },
             failure: { errors in
-                // TODO failure call failure delegation
+                completionHandler(.Failure(errors))
+                self.uiDelegate?.didCompleteBlockingBusinessService(self)
         })
     }
     
-    func updateHandyDo(handyDo: HandyDo, completionHandler:Bool -> Void) {
+    func updateHandyDo(handyDo: HandyDo, completionHandler: HMHandyDoResults -> Void) {
         self.uiDelegate?.willCallBlockingBusinessService(self)
         self.updateHandyDoService.updateHandyDo(handyDo,
             success: { response in
-                completionHandler(response)
+                completionHandler(.Success)
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
             },
             failure: { errors in
-                // TODO failure call failure delegation
+                completionHandler(.Failure(errors))
+                self.uiDelegate?.didCompleteBlockingBusinessService(self)
         })
     }
     
-    func deleteHandyDo(handyDo: HandyDo, completionHandler:Bool -> Void) {
+    func deleteHandyDo(handyDo: HandyDo, completionHandler: HMHandyDoResults -> Void) {
         self.uiDelegate?.willCallBlockingBusinessService(self)
         self.deleteHandyDoService.deleteHandyDo(handyDo,
             success: { response in
-                completionHandler(response)
+                completionHandler(.Success)
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
             },
             failure: { errors in
-                // TODO failure call failure delegation
+                completionHandler(.Failure(errors))
+                self.uiDelegate?.didCompleteBlockingBusinessService(self)
         })
     }
+
+}
+
+enum AssignmentType : Int {
+    
+    case Assignee = 0
+    case AssignTo
+    
+}
+
+enum HMHandyDoResults {
+    
+    case Success
+    case Items([HandyDo])
+    case Failure(NSError?)
+    
+//    func count() -> Int {
+//        switch self {
+//        case .Success:
+//            
+//        }
+//        
+//    }
     
 }

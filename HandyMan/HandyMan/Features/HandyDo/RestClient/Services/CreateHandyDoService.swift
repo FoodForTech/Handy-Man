@@ -12,7 +12,7 @@ class CreateHandyDoService: HMAuthenticatedService {
     
     func createHandyDo(handyDo: HandyDo, success: Bool -> Void, failure: NSError? -> Void) {
         let handyDoDict = self.mapHandyDoToPostDictionary(handyDo)
-        HMRestClient.sharedInstance.postForService(self, postObjectDictionary: handyDoDict,
+        HMRestClient.postForService(self, postObjectDictionary: handyDoDict,
             success: { response in
                 success(true)
             },

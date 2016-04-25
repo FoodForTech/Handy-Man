@@ -9,24 +9,29 @@
 import UIKit
 import Alamofire
 
-class DeleteHandyDoService: HMAuthenticatedService {
+class DeleteHandyDoService {
 
     var handyDo: HandyDo = HandyDo();
     
     func deleteHandyDo(handyDo: HandyDo, success: Bool -> Void, failure: NSError? -> Void) {
         self.handyDo = handyDo;
-        HMRestClient.sharedInstance.deleteForService(self,
-            success: { (response) -> Void in
+        HMRestClient.deleteForService(self,
+            success: { response in
                 success(true)
             },
-            failure: {(errors) -> Void in
+            failure: { errors in
                 failure(errors as? NSError)
         })
     }
+
+}
+
+// MARK: ServiceRequest Protocol
     
-    // MARK: ServiceRequest Protocol
+extension DeleteHandyDoService : HMAuthenticatedService {
     
     func serviceEndpoint() -> String {
         return "/v1/handyDo/\(self.handyDo.id)"
     }
+    
 }

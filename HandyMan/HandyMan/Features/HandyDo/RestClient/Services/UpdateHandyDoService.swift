@@ -13,7 +13,7 @@ class UpdateHandyDoService: HMAuthenticatedService {
     
     func updateHandyDo(handyDo: HandyDo, success: Bool -> Void, failure: NSError? -> Void) {
         let handyDoDict: [String: AnyObject] = self.mapHandyDoToDictionary(handyDo)
-        HMRestClient.sharedInstance.putForService(self, postObjectDictionary: handyDoDict,
+        HMRestClient.putForService(self, postObjectDictionary: handyDoDict,
             success: { (response) -> Void in
                 success(true)
             },

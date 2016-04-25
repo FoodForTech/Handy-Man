@@ -16,7 +16,7 @@ class HMCollectionViewController : UICollectionViewController {
         super.viewDidLoad()
         
         // initial configuration
-       configurer.setUpNavigationController(self.navigationController)
+        configurer.setUpNavigationController(self.navigationController)
     }
     
 }

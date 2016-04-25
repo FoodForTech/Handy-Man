@@ -6,11 +6,10 @@
 //  Copyright © 2015 Don Johnson. All rights reserved.
 //
 
-import Foundation
-
 // TODO redo data structure; it needs to be map an array to sectionRow data structure.
 
 class HandyDoList {
+    
     var handyDoList: [HandyDo]
     var handyDoSectionList: [[HandyDo]]
     
@@ -36,10 +35,6 @@ class HandyDoList {
         self.handyDoSectionList.append(newHandyDoList)
         self.handyDoSectionList.append(inProgressHandyDoList)
         self.handyDoSectionList.append(completeHandyDoList)
-    }
-    
-    func removeAtIndexPath(indexPath: NSIndexPath) {
-        
     }
     
 }

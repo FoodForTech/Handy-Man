@@ -10,43 +10,37 @@ import UIKit
 
 class HandyDoDetailViewController: HMViewController {
     
-    var handyDo = HandyDo()
+    private var handyDo = HandyDo()
     
-    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionTextView: UITextView!
-    @IBOutlet private weak var statusLabel: UILabel!
-    @IBOutlet private weak var completeButton: UIButton!
     @IBOutlet private weak var inProgressButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUp()
-    }
-    
-    private func setUp() {
-        titleLabel.text = handyDo.title
+
         descriptionTextView.text = handyDo.todo
-        statusLabel.text = handyDo.state()
         
-        if handyDo.status == "2" {
-            inProgressButton.hidden = true
-        }
-        if handyDo.status == "3" {
-            completeButton.hidden = true
+        if handyDo.status == "1" {
+            inProgressButton.setTitle("In Progress", forState: UIControlState.Normal)
+        } else if handyDo.status == "2" {
+            inProgressButton.setTitle("Complete", forState: UIControlState.Normal)
+        } else {
+            inProgressButton.hidden = true;
         }
     }
 
-    // MARK: - Control Events
-    
-    @IBAction func complete(sender: UIButton) {
-        handyDo.status = "3"
-        self.handyDoBusinessService.updateHandyDo(handyDo) { response in
-            self.didUpdateHandyDo()
-        }
+    func configure(handyDo handyDo: HandyDo) {
+        self.handyDo = handyDo
     }
     
+    // MARK: - Control Events
+    
     @IBAction func inProgress(sender: UIButton) {
-        handyDo.status = "2"
+        if handyDo.status == "1" {
+            handyDo.status = "2"
+        } else if handyDo.status == "2" {
+            handyDo.status = "3"
+        }
         self.handyDoBusinessService.updateHandyDo(handyDo) { response in
             self.didUpdateHandyDo()
         }

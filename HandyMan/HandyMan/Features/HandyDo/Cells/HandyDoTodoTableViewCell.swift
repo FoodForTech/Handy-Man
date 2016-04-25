@@ -8,13 +8,10 @@
 
 import UIKit
 
-class HandyDoTodoTableViewCell: UITableViewCell {
-    struct Constants {
-        static let kViewHeight: CGFloat = 80.0
-    }
+class HandyDoTodoTableViewCell : UITableViewCell {
     
     class func viewHeight() -> CGFloat {
-        return Constants.kViewHeight
+        return 80
     }
     
     private var model: HandyDo
@@ -33,7 +30,7 @@ class HandyDoTodoTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUpConstraints() -> Void {
+    private func setUpConstraints() {
         self.contentView.addSubview(statusView)
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(descriptionLabel)
@@ -41,9 +38,9 @@ class HandyDoTodoTableViewCell: UITableViewCell {
         
         let metrics: [String: NSNumber] = ["vTitleStatusSpacing": 5]
         let views: [String: UIView] = ["statusView": self.statusView,
-            "titleLabel": self.titleLabel,
-            "descriptionLabel": self.descriptionLabel,
-            "dateTimeLabel": self.dateTimeLabel]
+                                       "titleLabel": self.titleLabel,
+                                       "descriptionLabel": self.descriptionLabel,
+                                       "dateTimeLabel": self.dateTimeLabel]
         
         self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[statusView]|", options: [], metrics: metrics, views: views))
         self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-1-[statusView(==6)]", options: [], metrics: metrics, views: views))
@@ -55,23 +52,20 @@ class HandyDoTodoTableViewCell: UITableViewCell {
         self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[descriptionLabel]-13-|", options: [], metrics: metrics, views: views))
     }
     
-    // MARK: - Public Properties
-    
-    func configureWithModel(handyDo: HandyDo) -> Void {
-        let state = handyDo.state()
+    func configureWithModel(handyDo: HandyDo) {
         titleLabel.text = handyDo.title
         descriptionLabel.text = handyDo.todo
         dateTimeLabel.text = handyDo.formattedDate()
-        if state == "New" {
+        switch handyDo.state() {
+        case "New":
             statusView.backgroundColor = UIColor.yellowColor()
-        } else if state == "In Progress" {
+        case "In Progress":
             statusView.backgroundColor = UIColor.orangeColor()
-        } else if state == "Complete" {
+        case "Complete":
             statusView.backgroundColor = UIColor.greenColor()
-        } else {
+        default:
             statusView.backgroundColor = UIColor.blackColor()
         }
-        
     }
     
     // MARK: - Lazy Loaded Properties
@@ -85,14 +79,14 @@ class HandyDoTodoTableViewCell: UITableViewCell {
     private lazy var titleLabel: UILabel! = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Helvetica-Bold", size: 17)
+        label.font = UIFont(name: "Avenir Next-Medium", size: 17)
         return label
     }()
     
     private lazy var descriptionLabel: UILabel! = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Helvetica", size: 10)
+        label.font = UIFont(name: "Avenir Next", size: 10)
         label.numberOfLines = 2
         return label
     }()
@@ -100,7 +94,7 @@ class HandyDoTodoTableViewCell: UITableViewCell {
     private lazy var dateTimeLabel: UILabel! = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Helvetica", size: 10)
+        label.font = UIFont(name: "Helvetica", size: 12)
         return label
     }()
     

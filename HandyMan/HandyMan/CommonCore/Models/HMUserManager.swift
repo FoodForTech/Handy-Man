@@ -45,7 +45,7 @@ class HMUserManager {
         self.user = User()
     }
     
-    func setEmptyUser(user: User) {
+    func replaceEmptyUser(user: User) {
         if self.user.isEmpty() {
             self.user = user
         }

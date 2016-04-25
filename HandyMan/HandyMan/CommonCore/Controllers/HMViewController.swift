@@ -14,24 +14,24 @@ class HMViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // initial configuration
-       configurer.setUpNavigationController(self.navigationController)
+        configurer.setUpNavigationController(self.navigationController)
     }
     
 }
 
 extension UIViewController : HMBusinessServiceUIDelegate {
     
-    // MARK: CommonBusinessService UIDelegate
+    // MARK: HMBusinessService UIDelegate
     
     // this seems to be locked and cannot be over written due to being in an extension of the main class ???  static dispatch rules...
     func willCallBlockingBusinessService(businessService: HMBusinessService) {
-        print("willCallBlockingBusinessService:")
+        view.showLoading()
     }
     
     func didCompleteBlockingBusinessService(businessService: HMBusinessService) {
-        print("didCompleteBlockingBusinessService:")
+        view.hideLoading()
     }
     
 }

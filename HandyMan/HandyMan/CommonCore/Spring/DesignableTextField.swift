@@ -28,7 +28,6 @@ import UIKit
         didSet {
             attributedPlaceholder = NSAttributedString(string: placeholder!, attributes: [NSForegroundColorAttributeName: placeholderColor])
             layoutSubviews()
-            
         }
     }
     

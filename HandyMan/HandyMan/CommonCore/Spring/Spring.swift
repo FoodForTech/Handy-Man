@@ -22,7 +22,7 @@
 
 import UIKit
 
-@objc public protocol Springable {
+public protocol Springable : class {
     var autostart: Bool  { get set }
     var autohide: Bool  { get set }
     var animation: String  { get set }
@@ -64,7 +64,7 @@ public class Spring : NSObject {
     }
 
     func commonInit() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didBecomeActiveNotification:", name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(Spring.didBecomeActiveNotification(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
 
     func didBecomeActiveNotification(notification: NSNotification) {

@@ -211,6 +211,8 @@
                     </view>
                     <connections>
                         <outlet property="emailAddressTextField" destination="heW-Wc-OWZ" id="cdx-rH-yYQ"/>
+                        <outlet property="firstNameTextField" destination="Eb8-jG-yHr" id="DqI-qk-Klz"/>
+                        <outlet property="lastNameTextField" destination="xes-0M-d2Z" id="Jgm-bl-ilD"/>
                         <outlet property="passwordTextField" destination="7jl-N1-NdX" id="Alw-Aa-b9d"/>
                     </connections>
                 </viewController>

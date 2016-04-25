@@ -9,5 +9,26 @@
 import UIKit
 
 class RegisterBusinessService: HMBusinessService {
-
+    
+    weak var uiDelegate: HMBusinessServiceUIDelegate?
+    let registerUserService: RegisterUserService
+    
+    required init(uiDelegate: HMBusinessServiceUIDelegate?) {
+        self.uiDelegate = uiDelegate
+        self.registerUserService = RegisterUserService()
+    }
+    
+    func registerUser(user: User, password: String, completion: Bool -> Void) {
+        
+        self.registerUserService.registerUser(user, password: password) {
+            isSuccessful in
+            
+            if isSuccessful {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
+    }
+    
 }

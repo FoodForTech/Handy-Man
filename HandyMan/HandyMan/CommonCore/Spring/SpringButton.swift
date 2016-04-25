@@ -53,6 +53,11 @@ public class SpringButton: UIButton, Springable {
         self.spring.customDidMoveToWindow()
     }
 
+    public func animateWithAnimation(animation: String) {
+        self.animation = animation
+        self.animate()
+    }
+    
     public func animate() {
         self.spring.animate()
     }

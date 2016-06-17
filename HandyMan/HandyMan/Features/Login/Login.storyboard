@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F18b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F28b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -20,11 +20,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3lD-ez-MWt" customClass="SpringView" customModule="HandyMan" customModuleProvider="target">
-                                <rect key="frame" x="150" y="95" width="300" height="150"/>
+                                <rect key="frame" x="37" y="95" width="300" height="150"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NC5-aL-Pae" customClass="DesignableTextField" customModule="HandyMan" customModuleProvider="target">
                                         <rect key="frame" x="25" y="30" width="250" height="30"/>
@@ -52,7 +52,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIU-Bv-VL2" customClass="SpringButton" customModule="HandyMan" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIU-Bv-VL2" customClass="DesignableButton" customModule="HandyMan" customModuleProvider="target">
                                         <rect key="frame" x="219" y="106" width="56" height="34"/>
                                         <state key="normal" title="Log on">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,6 +62,9 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="animation" value="shake"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="logOn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gLP-1g-lRH"/>
@@ -99,25 +102,58 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Handy Man" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMu-jM-eYd" customClass="SpringLabel" customModule="HandyMan" customModuleProvider="target">
-                                <rect key="frame" x="181" y="53" width="238" height="62"/>
+                                <rect key="frame" x="68" y="53" width="238" height="62"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="45"/>
                                 <color key="textColor" red="0.93752771615982056" green="0.51919674873352051" blue="0.032254364341497421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideLeft"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ri-8X-ISK" customClass="DesignableView" customModule="HandyMan" customModuleProvider="target">
+                                <rect key="frame" x="158" y="286" width="59" height="95"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="5i8-Jg-yc6"/>
+                                    <constraint firstAttribute="width" constant="59" id="ttY-tr-ZdZ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7g-gD-Lyd" userLabel="AnimateView" customClass="LoginAnimateView" customModule="HandyMan" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="255" width="375" height="150"/>
+                                <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Wu5-pe-iFI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="7Ri-8X-ISK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3U7-06-DZn"/>
                             <constraint firstItem="3lD-ez-MWt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3xh-IZ-SYL"/>
                             <constraint firstItem="NC5-aL-Pae" firstAttribute="top" secondItem="IMu-jM-eYd" secondAttribute="bottom" constant="10" id="7ld-HP-eHf"/>
+                            <constraint firstAttribute="trailing" secondItem="k7g-gD-Lyd" secondAttribute="trailing" id="CFZ-fa-Doe"/>
+                            <constraint firstItem="7Ri-8X-ISK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QHI-w5-NTA"/>
                             <constraint firstItem="IMu-jM-eYd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SvU-CZ-f6G"/>
                             <constraint firstItem="3lD-ez-MWt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WRQ-5U-L4X"/>
+                            <constraint firstItem="k7g-gD-Lyd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kKc-eQ-hF5"/>
+                            <constraint firstItem="k7g-gD-Lyd" firstAttribute="top" secondItem="3lD-ez-MWt" secondAttribute="bottom" constant="10" id="mBE-4u-qlK"/>
                             <constraint firstItem="3lD-ez-MWt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="ok8-6c-xs2"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="brandingLabel" destination="IMu-jM-eYd" id="Kim-Nm-wGS"/>
                         <outlet property="logOnButton" destination="PIU-Bv-VL2" id="GTm-ev-M6y"/>
                         <outlet property="loginCredentialsView" destination="3lD-ez-MWt" id="jyB-sE-GVY"/>
+                        <outlet property="objectToAnimate" destination="7Ri-8X-ISK" id="s6p-gs-3tw"/>
                         <outlet property="passwordTextField" destination="55d-qP-tNH" id="awH-if-lb4"/>
                         <outlet property="userNameTextField" destination="NC5-aL-Pae" id="9EY-2z-hJL"/>
                         <segue destination="zgo-gE-Mze" kind="show" identifier="HandyDoListViewControllerSegue" action="showDetailViewController:sender:" id="sEm-Id-d8q"/>
@@ -126,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-268" y="-75"/>
+            <point key="canvasLocation" x="-268.5" y="-75.5"/>
         </scene>
         <!--Login Register View Controller-->
         <scene sceneID="ICf-AD-Qko">
@@ -137,11 +173,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Xto-fz-0Gz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LxH-zB-yup">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6A-Yp-ZjK">
-                                <rect key="frame" x="28" y="281" width="544" height="34"/>
+                                <rect key="frame" x="24" y="281" width="327" height="34"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
                                 <state key="normal" title="Submit">
@@ -152,22 +188,22 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="heW-Wc-OWZ">
-                                <rect key="frame" x="28" y="148" width="544" height="30"/>
+                                <rect key="frame" x="24" y="148" width="327" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7jl-N1-NdX">
-                                <rect key="frame" x="28" y="186" width="544" height="30"/>
+                                <rect key="frame" x="24" y="186" width="327" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password again" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fvu-Cu-duF">
-                                <rect key="frame" x="28" y="224" width="544" height="30"/>
+                                <rect key="frame" x="24" y="224" width="327" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYM-GC-M9y">
-                                <rect key="frame" x="532" y="28" width="48" height="33"/>
+                                <rect key="frame" x="311" y="28" width="48" height="33"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
@@ -175,12 +211,12 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eb8-jG-yHr">
-                                <rect key="frame" x="28" y="69" width="544" height="30"/>
+                                <rect key="frame" x="24" y="69" width="327" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xes-0M-d2Z">
-                                <rect key="frame" x="28" y="110" width="544" height="30"/>
+                                <rect key="frame" x="24" y="110" width="327" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>

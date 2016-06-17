@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HandyDoCreateTodoViewController: HMViewController {
+class HandyDoCreateTodoViewController: HMViewController, UIViewControllerTransitioningDelegate {
     
     private var handyDoList: HandyDoList = HandyDoList()
     
@@ -41,6 +41,7 @@ class HandyDoCreateTodoViewController: HMViewController {
     // MARK: - Configuration
     
     func configure(handyDoList handyDoList: HandyDoList) {
+        self.modalPresentationStyle = .Custom
         self.handyDoList = handyDoList
     }
     

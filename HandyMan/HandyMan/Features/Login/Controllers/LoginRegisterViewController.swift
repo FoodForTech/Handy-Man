@@ -28,7 +28,7 @@ class LoginRegisterViewController: UIViewController {
     
     @IBAction private func submit(sender: UIButton) {
         
-        let user = User(id: 0, type: 1, firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, emailAddress: emailAddressTextField.text!, phoneNumber: "1112223212", assignToFirstName: "John", assignToLastName: "Doe")
+        let user = User(id: 0, type: 1, firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, emailAddress: emailAddressTextField.text!, phoneNumber: "1112223212", assignToFirstName: "_", assignToLastName: "_")
         
         self.businessService.registerUser(user, password: passwordTextField.text!) {
             result in

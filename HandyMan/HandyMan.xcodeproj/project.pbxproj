@@ -65,12 +65,12 @@
 		E007D2D21CCAE6B500B5F008 /* HMAuthenticatedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007D2CD1CCAE6B500B5F008 /* HMAuthenticatedService.swift */; };
 		E007D2D31CCAE6B500B5F008 /* HMServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007D2CE1CCAE6B500B5F008 /* HMServiceRequest.swift */; };
 		E007D2D41CCAE6B500B5F008 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007D2CF1CCAE6B500B5F008 /* SwiftyJSON.swift */; };
-		E007D2E11CCAE92700B5F008 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E007D2DF1CCAE92700B5F008 /* Info.plist */; };
 		E007D2E41CCAE92F00B5F008 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007D2E31CCAE92F00B5F008 /* AppDelegate.swift */; };
 		E007D2E81CCAE9D300B5F008 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E007D2E61CCAE9D300B5F008 /* LaunchScreen.storyboard */; };
 		E007D2EA1CCB1B3000B5F008 /* RegisterUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007D2E91CCB1B3000B5F008 /* RegisterUserService.swift */; };
 		E007D2EC1CCB1F4500B5F008 /* RegisterBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007D2EB1CCB1F4500B5F008 /* RegisterBusinessService.swift */; };
 		E01114AE1CBD275B00AD08C8 /* HMControllerConfigurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01114AD1CBD275B00AD08C8 /* HMControllerConfigurer.swift */; };
+		E02C9B3A1CD8E38B00B659FF /* LoginAnimateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02C9B391CD8E38B00B659FF /* LoginAnimateView.swift */; };
 		E06F7C871CB47B8200D6EF12 /* HMCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F7C781CB47B8200D6EF12 /* HMCollectionViewController.swift */; };
 		E06F7C881CB47B8200D6EF12 /* HMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F7C791CB47B8200D6EF12 /* HMTableViewController.swift */; };
 		E06F7C891CB47B8200D6EF12 /* HMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F7C7A1CB47B8200D6EF12 /* HMViewController.swift */; };
@@ -167,6 +167,7 @@
 		E007D2E91CCB1B3000B5F008 /* RegisterUserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserService.swift; sourceTree = "<group>"; };
 		E007D2EB1CCB1F4500B5F008 /* RegisterBusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBusinessService.swift; sourceTree = "<group>"; };
 		E01114AD1CBD275B00AD08C8 /* HMControllerConfigurer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMControllerConfigurer.swift; sourceTree = "<group>"; };
+		E02C9B391CD8E38B00B659FF /* LoginAnimateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAnimateView.swift; sourceTree = "<group>"; };
 		E06F7C781CB47B8200D6EF12 /* HMCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMCollectionViewController.swift; sourceTree = "<group>"; };
 		E06F7C791CB47B8200D6EF12 /* HMTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMTableViewController.swift; sourceTree = "<group>"; };
 		E06F7C7A1CB47B8200D6EF12 /* HMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMViewController.swift; sourceTree = "<group>"; };
@@ -310,6 +311,7 @@
 				E0070D771CC1AD2B00E970A2 /* Controllers */,
 				E0070D7B1CC1AD2B00E970A2 /* Models */,
 				E0070D7D1CC1AD2B00E970A2 /* RestClient */,
+				E02C9B381CD8E34900B659FF /* Views */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -466,6 +468,14 @@
 				E007D2DF1CCAE92700B5F008 /* Info.plist */,
 			);
 			name = "Supporting File";
+			sourceTree = "<group>";
+		};
+		E02C9B381CD8E34900B659FF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E02C9B391CD8E38B00B659FF /* LoginAnimateView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E06F7C761CB47B8200D6EF12 /* CommonCore */ = {
@@ -626,7 +636,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Don Johnson";
 				TargetAttributes = {
 					E0C4E5531C14D2AE0059386D = {
@@ -668,7 +678,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E007D2E11CCAE92700B5F008 /* Info.plist in Resources */,
 				E007D2E81CCAE9D300B5F008 /* LaunchScreen.storyboard in Resources */,
 				E0070DA01CC1AD2B00E970A2 /* ProfileAndSettings.storyboard in Resources */,
 				E0070DD41CC487B500E970A2 /* Info.plist in Resources */,
@@ -796,6 +805,7 @@
 				E0070DD91CC487B500E970A2 /* SoundPlayer.swift in Sources */,
 				E01114AE1CBD275B00AD08C8 /* HMControllerConfigurer.swift in Sources */,
 				E007D2D21CCAE6B500B5F008 /* HMAuthenticatedService.swift in Sources */,
+				E02C9B3A1CD8E38B00B659FF /* LoginAnimateView.swift in Sources */,
 				E0070DCA1CC487B500E970A2 /* AutoTextView.swift in Sources */,
 				E0070DD21CC487B500E970A2 /* DesignableView.swift in Sources */,
 				E007D2E41CCAE92F00B5F008 /* AppDelegate.swift in Sources */,

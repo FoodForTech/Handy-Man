@@ -29,39 +29,41 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
     
     public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         let container = transitionContext.containerView()!
-        let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)!
-        let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
+        let fromViewOpt = transitionContext.viewForKey(UITransitionContextFromViewKey)
+        let toViewOpt = transitionContext.viewForKey(UITransitionContextToViewKey)
         
-        if isPresenting {
-            toView.frame = container.bounds
-            toView.transform = CGAffineTransformMakeTranslation(0, container.frame.size.height)
-            container.addSubview(fromView)
-            container.addSubview(toView)
-            springEaseInOut(duration) {
-                fromView.transform = CGAffineTransformMakeScale(0.8, 0.8)
-                fromView.alpha = 0.5
-                toView.transform = CGAffineTransformIdentity
+        if let fromView = fromViewOpt, toView = toViewOpt {
+            if isPresenting {
+                toView.frame = container.bounds
+                toView.transform = CGAffineTransformMakeTranslation(0, container.frame.size.height)
+                container.addSubview(fromView)
+                container.addSubview(toView)
+                springEaseInOut(duration) {
+                    fromView.transform = CGAffineTransformMakeScale(0.8, 0.8)
+                    fromView.alpha = 0.5
+                    toView.transform = CGAffineTransformIdentity
+                }
             }
-        }
-        else {
-
-            // 1. Rotating will change the bounds
-            // 2. we have to properly reset toView
-            // to the actual container's bounds, at
-            // the same time take consideration of
-            // previous transformation when presenting
-            let transform = toView.transform
-            toView.transform = CGAffineTransformIdentity
-            toView.frame = container.bounds
-            toView.transform = transform
-
-            container.addSubview(toView)
-            container.addSubview(fromView)
-
-            springEaseInOut(duration) {
-                fromView.transform = CGAffineTransformMakeTranslation(0, fromView.frame.size.height)
+            else {
+                
+                // 1. Rotating will change the bounds
+                // 2. we have to properly reset toView
+                // to the actual container's bounds, at
+                // the same time take consideration of
+                // previous transformation when presenting
+                let transform = toView.transform
                 toView.transform = CGAffineTransformIdentity
-                toView.alpha = 1
+                toView.frame = container.bounds
+                toView.transform = transform
+                
+                container.addSubview(toView)
+                container.addSubview(fromView)
+                
+                springEaseInOut(duration) {
+                    fromView.transform = CGAffineTransformMakeTranslation(0, fromView.frame.size.height)
+                    toView.transform = CGAffineTransformIdentity
+                    toView.alpha = 1
+                }
             }
         }
         

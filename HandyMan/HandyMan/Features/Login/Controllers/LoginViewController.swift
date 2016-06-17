@@ -20,6 +20,9 @@ class LoginViewController: HMViewController, UITextFieldDelegate {
         static let AuthErrorOkButtonTitle = "OK"
     }
     
+    private let colors = [UIColor.blackColor(), UIColor.blueColor(), UIColor.brownColor(), UIColor.whiteColor()]
+    private var i = 0
+    
     private var registerUserCredentials: UserCredentials?
     private var handyDoList = HandyDoList()
     
@@ -28,6 +31,7 @@ class LoginViewController: HMViewController, UITextFieldDelegate {
     @IBOutlet weak var logOnButton: SpringButton!
     @IBOutlet weak var loginCredentialsView: SpringView!
     @IBOutlet weak var brandingLabel: SpringLabel!
+    @IBOutlet weak var objectToAnimate: DesignableView!
     
     // MARK: - Lifecycle Methods
     
@@ -41,8 +45,11 @@ class LoginViewController: HMViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.brandingLabel.animation = "slideLeft"
-        self.brandingLabel.animate()
+        delay(1.5) {
+            self.brandingLabel.animation = "slideLeft"
+            self.brandingLabel.animate()
+            self.animateBranding()
+        }
     }
     
     // MARK: - UITextField Delegate
@@ -81,6 +88,34 @@ class LoginViewController: HMViewController, UITextFieldDelegate {
         self.logOn()
     }
     
+    func animateBranding() {
+        let translate = CGAffineTransformMakeTranslation(350, 0)
+        let scale = CGAffineTransformMakeScale(0.62, 0.62)
+        self.objectToAnimate.transform = CGAffineTransformConcat(translate, scale)
+        
+        UIView.animateWithDuration(NSTimeInterval(3.0), delay: NSTimeInterval(0.0), options: [.CurveEaseInOut], animations: {
+            self.objectToAnimate.transform = CGAffineTransformIdentity
+                delay(2.0) {
+                    UIView.animateWithDuration(1.0, animations: {
+                        let translate = CGAffineTransformMakeTranslation(-350, 0)
+                        let scale = CGAffineTransformMakeScale(0.62, 0.62)
+                        self.objectToAnimate.transform = CGAffineTransformConcat(translate, scale)
+                        }, completion: { finished in
+                        delay(2.0) {
+                            if self.i == self.colors.count {
+                                self.i=0
+                            }
+                            self.objectToAnimate.backgroundColor = self.colors[self.i]
+                            self.animateBranding()
+                            self.i+=1
+                        }
+                    
+                    })
+                }
+            }, completion: nil)
+        
+    }
+    
     @IBAction func register(sender: UIButton) {
         let emailAddress = self.userNameTextField.text!
         let password = self.passwordTextField.text!
@@ -95,8 +130,8 @@ class LoginViewController: HMViewController, UITextFieldDelegate {
     // MARK: - Helper Methods
     
     private func logOn() {
-        decorate(self.userNameTextField, borderWidth: 0, color: UIColor.blackColor())
-        decorate(self.passwordTextField, borderWidth: 0, color: UIColor.blackColor())
+        self.decorate(self.userNameTextField, borderWidth: 0, color: UIColor.blackColor())
+        self.decorate(self.passwordTextField, borderWidth: 0, color: UIColor.blackColor())
         let emailAddress = userNameTextField.text!
         let password = passwordTextField.text!
         let userCredentials = UserCredentials(emailAddress: emailAddress, password: password)

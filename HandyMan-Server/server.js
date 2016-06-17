@@ -37,12 +37,19 @@ function handle_database(req, res, query) {
             }           
         });
 
-        connection.on('error', function(err) {      
-              res.json({"code" : 100, "status" : "Error in connection database"});
-              return;     
+        connection.on('error', function(err) {  
+            connection.release();    
+            res.json({"code" : 100, "status" : "Error in connection database"});
+            return;     
         });
   });
 }
+
+// registration 
+app.post("/v1/registration", function(req, res) {
+  var query = "INSERT INTO HandyMan.User (type, email_address, password, first_name, last_name, phone_number) VALUES (1, '" + req.body.emailAddress + "', '" + req.body.password + "', '" + req.body.firstName + "', '" + req.body.lastName + "', '" + req.body.phoneNumber + "');";
+  handle_database(req, res, query);
+});
 
 // authorization end point
 

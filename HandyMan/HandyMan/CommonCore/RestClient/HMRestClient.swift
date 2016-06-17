@@ -23,7 +23,8 @@ class HMRestClient {
         let url = baseURL + service.serviceEndpoint()
         Alamofire.request(.GET, url, parameters: parameters)
             .responseJSON {
-                (response) -> Void in
+                response in
+                
                 switch response.result {
                 case .Success:
                     success(response)
@@ -39,7 +40,8 @@ class HMRestClient {
     class func postForService(service: HMServiceRequest, postObjectDictionary: Dictionary<String, AnyObject>, success:(Response<AnyObject, NSError>) -> Void, failure:(AnyObject) -> Void) {
         let url = baseURL + service.serviceEndpoint()
         Alamofire.request(.POST, url, parameters: postObjectDictionary, encoding: .JSON).responseJSON {
-            (response) -> Void in
+            response in
+            
             switch response.result {
             case .Success:
                 success(response)
@@ -54,7 +56,9 @@ class HMRestClient {
     
     class func deleteForService(service: HMServiceRequest, success:(Response<AnyObject, NSError>?) -> Void, failure:(AnyObject) -> Void) -> Void {
         let url = baseURL + service.serviceEndpoint()
-        Alamofire.request(.DELETE, url).responseJSON { response -> Void in
+        Alamofire.request(.DELETE, url).responseJSON {
+            response in
+            
             switch response.result {
             case .Success:
                 success(response)
@@ -68,10 +72,10 @@ class HMRestClient {
     // MARK: - PUT Methods
     
     class func putForService(service: HMServiceRequest, postObjectDictionary: Dictionary<String, AnyObject>, success:(Response<AnyObject, NSError>?) -> Void, failure:(AnyObject) -> Void) {
-        
         let url = baseURL + service.serviceEndpoint()
         Alamofire.request(.PUT, url, parameters: postObjectDictionary, encoding: .JSON).responseJSON {
-            (response) -> Void in
+            response in
+            
             switch response.result {
             case .Success:
                 success(response)
@@ -81,3 +85,30 @@ class HMRestClient {
         }
     }
 }
+
+//extension Alamofire.Request {
+//    public func responseCollection<T: Decodable>(completionHandler: Response<[T], NSError> -> Void) -> Self {
+//        let responseSerializer = ResponseSerializer<[T], NSError> { request, response, data, error in
+//            
+//            guard error == nil else { return .Failure(error!) }
+//            
+//            let result = Alamofire
+//                .Request
+//                .JSONResponseSerializer(options: .AllowFragments)
+//                .serializeResponse(request, response, data, error)
+//            
+//            switch result {
+//            case .Success(let value):
+//                do {
+//                    return .Success(try [T].decode(value))
+//                } catch {
+//                    return .Failure(Error.errorWithCode(.JSONSerializationFailed,
+//                        failureReason: "JSON parsing error, JSON: \(value)"))
+//                }
+//            case .Failure(let error): return.Failure(error)
+//            }
+//        }
+//        
+//        return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
+//    }
+//}

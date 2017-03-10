@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UpdateUserService: HMBusinessService {
+final class UpdateUserService: HMBusinessService {
 
     weak var uiDelegate: HMBusinessServiceUIDelegate?
     

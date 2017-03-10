@@ -7,21 +7,29 @@
 //
 import UIKit
 import Alamofire
+import Freddy
 
-class RetrieveHandyDoService: HMAuthenticatedService {
+final class RetrieveHandyDoService: HMAuthenticatedService {
     
     var assignmentType: AssignmentType = AssignmentType(rawValue: 0)!
     
     /**
      *   GET Retrieves HandyDo List
      */
-    func retrieveHandyDoList(success success:[HandyDo] -> Void, failure:NSError? -> Void) -> Void {
+    func retrieveHandyDoList(success: @escaping ([HandyDo]) -> Void, failure: @escaping (NSError?) -> Void) -> Void {
         HMRestClient.getForService(self,
-            success: { response in
-                success(self.mapModelToResponse(response!))
-            },
-            failure: { errors in
-                failure(errors as? NSError)
+           success: {
+            (response: DataResponse<Any>?) in
+           
+            do {
+                success(try self.mapModel(from: response!))
+            } catch {
+                failure(NSError(domain: "domain", code: 400, userInfo: nil))
+            }
+        }, failure: {
+           errors in
+                                    
+           failure(errors as? NSError)
         })
     }
     
@@ -29,30 +37,24 @@ class RetrieveHandyDoService: HMAuthenticatedService {
     
     func serviceEndpoint() -> String {
         switch self.assignmentType {
-        case .Assignee:
+        case .assignee:
             return "/v1/handyDo/\(HMUserManager.sharedInstance.id)/assignee"  // TODO remove user.id dependency this should be passed in.
-        case .AssignTo:
+        case .assignTo:
             return "/v1/handyDo/\(HMUserManager.sharedInstance.id)/assign_to"
         }
     }
     
     // MARK: - Helper Methods
     
-    private func mapModelToResponse(response: Response<AnyObject, NSError>) -> [HandyDo] {
-        let json = JSON(data: response.data!)
+    private func mapModel(from response: DataResponse<Any>) throws -> [HandyDo] {
         
-        var handyDoList: [HandyDo] = []
-        let handyDos = json.array!
-        for i in 0..<handyDos.count {
-            let handyDoId = handyDos[i]["id"].intValue
-            let title = handyDos[i]["title"].stringValue
-            let description = handyDos[i]["description"].stringValue
-            let status = handyDos[i]["status"].stringValue
-            let dateTime = handyDos[i]["date_time"].stringValue
-            
-            let handyDo: HandyDo = HandyDo(id: handyDoId, title: title, todo: description, status: status, dateTime: dateTime)
-            handyDoList.append(handyDo)
+        if let data = response.data {
+            let json = try JSON(data: data)
+            let handyDoList = try json.getArray().map(HandyDo.init)
+            return handyDoList
         }
-        return handyDoList
+        return [HandyDo()]
+        
     }
+
 }

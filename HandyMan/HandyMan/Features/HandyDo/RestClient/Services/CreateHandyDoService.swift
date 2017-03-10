@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CreateHandyDoService: HMAuthenticatedService {
+final class CreateHandyDoService: HMAuthenticatedService {
     
-    func createHandyDo(handyDo: HandyDo, success: Bool -> Void, failure: NSError? -> Void) {
+    func createHandyDo(_ handyDo: HandyDo, success: @escaping (Bool) -> Void, failure: @escaping (NSError?) -> Void) {
         let handyDoDict = self.mapHandyDoToPostDictionary(handyDo)
         HMRestClient.postForService(self, postObjectDictionary: handyDoDict,
             success: { response in
@@ -29,11 +29,11 @@ class CreateHandyDoService: HMAuthenticatedService {
     
     // MARK: - Request Mapping
     
-    private func mapHandyDoToPostDictionary(handyDo: HandyDo) -> Dictionary<String, AnyObject> {
-        return ["id": handyDo.id,
-                "title": handyDo.title,
-                "description":handyDo.todo,
-                "status": handyDo.status]
+    fileprivate func mapHandyDoToPostDictionary(_ handyDo: HandyDo) -> Dictionary<String, AnyObject> {
+        return ["id": handyDo.id as AnyObject,
+                "title": handyDo.title as AnyObject,
+                "description":handyDo.todo as AnyObject,
+                "status": handyDo.status as AnyObject]
     }
     
 }

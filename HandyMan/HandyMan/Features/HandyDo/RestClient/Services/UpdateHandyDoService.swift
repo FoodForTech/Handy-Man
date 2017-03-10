@@ -9,9 +9,9 @@
 import UIKit
 import Alamofire
 
-class UpdateHandyDoService: HMAuthenticatedService {
+final class UpdateHandyDoService: HMAuthenticatedService {
     
-    func updateHandyDo(handyDo: HandyDo, success: Bool -> Void, failure: NSError? -> Void) {
+    func updateHandyDo(_ handyDo: HandyDo, success: @escaping (Bool) -> Void, failure: @escaping (NSError?) -> Void) {
         let handyDoDict: [String: AnyObject] = self.mapHandyDoToDictionary(handyDo)
         HMRestClient.putForService(self, postObjectDictionary: handyDoDict,
             success: { (response) -> Void in
@@ -30,10 +30,10 @@ class UpdateHandyDoService: HMAuthenticatedService {
     
     // MARK: - Request Mapping
     
-    func mapHandyDoToDictionary(handyDo:HandyDo) -> Dictionary<String, AnyObject> {
-        return ["id": handyDo.id,
-                "title": handyDo.title,
-                "description": handyDo.todo,
-                "status": handyDo.status]
+    func mapHandyDoToDictionary(_ handyDo:HandyDo) -> Dictionary<String, AnyObject> {
+        return ["id": handyDo.id as AnyObject,
+                "title": handyDo.title as AnyObject,
+                "description": handyDo.todo as AnyObject,
+                "status": handyDo.status as AnyObject]
     }
 }

@@ -6,10 +6,11 @@
 //  Copyright © 2015 Don Johnson. All rights reserved.
 //
 
-class HandyDo {
+import Freddy
+
+struct HandyDo {
 
     let id: Int
-    
     var title: String
     var todo: String
     var dateTime: String
@@ -37,6 +38,18 @@ class HandyDo {
     // TODO
     func formattedDate() -> String {
         return "12/14/15"
+    }
+    
+}
+
+extension HandyDo: JSONDecodable {
+    
+    init(json: JSON) throws {
+        self.id = try json.getInt(at: "id")
+        self.title = try json.getString(at: "title")
+        self.todo = try json.getString(at: "description")
+        self.dateTime = try json.getString(at: "date_time")
+        self.status = try json.getString(at: "status")
     }
     
 }

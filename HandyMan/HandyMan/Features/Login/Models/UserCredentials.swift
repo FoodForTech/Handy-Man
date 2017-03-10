@@ -6,6 +6,8 @@
 //  Copyright © 2016 Don Johnson. All rights reserved.
 //
 
+import Freddy
+
 struct UserCredentials {
     
     let firstName: String
@@ -23,5 +25,17 @@ struct UserCredentials {
     func isValid() -> Bool {
         return !emailAddress.isEmpty && !password.isEmpty
     }
+    
+}
 
+extension UserCredentials: JSONEncodable {
+    
+    func toJSON() -> JSON {
+        let parameters = ["firstName" : self.firstName.toJSON(),
+                          "lastName" : self.lastName.toJSON(),
+                          "emailAddress" : self.emailAddress.toJSON(),
+                          "password" : self.password.toJSON()]
+        return .dictionary(parameters)
+    }
+    
 }

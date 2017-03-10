@@ -8,7 +8,7 @@
 
 // TODO redo data structure; it needs to be map an array to sectionRow data structure.
 
-class HandyDoList {
+final class HandyDoList {
     
     var handyDoList: [HandyDo]
     var handyDoSectionList: [[HandyDo]]

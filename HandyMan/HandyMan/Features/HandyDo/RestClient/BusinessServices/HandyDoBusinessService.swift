@@ -8,14 +8,14 @@
 
 import UIKit
 
-class HandyDoBusinessService : HMBusinessService {
+final class HandyDoBusinessService : HMBusinessService {
     
     weak var uiDelegate: HMBusinessServiceUIDelegate?
     
-    private let createHandyDoService: CreateHandyDoService
-    private let retrieveHandyDoService: RetrieveHandyDoService
-    private let updateHandyDoService: UpdateHandyDoService
-    private let deleteHandyDoService: DeleteHandyDoService
+    fileprivate let createHandyDoService: CreateHandyDoService
+    fileprivate let retrieveHandyDoService: RetrieveHandyDoService
+    fileprivate let updateHandyDoService: UpdateHandyDoService
+    fileprivate let deleteHandyDoService: DeleteHandyDoService
     
     required init(uiDelegate: HMBusinessServiceUIDelegate?) {
         self.uiDelegate = uiDelegate
@@ -25,54 +25,54 @@ class HandyDoBusinessService : HMBusinessService {
         self.deleteHandyDoService = DeleteHandyDoService()
     }
     
-    func createHandyDo(handyDo: HandyDo, completionHandler: HMHandyDoResults -> Void) {
+    func createHandyDo(_ handyDo: HandyDo, completionHandler: @escaping (HMHandyDoResults) -> Void) {
         self.uiDelegate?.willCallBlockingBusinessService(self)
         self.createHandyDoService.createHandyDo(handyDo,
             success: { response in
-                completionHandler(.Success)
+                completionHandler(.success)
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
             },
             failure: { errors in
-                completionHandler(.Failure(errors))
+                completionHandler(.failure(errors))
         })
     }
     
-    func retrieveHandyDoList(assignmentType: AssignmentType, completionHandler: HMHandyDoResults -> Void) -> Void {
+    func retrieveHandyDoList(_ assignmentType: AssignmentType, completionHandler: @escaping (HMHandyDoResults) -> Void) -> Void {
         self.uiDelegate?.willCallBlockingBusinessService(self)
         self.retrieveHandyDoService.assignmentType = assignmentType
         self.retrieveHandyDoService.retrieveHandyDoList(
             success: { handyDoList in
-                completionHandler(.Items(handyDoList))
+                completionHandler(.items(handyDoList))
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
             },
             failure: { errors in
-                completionHandler(.Failure(errors))
+                completionHandler(.failure(errors))
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
         })
     }
     
-    func updateHandyDo(handyDo: HandyDo, completionHandler: HMHandyDoResults -> Void) {
+    func updateHandyDo(_ handyDo: HandyDo, completionHandler: @escaping (HMHandyDoResults) -> Void) {
         self.uiDelegate?.willCallBlockingBusinessService(self)
         self.updateHandyDoService.updateHandyDo(handyDo,
             success: { response in
-                completionHandler(.Success)
+                completionHandler(.success)
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
             },
             failure: { errors in
-                completionHandler(.Failure(errors))
+                completionHandler(.failure(errors))
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
         })
     }
     
-    func deleteHandyDo(handyDo: HandyDo, completionHandler: HMHandyDoResults -> Void) {
+    func deleteHandyDo(_ handyDo: HandyDo, completionHandler: @escaping (HMHandyDoResults) -> Void) {
         self.uiDelegate?.willCallBlockingBusinessService(self)
         self.deleteHandyDoService.deleteHandyDo(handyDo,
             success: { response in
-                completionHandler(.Success)
+                completionHandler(.success)
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
             },
             failure: { errors in
-                completionHandler(.Failure(errors))
+                completionHandler(.failure(errors))
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
         })
     }
@@ -81,16 +81,16 @@ class HandyDoBusinessService : HMBusinessService {
 
 enum AssignmentType : Int {
     
-    case Assignee = 0
-    case AssignTo
+    case assignee = 0
+    case assignTo
     
 }
 
 enum HMHandyDoResults {
     
-    case Success
-    case Items([HandyDo])
-    case Failure(NSError?)
+    case success
+    case items([HandyDo])
+    case failure(NSError?)
     
 //    func count() -> Int {
 //        switch self {

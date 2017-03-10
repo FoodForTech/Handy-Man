@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ProfileAndSettingsViewController: HMViewController {
+final class ProfileAndSettingsViewController: HMViewController {
     
     @IBOutlet private weak var userImageField: DesignableImageView!
     @IBOutlet private weak var firstNameLabel: UITextField!
     @IBOutlet private weak var lastNameField: UITextField!
     @IBOutlet private weak var emailAddressField: UITextField!
     @IBOutlet private weak var phoneNumberField: UITextField!
-    @IBOutlet weak var imageContainerView: UIView!
+    @IBOutlet private weak var imageContainerView: UIView!
     
     // MARK: - Lifecycle
     
@@ -25,7 +25,7 @@ class ProfileAndSettingsViewController: HMViewController {
         self.imageContainerView.layer.cornerRadius = self.imageContainerView.frame.size.width / 2.0
         self.imageContainerView.clipsToBounds = true
         self.imageContainerView.layer.borderWidth = 2
-        self.imageContainerView.layer.borderColor = UIColor.whiteColor().CGColor
+        self.imageContainerView.layer.borderColor = UIColor.white.cgColor
         
         self.firstNameLabel.text = HMUserManager.sharedInstance.firstName
         self.lastNameField.text = HMUserManager.sharedInstance.lastName
@@ -33,7 +33,7 @@ class ProfileAndSettingsViewController: HMViewController {
         self.phoneNumberField.text = HMUserManager.sharedInstance.phoneNumber
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.userImageField.image = UIImage(named: "DonJohnson_rs")
         self.userImageField.animation = "slideLeft"
@@ -49,14 +49,14 @@ class ProfileAndSettingsViewController: HMViewController {
     
     // MARK: - Control Events
     
-    @IBAction func deleteAccount(sender: UIButton) {
+    @IBAction private func deleteAccount(_ sender: UIButton) {
         // TODO
         print("deleteAccount")
     }
     
-    @IBAction func logout(sender: UIButton) {
+    @IBAction private func logout(_ sender: UIButton) {
         HMUserManager.sharedInstance.logout()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

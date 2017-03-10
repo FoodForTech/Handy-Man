@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginBusinessService: HMBusinessService {
+final class LoginBusinessService: HMBusinessService {
 
     weak var uiDelegate: HMBusinessServiceUIDelegate?
     let authorizationTokenService: AuthorizationTokenService
@@ -18,20 +18,25 @@ class LoginBusinessService: HMBusinessService {
         authorizationTokenService = AuthorizationTokenService()
     }
     
-    func authorizeUser(userCredentials: UserCredentials, completionHandler:(user: User) -> Void) {
+    func authorizeUser(_ userCredentials: UserCredentials, completionHandler: @escaping (_ user: User) -> Void) {
         self.uiDelegate?.willCallBlockingBusinessService(self)
         self.authorizationTokenService.authorizeUser(userCredentials,
-            success: { user in
+            success: {
+                (user: User) in
+                
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
                 HMUserManager.sharedInstance.replaceEmptyUser(user)
-                completionHandler(user: user)
-            }, failure: { errors in
+                return completionHandler(user)
+            }, failure: {
+                (errors: NSError) in
+                
                 self.uiDelegate?.didCompleteBlockingBusinessService(self)
                 self.handleErrors(errors)
+                return completionHandler(User())
             })
     }
     
-    private func handleErrors(errors: NSError?) {
+    private func handleErrors(_ errors: NSError?) {
         if let errs = errors {
             print(errs)
         }

@@ -8,45 +8,56 @@
 
 import UIKit
 
-class LoginRegisterViewController: UIViewController {
+final class LoginRegisterViewController: UIViewController {
 
+    // MARK: IBOutlets
+    
+    @IBOutlet private weak var firstNameTextField: UITextField!
+    @IBOutlet private weak var lastNameTextField: UITextField!
+    @IBOutlet private weak var emailAddressTextField: DesignableTextField!
+    @IBOutlet private weak var passwordTextField: DesignableTextField!
+   
+    // MARK: Internal Properties
+    
     var userCredentials: UserCredentials?
     
-    @IBOutlet weak var firstNameTextField: UITextField!
-    @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var emailAddressTextField: DesignableTextField!
-    @IBOutlet weak var passwordTextField: DesignableTextField!
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-
-        emailAddressTextField.text = userCredentials?.emailAddress ?? ""
-        passwordTextField.text = userCredentials?.password ?? ""
-    }
-
-    // MARK: - Control Events
-    
-    @IBAction private func submit(sender: UIButton) {
-        
-        let user = User(id: 0, type: 1, firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, emailAddress: emailAddressTextField.text!, phoneNumber: "1112223212", assignToFirstName: "_", assignToLastName: "_")
-        
-        self.businessService.registerUser(user, password: passwordTextField.text!) {
-            result in
-            
-            print("Yay! New user")
-        }
-        
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-
-    @IBAction private func cancel(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
+    // MARK: Business Services
     
     private lazy var businessService: RegisterBusinessService = {
-        let businessService = RegisterBusinessService(uiDelegate: self)
-        return businessService
+        return RegisterBusinessService(uiDelegate: self)
     }()
+    
+    // MARK: Lifecycle Functions
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.emailAddressTextField.text = userCredentials?.emailAddress ?? ""
+        self.passwordTextField.text = userCredentials?.password ?? ""
+        
+        self.firstNameTextField.becomeFirstResponder()
+    }
+
+    // MARK: IBActions
+    
+    @IBAction private func submit(_ sender: UIButton) {
+        guard let firstName = self.firstNameTextField.text,
+            let lastName = self.lastNameTextField.text,
+            let emailAddress = self.emailAddressTextField.text,
+            let password = self.passwordTextField.text else {
+                return // TODO add validation
+        }
+    
+        let user = User(id: 0, type: .issuer, firstName: firstName, lastName: lastName, emailAddress: emailAddress, phoneNumber: "544545454", assignToUserId: 2, assignToFirstName: "JohnGon", assignToLastName: "GonJohn")
+        self.businessService.registerUser(user, password: password) {
+            result in
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+
+    @IBAction private func cancel(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }

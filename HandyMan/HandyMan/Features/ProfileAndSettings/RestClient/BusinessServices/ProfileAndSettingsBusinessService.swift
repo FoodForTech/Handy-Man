@@ -6,7 +6,7 @@
 //  Copyright © 2015 Don Johnson. All rights reserved.
 //
 
-class ProfileAndSettingsBusinessService: HMBusinessService {
+final class ProfileAndSettingsBusinessService: HMBusinessService {
     
     weak var uiDelegate: HMBusinessServiceUIDelegate?
     

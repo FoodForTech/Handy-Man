@@ -9,11 +9,11 @@
 import UIKit
 import Alamofire
 
-class DeleteHandyDoService {
+final class DeleteHandyDoService {
 
     var handyDo: HandyDo = HandyDo();
     
-    func deleteHandyDo(handyDo: HandyDo, success: Bool -> Void, failure: NSError? -> Void) {
+    func deleteHandyDo(_ handyDo: HandyDo, success: @escaping (Bool) -> Void, failure: @escaping (NSError?) -> Void) {
         self.handyDo = handyDo;
         HMRestClient.deleteForService(self,
             success: { response in

@@ -8,32 +8,32 @@
 
 import UIKit
 
-class LoginViewController: HMViewController, UITextFieldDelegate {
+final class LoginViewController: HMViewController {
     
-    private struct Constants {
-        static let LoginRegisterViewControllerSegue = "LoginRegisterViewControllerSegue"
-        static let HandyDoListViewControllerSegue = "HandyDoListViewControllerSegue"
-        static let LoginErrorTitle = "Missing Required Info"
-        static let LoginErrorMessage = "Both the email and password are required to access your accounts."
-        static let AuthErrorTitle = "Authentication Failed"
-        static let AuthErrorMessage = "Your credentials cannot be authenticated.  Please try again."
-        static let AuthErrorOkButtonTitle = "OK"
-    }
+    // MARK: IBOutlets
     
-    private let colors = [UIColor.blackColor(), UIColor.blueColor(), UIColor.brownColor(), UIColor.whiteColor()]
-    private var i = 0
+    @IBOutlet fileprivate weak var userNameTextField: DesignableTextField!
+    @IBOutlet fileprivate weak var passwordTextField: DesignableTextField!
+    @IBOutlet private weak var logOnButton: SpringButton!
+    @IBOutlet private weak var loginCredentialsView: SpringView!
+    @IBOutlet private weak var brandingLabel: SpringLabel!
+    
+    // MARK: General Properties
     
     private var registerUserCredentials: UserCredentials?
     private var handyDoList = HandyDoList()
     
-    @IBOutlet private weak var userNameTextField: DesignableTextField!
-    @IBOutlet private weak var passwordTextField: DesignableTextField!
-    @IBOutlet weak var logOnButton: SpringButton!
-    @IBOutlet weak var loginCredentialsView: SpringView!
-    @IBOutlet weak var brandingLabel: SpringLabel!
-    @IBOutlet weak var objectToAnimate: DesignableView!
+    // MARK: - Business Services
     
-    // MARK: - Lifecycle Methods
+    private lazy var loginBusinessService: LoginBusinessService = {
+        return LoginBusinessService(uiDelegate: self)
+    }()
+    
+    private lazy var handyDoBusinessService: HandyDoBusinessService = {
+        return HandyDoBusinessService(uiDelegate: self)
+    }()
+    
+    // MARK: Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,156 +42,130 @@ class LoginViewController: HMViewController, UITextFieldDelegate {
         self.passwordTextField.delegate = self
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        delay(1.5) {
+        self.brandingLabel.isHidden = true
+        delay(1.0) {
+            self.brandingLabel.isHidden = false
             self.brandingLabel.animation = "slideLeft"
             self.brandingLabel.animate()
-            self.animateBranding()
         }
     }
     
-    // MARK: - UITextField Delegate
+    // MARK: IBActions
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.userNameTextField.resignFirstResponder()
-        self.passwordTextField.resignFirstResponder()
+    @IBAction private func logOn(_ sender: UIButton) {
+        logOn()
+    }
+    
+    @IBAction private func register(_ sender: UIButton) {
+        guard let emailAddress = self.userNameTextField.text,
+            let password = self.passwordTextField.text else {
+                return
+        }
         
-        let emailAddress = userNameTextField.text!
-        let password = userNameTextField.text!
-        if !emailAddress.isEmpty && !password.isEmpty {
-            self.logOn()
-            return true
-        }
-        return false
+        self.registerUserCredentials = UserCredentials(emailAddress: emailAddress, password: password)
+        self.performSegue(withIdentifier: "LoginRegisterViewControllerSegue", sender: self)
     }
     
-    // MARK: - Navigation
+    // MARK: Navigation
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let navigationController = segue.destinationViewController as? UINavigationController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let navigationController = segue.destination as? UINavigationController {
             if let handyDoListViewController: HandyDoListViewController = navigationController.topViewController as? HandyDoListViewController {
                 handyDoListViewController.configureWithHandyDoList(self.handyDoList)
                 return
             }
         }
-        if let loginRegisterViewController = segue.destinationViewController as? LoginRegisterViewController {
+        if let loginRegisterViewController = segue.destination as? LoginRegisterViewController {
             loginRegisterViewController.userCredentials = registerUserCredentials
             return
         }
     }
     
-    // MARK: - Control Events
-    
-    @IBAction private func logOn(sender: UIButton) {
-        self.logOn()
-    }
-    
-    func animateBranding() {
-        let translate = CGAffineTransformMakeTranslation(350, 0)
-        let scale = CGAffineTransformMakeScale(0.62, 0.62)
-        self.objectToAnimate.transform = CGAffineTransformConcat(translate, scale)
-        
-        UIView.animateWithDuration(NSTimeInterval(3.0), delay: NSTimeInterval(0.0), options: [.CurveEaseInOut], animations: {
-            self.objectToAnimate.transform = CGAffineTransformIdentity
-                delay(2.0) {
-                    UIView.animateWithDuration(1.0, animations: {
-                        let translate = CGAffineTransformMakeTranslation(-350, 0)
-                        let scale = CGAffineTransformMakeScale(0.62, 0.62)
-                        self.objectToAnimate.transform = CGAffineTransformConcat(translate, scale)
-                        }, completion: { finished in
-                        delay(2.0) {
-                            if self.i == self.colors.count {
-                                self.i=0
-                            }
-                            self.objectToAnimate.backgroundColor = self.colors[self.i]
-                            self.animateBranding()
-                            self.i+=1
-                        }
-                    
-                    })
-                }
-            }, completion: nil)
-        
-    }
-    
-    @IBAction func register(sender: UIButton) {
-        let emailAddress = self.userNameTextField.text!
-        let password = self.passwordTextField.text!
-        registerUserCredentials = UserCredentials(emailAddress: emailAddress, password: password)
-        if !emailAddress.isEmpty {
-            self.performSegueWithIdentifier(Constants.LoginRegisterViewControllerSegue, sender: self)
-        } else {
-            loginCredentialsView.animateWithAnimation("swing")
-        }
-    }
-    
     // MARK: - Helper Methods
     
-    private func logOn() {
-        self.decorate(self.userNameTextField, borderWidth: 0, color: UIColor.blackColor())
-        self.decorate(self.passwordTextField, borderWidth: 0, color: UIColor.blackColor())
-        let emailAddress = userNameTextField.text!
-        let password = passwordTextField.text!
+    fileprivate func logOn() {
+        guard let userNameTextField = self.userNameTextField, var emailAddress = userNameTextField.text,
+            let passwordTextField = self.passwordTextField, var password = passwordTextField.text else {
+                return
+        }
+        
+        self.decorate(userNameTextField, withBorderWidth: 0, usingColor: UIColor.black)
+        self.decorate(passwordTextField, withBorderWidth: 0, usingColor: UIColor.black)
         let userCredentials = UserCredentials(emailAddress: emailAddress, password: password)
         if (userCredentials.isValid()) {
-            self.loginBusinessService.authorizeUser(userCredentials, completionHandler: { user in
+            self.loginBusinessService.authorizeUser(userCredentials) {
+                (user: User) in
+                
                 if (user.isEmpty()) {
-                    self.presentUIAlertControllerWithTitle(Constants.AuthErrorTitle, message: Constants.AuthErrorMessage)
+                    self.presentUIAlertController(LoginStrings.AuthErrorTitle.localized, message: LoginStrings.AuthErrorMessage.localized)
                 } else {
-                    self.userNameTextField.text! = ""
-                    self.passwordTextField.text! = ""
-                    self.handyDoBusinessService.retrieveHandyDoList(AssignmentType.Assignee, completionHandler: {
+                    emailAddress = ""
+                    password = ""
+                    self.handyDoBusinessService.retrieveHandyDoList(AssignmentType.assignee) {
                         handyDoList in
                         
                         switch handyDoList {
-                        case .Items(let handyDoList):
+                        case .items(let handyDoList):
                             self.handyDoList.handyDoList = handyDoList
-                            self.performSegueWithIdentifier(Constants.HandyDoListViewControllerSegue, sender: self)
-                        case .Failure(_):
+                            self.performSegue(withIdentifier: "HandyDoListViewControllerSegue", sender: self)
+                        case .failure(_):
                             break;
                         default:
                             break;
                         }
-                    })
+                    }
                 }
-            })
+            }
         } else {
             loginCredentialsView.animateWithAnimation("shake")
             if emailAddress.isEmpty {
-                decorate(self.userNameTextField, borderWidth: 2, color: UIColor.redColor())
+                decorate(self.userNameTextField, withBorderWidth: 2, usingColor: UIColor.red)
             }
             if password.isEmpty {
-                decorate(self.passwordTextField, borderWidth: 2, color: UIColor.redColor())
+                decorate(self.passwordTextField, withBorderWidth: 2, usingColor: UIColor.red)
             }
         }
     }
     
-    private func decorate(textField: DesignableTextField, borderWidth: CGFloat, color: UIColor) {
+    private func decorate(_ textField: DesignableTextField, withBorderWidth borderWidth: CGFloat, usingColor color: UIColor) {
         textField.borderWidth = borderWidth
         textField.borderColor = color
     }
     
-    private func presentUIAlertControllerWithTitle(title: String, message:String) {
-        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let okAction = UIAlertAction(title: Constants.AuthErrorOkButtonTitle, style: .Default, handler: { alert in
-            self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
-        })
+    private func presentUIAlertController(_ title: String, message:String) {
+        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIDevice.current.userInterfaceIdiom == .phone ? .actionSheet: .alert)
+        let okAction = UIAlertAction(title: LoginStrings.AuthErrorOkButtonTitle.localized, style: .default) {
+            (action: UIAlertAction) in
+            
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
         alertController.addAction(okAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
-    // MARK: - Lazy Loaded Properties
+}
+
+// MARK: UITextField Delegate
+
+extension LoginViewController: UITextFieldDelegate {
     
-    private lazy var loginBusinessService: LoginBusinessService = {
-        let businessService = LoginBusinessService(uiDelegate: self)
-        return businessService
-    }()
-    
-    private lazy var handyDoBusinessService: HandyDoBusinessService = {
-        let businessService = HandyDoBusinessService(uiDelegate: self)
-        return businessService
-    }()
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let emailAddress = self.userNameTextField?.text,
+            let password = self.passwordTextField?.text else {
+                return true
+        }
+        
+        self.userNameTextField.resignFirstResponder()
+        self.passwordTextField.resignFirstResponder()
+        
+        if !emailAddress.isEmpty && !password.isEmpty {
+            logOn()
+            return true
+        }
+        return false
+    }
     
 }

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RegisterUserService {
+final class RegisterUserService {
 
-    func registerUser(user: User, password: String, completion: Bool -> Void) {
+    func registerUser(_ user: User, password: String, completion: @escaping (Bool) -> Void) {
         
         let postObjectDict = ["firstName": user.firstName,
                               "lastName": user.lastName,
@@ -18,22 +18,19 @@ class RegisterUserService {
                               "password": password,
                               "phoneNumber": user.phoneNumber]
         
-        HMRestClient.postForService(self, postObjectDictionary: postObjectDict, success: {
+        HMRestClient.postForService(self, postObjectDictionary: postObjectDict as Dictionary<String, AnyObject>, success: {
             response in
             
             switch response.result {
-            case .Success:
+            case .success:
                 completion(true)
-            case .Failure:
+            case .failure:
                 completion(false)
             }
-            
         }) {
             failure in
-            
             print("everything will eventually be ok")
         }
-        
     }
 
 }

@@ -8,12 +8,12 @@
 
 import UIKit
 
-class HandyDoDetailViewController: HMViewController {
+final class HandyDoDetailViewController: HMViewController {
     
-    private var handyDo = HandyDo()
+    fileprivate var handyDo = HandyDo()
     
-    @IBOutlet private weak var descriptionTextView: UITextView!
-    @IBOutlet private weak var inProgressButton: UIButton!
+    @IBOutlet fileprivate weak var descriptionTextView: UITextView!
+    @IBOutlet fileprivate weak var inProgressButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,21 +21,21 @@ class HandyDoDetailViewController: HMViewController {
         descriptionTextView.text = handyDo.todo
         
         if handyDo.status == "1" {
-            inProgressButton.setTitle("In Progress", forState: UIControlState.Normal)
+            inProgressButton.setTitle("In Progress", for: UIControlState())
         } else if handyDo.status == "2" {
-            inProgressButton.setTitle("Complete", forState: UIControlState.Normal)
+            inProgressButton.setTitle("Complete", for: UIControlState())
         } else {
-            inProgressButton.hidden = true;
+            inProgressButton.isHidden = true;
         }
     }
 
-    func configure(handyDo handyDo: HandyDo) {
+    func configure(handyDo: HandyDo) {
         self.handyDo = handyDo
     }
     
     // MARK: - Control Events
     
-    @IBAction func inProgress(sender: UIButton) {
+    @IBAction func inProgress(_ sender: UIButton) {
         if handyDo.status == "1" {
             handyDo.status = "2"
         } else if handyDo.status == "2" {
@@ -48,8 +48,8 @@ class HandyDoDetailViewController: HMViewController {
     
     // MARK - Helper Methods
     
-    private func didUpdateHandyDo() {
-        self.navigationController?.popViewControllerAnimated(true)
+    fileprivate func didUpdateHandyDo() {
+       _ = self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Lazy Loaded Properties

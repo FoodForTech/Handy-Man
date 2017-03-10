@@ -1,0 +1,6 @@
+framework module Pods_HandyMan {
+  umbrella header "Pods-HandyMan-umbrella.h"
+
+  export *
+  module * { export * }
+}

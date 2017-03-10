@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterBusinessService: HMBusinessService {
+final class RegisterBusinessService: HMBusinessService {
     
     weak var uiDelegate: HMBusinessServiceUIDelegate?
     let registerUserService: RegisterUserService
@@ -18,7 +18,7 @@ class RegisterBusinessService: HMBusinessService {
         self.registerUserService = RegisterUserService()
     }
     
-    func registerUser(user: User, password: String, completion: Bool -> Void) {
+    func registerUser(_ user: User, password: String, completion: @escaping (Bool) -> Void) {
         
         self.registerUserService.registerUser(user, password: password) {
             isSuccessful in
